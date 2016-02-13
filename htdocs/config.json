@@ -1,0 +1,5 @@
+{
+    "default_view": "views/default.json",
+    "mqttws_host": "localhost",
+    "mqttws_port": "9001"
+}

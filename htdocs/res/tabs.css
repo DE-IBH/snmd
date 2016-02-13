@@ -1,0 +1,122 @@
+#scotty_about_popup {
+    display: none;
+    position: absolute;
+    margin: auto;
+    padding: 1em;
+    width: 550px;
+    height: 400px;
+    background: white;
+    border: 1px solid black;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#scotty_chart {
+    display: none;
+    position: absolute;
+    margin: auto;
+    padding: 1em;
+    background: #e0e0e0;
+    width: 300px;
+}
+
+#scotty_about {
+    float: right;
+    padding:2px 3px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#scotty_hb {
+    float: right;
+    width: 14px;
+    height: 14px;
+    background: #7f0000;
+    margin-left: 7px;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+td.scotty_chart_title {
+    font-weight: bold;
+}
+
+td.scotty_chart_value {
+    font-family: monospace;
+}
+
+ul.srViewsNav {
+    list-style:none;
+    margin:0;
+    padding:0px 10px;
+    background-color: #f0d010;
+    height: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+ul.srViewsNav li {
+    display: inline;
+}
+
+ul.srViewsNav li a {
+    padding: 2px 3px;
+    font-size: 16px;
+    text-decoration: none;
+    color: 0;
+    border: 1px solid black;
+}
+
+ul.srViewsNav li a.selected, ul.nav li a:hover {
+    background-color: 0;
+    color: #ffffff;
+}
+
+ul.srViewsNav li a:focus {
+    outline:0;
+}
+
+div.svgview {
+    position: absolute;
+    left: 6;
+    right: 6;
+    top: 30;
+    bottom: 6;
+    padding: 0;
+    
+    margin-top: 4;
+    background-color: #26292c;
+    border: 1px solid #7f7f7f;
+    border-radius: 5px;
+}
+
+#scotty_logd {
+    margin-top: 4;
+    width: 100%;
+    height: 14%;
+    border: 1px solid #7f7f7f;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#log {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    background: none;
+    color: #7f7f7f;
+}
+
+body {
+    background-color: #000000;
+}

@@ -1,0 +1,3 @@
+{
+    "svg/demo.svg": "Demo",
+}
