@@ -40,6 +40,8 @@ if (typeof Scotty.Core === "undefined") {
 
     var version = '0.1',
         config;
+    this.si_prefs = ['T', 'G', 'M', 'k', '', 'm', 'µ'];
+    this.si_facts = [ Math.pow(10, 12), Math.pow(10, 9), Math.pow(10, 6), Math.pow(10, 3), 1, Math.pow(10, -3), Math.pow(10, -6)];
 
     this.srVersion = function () {
         return version;
@@ -78,4 +80,20 @@ if (typeof Scotty.Core === "undefined") {
             }).bind(this))
         });
     };
+    
+    this.srSiFormatNum = (function (value, unit, defstr) {
+        if (typeof value === "undefined") { return defstr; }
+        if (isNaN(value)) { return defstr; }
+
+        var j = 4;
+        var f = 1;
+        for (var i = 0; i < this.si_facts.length; i++) {
+            if(value >= this.si_facts[i]*0.99) {
+                j = i;
+	           break;
+	       }
+        }
+        
+        return Math.round(value / this.si_facts[j]) + this.si_prefs[j] + unit;
+    }).bind(this);
 }).call(Scotty.Core, jQuery);

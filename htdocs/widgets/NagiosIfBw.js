@@ -42,13 +42,14 @@ License:
             id: dim.id,
             axis: [
                 {
-                    scale: 'log'
+                    max: 2000000000,
+                    scale: 'linear'
                 }
             ],
             stroke: 'yellow',
             fill: 'white',
             desc: desc,
-            dpi: 60 / 5 / 60,
+            dpi: 60 / 5 / 60
         };
         this.lines = [
             {
@@ -56,6 +57,8 @@ License:
                 axis: 0,
                 style: {
                     stroke: 'DodgerBlue',
+                    strokeLineCap: 'round',
+                    strokeLineJoin: 'round',
                     strokeWidth: 1,
                     fill: 'DodgerBlue'
                 }
@@ -65,12 +68,14 @@ License:
                 axis: 0,
                 style: {
                     stroke: 'Lime',
+                    strokeLineCap: 'round',
+                    strokeLineJoin: 'round',
                     strokeWidth: 1.5,
                     fill: 'none'
                 }
             }
         ];
-
+        
         this.desc = desc;
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
@@ -90,8 +95,8 @@ License:
         }
         
         for (var i = 0; i < this.lines.length; i++) {
+            this.last[topic][i] = 0;
             try {
-                this.last[topic][i] = json.perf_data[this.lines[i].name].val * 8;
                 this.last[topic][i] = json.perf_data[this.lines[i].name].val * 8;
             } catch (err) {
                 console.warn("Error to process performance data of " + line + ": " + err.message);

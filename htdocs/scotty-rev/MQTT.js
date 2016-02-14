@@ -112,7 +112,6 @@ if (typeof Scotty.MQTT === "undefined") {
 
                 for(var topic in this.topics) {
                     this.client.subscribe(topic);
-                    console.debug(" SUBSCRIBE " + topic);
                 }
 
             }).bind(this),

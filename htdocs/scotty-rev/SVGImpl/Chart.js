@@ -62,8 +62,22 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
 	        }
         );
 
+        /* SVG text elements showing current values */
+        this.txt = [
+            root.text(opts.dim.x + 2, opts.dim.y + 10, '', {
+                fontSize: '10px',
+                fill: this.lines[0].style.stroke,
+                textAnchor: 'begin'
+            }),
+            root.text(opts.dim.x + opts.dim.w - 2, opts.dim.y + 10, '', {
+                fontSize: '10px',
+                fill: this.lines[1].style.stroke,
+                textAnchor: 'end'
+            })
+        ];
+
         /* TS window: used to drop old data */
-        this.data_tswin = opts.dim.w / opts.dpi;
+        this.data_tswin = (opts.dim.w - 2) / opts.dpi;
         /* Variables used for recording data points */
         this.data_ts = [];
         this.data_lines = [];
@@ -76,7 +90,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
     Chart.prototype.update = function (ts, data) {
         /* Record current data points */
         this.data_ts.push(ts);
-        var maxy = 0;
+        var maxy = (typeof this.opts.axis[0].max === "undefined" ? 0 : this.opts.axis[0].max);
         for (var i = 0; i < this.data_lines.length; i++) {
             this.data_lines[i].push(data[i]);
             maxy = Math.max(maxy, Math.max.apply(null, this.data_lines[i]));
@@ -90,12 +104,18 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             }
         }
 
+        /* Adjust max Y for log scale */
+        if(this.opts.axis[0].scale == "log") {
+            maxy = Math.log10(maxy);
+        }
+
         /* Update chart with new lines */
 	    var ox = this.opts.dim.x + this.opts.dim.w - 2;
 	    var oy = this.opts.dim.y + this.opts.dim.h - 2;
 	    var my = this.opts.dim.h - 14;
         var fy = my / maxy;
         var clean = [];
+        var last = [];
         for (var l = 0; l < this.data_lines.length; l++) {
             var points = [];
             var is_polygon = (this.lines[l].style.fill.toLowerCase() != 'none');
@@ -103,18 +123,34 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             for (var t = 0; t < this.data_ts.length; t++) {
                 var x = ox + (this.data_ts[t] - ts)*this.opts.dpi;
 
-                if(is_polygon && t == 0)
+                if(is_polygon && t == 0) {
                     points.push([x, oy]);
+                }
 
                 var v = this.data_lines[l][t];
                 if(typeof v === "undefined")
                     v = 0;
+
+                /* Prepare for log scale */
+                if(this.opts.axis[0].scale == "log") {
+                    if(v > 1) {
+                        v = Math.log10(v);
+                    }
+                    else {
+                        v = 0;
+                    }
+                }
                 v *= fy;
 
                 points.push([x, oy - v]);
 
-                if(is_polygon && t == this.data_ts.length - 1)
-                    points.push([x, oy]);
+                if(t == this.data_ts.length - 1) {
+                    if(is_polygon) {
+                        points.push([x, oy]);
+                    }
+
+                    last[l] = this.data_lines[l][t];
+                }
             }
             
             if(typeof this.data_svg[l] !== "undefined")
@@ -125,6 +161,10 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             }
             else {
                 this.data_svg[l] = this.root.polyline(points, this.lines[l].style);
+            }
+
+            if(typeof this.txt[l] !== "undefined") {
+                this.txt[l].textContent = Scotty.Core.srSiFormatNum(last[l], '', '-')
             }
         }
         

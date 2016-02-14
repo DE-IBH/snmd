@@ -47,14 +47,14 @@ if (typeof Scotty.SVG === "undefined") {
             return;
         }
 
-        $('[id^="sg_"]', svg.root()).each(function () {
+        $('[id^="sr_"]', svg.root()).each(function () {
 	        console.log(' ' + this.id.substring(3));
 	        var chart = {
-                id: this.id.substring(3),
-	            x: parseInt(this.getAttribute("x"), 10),
-	            y: parseInt(this.getAttribute("y"), 10),
-	            width: parseInt(this.getAttribute("width"), 10),
-	            height: parseInt(this.getAttribute("height"), 10)
+                id: this.id,
+	            x: this.x.baseVal.value,
+	            y: this.y.baseVal.value,
+	            width: this.width.baseVal.value,
+	            height: this.height.baseVal.value
 	        };
            
             var json;
