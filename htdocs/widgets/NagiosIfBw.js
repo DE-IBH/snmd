@@ -42,7 +42,7 @@ License:
             id: dim.id,
             axis: [
                 {
-                    max: 2000000000,
+                    max: 1000000000,
                     scale: 'linear'
                 }
             ],
