@@ -40,7 +40,7 @@ if (typeof Scotty.Core === "undefined") {
 
     var version = '0.1',
         config;
-    this.si_prefs = ['T', 'G', 'M', 'k', '', 'm', 'µ'];
+    this.si_prefs = ['T', 'G', 'M', 'K', '', 'm', 'µ'];
     this.si_facts = [ Math.pow(10, 12), Math.pow(10, 9), Math.pow(10, 6), Math.pow(10, 3), 1, Math.pow(10, -3), Math.pow(10, -6)];
 
     this.srVersion = function () {
