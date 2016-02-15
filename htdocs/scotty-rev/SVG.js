@@ -47,6 +47,10 @@ if (typeof Scotty.SVG === "undefined") {
             return;
         }
 
+        /* Make SVG responsive */
+        svg.root().setAttribute('width', '100%');
+        svg.root().setAttribute('height', '100%');
+
         $('[id^="sr_"]', svg.root()).each(function () {
 	        console.log(' ' + this.id.substring(3));
 	        var chart = {
