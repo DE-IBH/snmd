@@ -67,7 +67,7 @@ License:
                 name: 'in',
                 axis: 0,
                 style: {
-                    stroke: 'Lime',
+                    stroke: 'LimeGreen',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
                     strokeWidth: 1.5,
