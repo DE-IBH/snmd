@@ -31,7 +31,7 @@ License:
 (function ($) {
     "use strict";
     
-    var NagiosIfBw = function (root, dim, desc) {
+    var NagiosIfPr = function (root, dim, desc) {
         this.opts = {
             dim: {
                 x: dim.x,
@@ -42,7 +42,7 @@ License:
             id: dim.id,
             axis: [
                 {
-                    max: 1000000000,
+                    max: 2000,
                     scale: 'linear'
                 }
             ],
@@ -53,9 +53,9 @@ License:
         };
         this.lines = [
             {
-                name: 'out',
+                name: 'outucast',
                 axis: 0,
-                unit: 'b',
+                unit: 'p',
                 style: {
                     stroke: 'DodgerBlue',
                     strokeLineCap: 'round',
@@ -65,9 +65,9 @@ License:
                 }
             },
             {
-                name: 'in',
+                name: 'inucast',
                 axis: 0,
-                unit: 'b',
+                unit: 'p',
                 style: {
                     stroke: 'LimeGreen',
                     strokeLineCap: 'round',
@@ -87,7 +87,7 @@ License:
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, this.opts, this.lines);
     };
     
-    NagiosIfBw.prototype.handleUpdate = function (topic, msg) {
+    NagiosIfPr.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -118,7 +118,7 @@ License:
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagiosIfBw",
-        NagiosIfBw
+        "NagiosIfPr",
+        NagiosIfPr
     );
 }).call(this, jQuery);
