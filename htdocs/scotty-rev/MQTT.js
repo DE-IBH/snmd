@@ -57,7 +57,7 @@ if (typeof Scotty.MQTT === "undefined") {
         if (typeof this.topics[topic] === "undefined") {
             this.topics[topic] = [watcher];
             
-            if(typeof this.client !== "undefined" && this.client.isConnected()) {
+            if (typeof this.client !== "undefined" && this.client.isConnected()) {
                 this.client.subscribe(topic);
             }
         } else {
@@ -68,7 +68,7 @@ if (typeof Scotty.MQTT === "undefined") {
     this.srConnect = function () {
         $('#scotty_hb').css("background", "yellow");
         console.debug('Connecting to MQTT broker ' + this.broker_host + ':' + this.broker_port + '...');
-        this.client = new Paho.MQTT.Client(this.broker_host, this.broker_port, "scotty-rev " + Scotty.Core.srVersion());
+        this.client = new Paho.MQTT.Client(this.broker_host, this.broker_port, '', this.clientId);
 
                
         this.client.disconnect = (function () {
@@ -91,8 +91,8 @@ if (typeof Scotty.MQTT === "undefined") {
                 $('#scotty_hb').css("background", "#007f00");
             }, 100);
             
-            if(typeof this.topics[msg.destinationName] !== "undefined") {
-                for(var i = 0; i < this.topics[msg.destinationName].length; i++) {
+            if (typeof this.topics[msg.destinationName] !== "undefined") {
+                for (var i = 0; i < this.topics[msg.destinationName].length; i++) {
                     var watcher = this.topics[msg.destinationName][i];
                     watcher.handleUpdate.call(watcher, msg.destinationName, msg.payloadString);
                 }
@@ -125,10 +125,15 @@ if (typeof Scotty.MQTT === "undefined") {
         });
     };
     
-    this.srInit = function (host, port) {
+    this.srInit = function (host, port, clientId) {
+        if(typeof clientId === "undefined") {
+            clientId = 'RND'+Math.floor(Math.random()*16777215).toString(16);
+        }
         console.debug('MQTT broker = ' + host + ':' + port);
+        console.debug('MQTT clientId = ' + clientId);
         this.broker_host = host;
         this.broker_port = Number(port);
+        this.clientId = clientId;
          
         this.srConnect();
     };
