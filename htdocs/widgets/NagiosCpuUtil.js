@@ -31,7 +31,7 @@ License:
 (function ($) {
     "use strict";
     
-    var NagiosIfBw = function (root, dim, desc) {
+    var NagiosCpuUtil = function (root, dim, desc) {
         this.opts = {
             dim: {
                 x: dim.x,
@@ -42,7 +42,7 @@ License:
             id: dim.id,
             axis: [
                 {
-                    max: 1000000000,
+                    max: 100,
                     scale: 'linear'
                 }
             ],
@@ -53,27 +53,15 @@ License:
         };
         this.lines = [
             {
-                name: 'out',
+                name: 'util',
                 axis: 0,
-                unit: 'b',
+                unit: '%',
                 style: {
-                    stroke: 'DodgerBlue',
+                    stroke: 'Orchid',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
                     strokeWidth: 1,
-                    fill: 'DodgerBlue'
-                }
-            },
-            {
-                name: 'in',
-                axis: 0,
-                unit: 'b',
-                style: {
-                    stroke: 'LimeGreen',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'none'
+                    fill: 'Orchid'
                 }
             }
         ];
@@ -87,7 +75,7 @@ License:
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, this.opts, this.lines);
     };
     
-    NagiosIfBw.prototype.handleUpdate = function (topic, msg) {
+    NagiosCpuUtil.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -99,7 +87,7 @@ License:
         for (var i = 0; i < this.lines.length; i++) {
             this.last[topic][i] = 0;
             try {
-                this.last[topic][i] = json.perf_data[this.lines[i].name].val * 8;
+                this.last[topic][i] = json.perf_data[this.lines[i].name].val;
             } catch (err) {
                 console.warn("Error to process performance data of " + line + ": " + err.message);
             }
@@ -118,7 +106,7 @@ License:
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagiosIfBw",
-        NagiosIfBw
+        "NagiosCpuUtil",
+        NagiosCpuUtil
     );
 }).call(this, jQuery);

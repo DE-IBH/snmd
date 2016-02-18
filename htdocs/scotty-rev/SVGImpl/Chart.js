@@ -68,13 +68,15 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 fontSize: '10px',
                 fill: this.lines[0].style.stroke,
                 textAnchor: 'begin'
-            }),
-            root.text(opts.dim.x + opts.dim.w - 2, opts.dim.y + 10, '', {
+            })
+        ];
+        if (lines.length > 1) {
+            this.txt[1] = root.text(opts.dim.x + opts.dim.w - 2, opts.dim.y + 10, '', {
                 fontSize: '10px',
                 fill: this.lines[1].style.stroke,
                 textAnchor: 'end'
-            })
-        ];
+            });
+        }
 
         /* TS window: used to drop old data */
         this.data_tswin = (opts.dim.w - 2) / opts.dpi;
@@ -164,7 +166,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             }
 
             if(typeof this.txt[l] !== "undefined") {
-                this.txt[l].textContent = Scotty.Core.srSiFormatNum(last[l], '', '-')
+                this.txt[l].textContent = Scotty.Core.srSiFormatNum(last[l], (typeof this.lines[l].unit === "undefined" ? '' : this.lines[l].unit), '-')
             }
         }
         
