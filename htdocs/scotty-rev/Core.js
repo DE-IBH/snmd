@@ -58,6 +58,15 @@ if (typeof Scotty.Core === "undefined") {
             'dataType': 'json',
             'success': (function (json) {
                 Scotty.GUI.srInit(json);
+
+                /* MQTT defaults */
+                if(typeof this.config.mqttws_host === "undefined") {
+                    this.config.mqttws_host = window.location.hostname;
+                }
+                if(typeof this.config.mqttws_port === "undefined") {
+                    this.config.mqttws_port = 9001;
+                }
+
                 Scotty.MQTT.srInit(this.config.mqttws_host, this.config.mqttws_port);
             }).bind(this),
             'error': (function (jqXHR, textStatus, errorThrown) {
