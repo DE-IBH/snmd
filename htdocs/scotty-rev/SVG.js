@@ -76,6 +76,6 @@ if (typeof Scotty.SVG === "undefined") {
     
     this.srLoadSVG = function (id, url) {
         console.debug('Loading #' + id + ': ' + url);
-        $('#' + id).svg({loadURL: url, 'max-width': '100%', 'max-height': '100%', onLoad: this.srParseSVG});
+        $('#' + id).svg({loadURL: url + '?nonce=' + Math.random(), 'max-width': '100%', 'max-height': '100%', onLoad: this.srParseSVG});
     };
 }).call(Scotty.SVG, jQuery);
