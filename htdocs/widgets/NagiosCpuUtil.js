@@ -97,9 +97,12 @@ License:
         for (var i = 0; i < this.lines.length; i++) {
             vals[i] = 0;
 
+            var count = 0;
             for(var t in this.last) {
                 vals[i] += this.last[t][i];
+                count = count + 1;
             }
+            vals[i] = vals[i] / count;
         }
         
         this.chart.update(json._timestamp, vals);
