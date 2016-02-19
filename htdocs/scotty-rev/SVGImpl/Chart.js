@@ -41,7 +41,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
 (function ($) {
     "use strict";
     
-    var Chart = function (root, opts, lines) {
+    var Chart = function (root, opts, lines, qtip) {
         /* Meta data */
         this.opts = opts;
         this.lines = lines;
@@ -61,6 +61,11 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 fill: opts.fill
 	        }
         );
+
+        /* Set qtip if available */
+        if (typeof qtip !== "undefined") {
+            this.rect.qtip(qtip);
+        }
 
         /* SVG text elements showing current values */
         this.txt = [
