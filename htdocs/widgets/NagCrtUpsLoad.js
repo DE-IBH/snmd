@@ -99,7 +99,7 @@ License:
 
             var count = 0;
             for(var t in this.last) {
-                vals[i] += this.last[t][i];
+                vals[i] += parseFloat(this.last[t][i]);
                 count = count + 1;
             }
             vals[i] = vals[i] / count;
