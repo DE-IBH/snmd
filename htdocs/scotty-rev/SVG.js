@@ -71,4 +71,26 @@ if (typeof Scotty.SVG === "undefined") {
         console.debug('Loading #' + id + ': ' + url);
         $('#' + id).svg({loadURL: url + '?nonce=' + Math.random(), 'max-width': '100%', 'max-height': '100%', onLoad: this.srParseSVG});
     };
+    
+    this.srRelToAbsPos = function (root, svg) {
+        var rrect = root.getBoundingClientRect();
+        var crect = svg.getBoundingClientRect();
+        var ctm = svg.getScreenCTM();
+
+        return {
+            x: (ctm.a * crect.left) + (ctm.c * crect.top) + ctm.e + rrect.left,
+            y: (ctm.b * crect.left) + (ctm.d * crect.top) + ctm.f + rrect.top
+        };
+    };
+    
+    this.srGetStrokeFill = function (svg) {
+        var opts = ['stroke', 'strokeLinecap', 'strokeLinejoin', 'strokeWidth', 'fill'];
+        var res = [];
+        for (var i = 0; i < opts.length; i++) {
+            console.warn(opts[i] + " => " + svg.style[opts[i]]);
+            res[opts[i]] = svg.style[opts[i]];
+        }
+        
+        return res;
+    }
 }).call(Scotty.SVG, jQuery);
