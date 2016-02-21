@@ -41,20 +41,30 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
 (function ($) {
     "use strict";
     
-    var Chart = function (root, opts, lines, qtip) {
+    var Chart = function (root, svg, opts, lines, qtip) {
         /* Meta data */
         this.opts = opts;
         this.lines = lines;
 
         /* SVG container */
         this.root = root;
+
+        /* Remove placeholder */
+	    opts.dim =  {
+            id: svg.id,
+	        x: svg.x.baseVal.value,
+	        y: svg.y.baseVal.value,
+	        width: svg.width.baseVal.value,
+	        height: svg.height.baseVal.value
+	    };
+        root.remove(svg);
         
         /* Create SVG background */
         this.rect = root.rect(
             opts.dim.x,
             opts.dim.y,
-            opts.dim.w,
-            opts.dim.h,
+            opts.dim.width,
+            opts.dim.height,
             {
                 id: opts.id,
                 stroke: opts.stroke,
@@ -76,7 +86,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             })
         ];
         if (lines.length > 1) {
-            this.txt[1] = root.text(opts.dim.x + opts.dim.w - 2, opts.dim.y + 10, '', {
+            this.txt[1] = root.text(opts.dim.x + opts.dim.width - 2, opts.dim.y + 10, '', {
                 fontSize: '10px',
                 fill: this.lines[1].style.stroke,
                 textAnchor: 'end'
@@ -84,7 +94,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
 
         /* TS window: used to drop old data */
-        this.data_tswin = (opts.dim.w - 2) / opts.dpi;
+        this.data_tswin = (opts.dim.width - 2) / opts.dpi;
         /* Variables used for recording data points */
         this.data_ts = [];
         this.data_lines = [];
@@ -117,9 +127,9 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
 
         /* Update chart with new lines */
-	    var ox = this.opts.dim.x + this.opts.dim.w - 2;
-	    var oy = this.opts.dim.y + this.opts.dim.h - 2;
-	    var my = this.opts.dim.h - 14;
+	    var ox = this.opts.dim.x + this.opts.dim.width - 2;
+	    var oy = this.opts.dim.y + this.opts.dim.height - 2;
+	    var my = this.opts.dim.height - 14;
         var fy = my / maxy;
         var clean = [];
         var last = [];
@@ -135,8 +145,12 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 }
 
                 var v = this.data_lines[l][t];
-                if(typeof v === "undefined")
+                if(typeof v === "undefined") {
                     v = 0;
+                }
+                if(isNaN(v)) {
+                    v = 0;
+                }
 
                 /* Prepare for log scale */
                 if(this.opts.axis[0].scale == "log") {

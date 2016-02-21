@@ -57,25 +57,25 @@ if (typeof Scotty.SVGWidget === "undefined") {
         return this.Widgets[name];
     }).bind(this);
     
-    this.srCreateWidget = (function (root, dim, desc) {
+    this.srCreateWidget = (function (root, svg, desc) {
 
         if (typeof desc.type === "undefined") {
-            console.error("Widget " + dim.id + " has no type set!");
+            console.error("Widget " + svg.id + " has no type set!");
             return;
         }
         
         if (typeof this.Widgets[desc.type] === "undefined") {
-            console.error("Widget " + dim.id + " has unknown type: " + desc.type);
+            console.error("Widget " + svg.id + " has unknown type: " + desc.type);
             return;
         }
         
         try {
-            var obj = new (this.Widgets[desc.type])(root, dim, desc, this.Widgets[desc.type]);
+            var obj = new (this.Widgets[desc.type])(root, svg, desc, this.Widgets[desc.type]);
             desc.topics.forEach(function (topic) {
                 Scotty.MQTT.srRegisterTopic(topic, obj);
             });
         } catch (err) {
-            console.error("Failed to create widget " + dim.id + ": " + err.message);
+            console.error("Failed to create widget " + svg.id + ": " + err.message);
             return;
         }
     }).bind(this);

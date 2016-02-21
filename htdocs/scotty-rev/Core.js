@@ -54,16 +54,16 @@ if (typeof Scotty.Core === "undefined") {
 
         $.ajax({
             'global': false,
-            'url': this.config.default_view,
+            'url': this.config.default_view + '?nonce=' + Math.random(),
             'dataType': 'json',
             'success': (function (json) {
                 Scotty.GUI.srInit(json);
 
                 /* MQTT defaults */
-                if(typeof this.config.mqttws_host === "undefined") {
+                if (typeof this.config.mqttws_host === "undefined") {
                     this.config.mqttws_host = window.location.hostname;
                 }
-                if(typeof this.config.mqttws_port === "undefined") {
+                if (typeof this.config.mqttws_port === "undefined") {
                     this.config.mqttws_port = 9001;
                 }
 
@@ -81,7 +81,7 @@ if (typeof Scotty.Core === "undefined") {
 
         $.ajax({
             'global': false,
-            'url': configURI,
+            'url': configURI + '?nonce=' + Math.random(),
             'dataType': 'json',
             'success': this.srConfigLoaded.bind(this),
             'error': ((function (jqXHR, textStatus, errorThrown) {

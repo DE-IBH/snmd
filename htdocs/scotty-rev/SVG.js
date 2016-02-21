@@ -53,13 +53,6 @@ if (typeof Scotty.SVG === "undefined") {
 
         $('[id^="sr_"]', svg.root()).each(function () {
 	        console.log(' ' + this.id.substring(3));
-	        var chart = {
-                id: this.id,
-	            x: this.x.baseVal.value,
-	            y: this.y.baseVal.value,
-	            width: this.width.baseVal.value,
-	            height: this.height.baseVal.value
-	        };
            
             var json;
             try {
@@ -68,8 +61,8 @@ if (typeof Scotty.SVG === "undefined") {
                 console.error('JSON error in description for graph #' + this.id + ': ' + err.message);
             }
             if (json) {
-                svg.remove(this);
-                Scotty.SVGWidget.srCreateWidget(svg, chart, json);
+//                svg.remove(this);
+                Scotty.SVGWidget.srCreateWidget(svg, this, json);
             }
         });
     };

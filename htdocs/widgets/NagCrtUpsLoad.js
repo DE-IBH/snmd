@@ -31,15 +31,8 @@ License:
 (function ($) {
     "use strict";
     
-    var NagCrtUpsLoad = function (root, dim, desc) {
+    var NagCrtUpsLoad = function (root, svg, desc) {
         this.opts = {
-            dim: {
-                x: dim.x,
-                y: dim.y,
-                w: dim.width,
-                h: dim.height
-            },
-            id: dim.id,
             axis: [
                 {
                     max: 50,
@@ -72,7 +65,7 @@ License:
             this.last[desc.topics[i]] = [0];
         }
 
-        this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, this.opts, this.lines);
+        this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
     };
     
     NagCrtUpsLoad.prototype.handleUpdate = function (topic, msg) {

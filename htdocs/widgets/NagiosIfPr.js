@@ -31,15 +31,8 @@ License:
 (function ($) {
     "use strict";
     
-    var NagiosIfPr = function (root, dim, desc) {
+    var NagiosIfPr = function (root, svg, desc) {
         this.opts = {
-            dim: {
-                x: dim.x,
-                y: dim.y,
-                w: dim.width,
-                h: dim.height
-            },
-            id: dim.id,
             axis: [
                 {
                     max: 2000,
@@ -84,7 +77,7 @@ License:
             this.last[desc.topics[i]] = [0, 0];
         }
 
-        this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, this.opts, this.lines);
+        this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
     };
     
     NagiosIfPr.prototype.handleUpdate = function (topic, msg) {

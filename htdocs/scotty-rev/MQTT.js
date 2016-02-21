@@ -94,7 +94,12 @@ if (typeof Scotty.MQTT === "undefined") {
             if (typeof this.topics[msg.destinationName] !== "undefined") {
                 for (var i = 0; i < this.topics[msg.destinationName].length; i++) {
                     var watcher = this.topics[msg.destinationName][i];
-                    watcher.handleUpdate.call(watcher, msg.destinationName, msg.payloadString);
+                    try {
+                        watcher.handleUpdate.call(watcher, msg.destinationName, msg.payloadString);
+                    } catch (err) {
+                        console.error("Failure updating " + msg.destinationName + " in " + watcher + ": " + err.message);
+                        return;
+                    }
                 }
             }
             else {

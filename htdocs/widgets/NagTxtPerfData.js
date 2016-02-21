@@ -31,11 +31,11 @@ License:
 (function ($) {
     "use strict";
     
-    var NagiosCpuUtil = function (root, svg, desc) {
+    var NagTxtPerfData = function (root, svg, desc) {
         this.opts = {
             axis: [
                 {
-                    max: 100,
+                    max: 50,
                     scale: 'linear'
                 }
             ],
@@ -44,31 +44,23 @@ License:
             desc: desc,
             dpi: 60 / 5 / 60
         };
-        this.lines = [
-            {
-                name: 'util',
-                axis: 0,
-                unit: '%',
-                style: {
-                    stroke: 'Orchid',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1,
-                    fill: 'Orchid'
-                }
-            }
-        ];
+
         
         this.desc = desc;
+        if(typeof this.desc.uom === "undefined") {
+            this.opts.uom = '';
+        } else {
+            this.opts.uom = this.desc.uom;
+        }
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
-            this.last[desc.topics[i]] = [0, 0];
+            this.last[desc.topics[i]] = [0];
         }
 
-        this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
+        this.chart = new (Scotty.SVGWidget.srLookupImpl("Text"))(root, svg, this.opts);
     };
     
-    NagiosCpuUtil.prototype.handleUpdate = function (topic, msg) {
+    NagTxtPerfData.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -77,32 +69,27 @@ License:
             return;
         }
         
-        for (var i = 0; i < this.lines.length; i++) {
-            this.last[topic][i] = 0;
-            try {
-                this.last[topic][i] = json.perf_data[this.lines[i].name].val;
-            } catch (err) {
-                console.warn("Error to process performance data of " + line + ": " + err.message);
-            }
+        this.last[topic] = 0;
+        try {
+            this.last[topic] = json.perf_data[this.desc.key].val;
+        } catch (err) {
+            console.warn("Error to process performance data: " + err.message);
         }
         
-        var vals = [];
-        for (var i = 0; i < this.lines.length; i++) {
-            vals[i] = 0;
-
-            var count = 0;
-            for(var t in this.last) {
-                vals[i] += this.last[t][i];
-                count = count + 1;
+        var val = 0;
+        for(var t in this.last) {
+            var v = parseFloat(this.last[t]);
+            if(isNaN(v)) {
+                v = 0;
             }
-            vals[i] = vals[i] / count;
+            val += v;
         }
         
-        this.chart.update(json._timestamp, vals);
+        this.chart.update(json._timestamp, val);
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagiosCpuUtil",
-        NagiosCpuUtil
+        "NagTxtPerfData",
+        NagTxtPerfData
     );
 }).call(this, jQuery);
