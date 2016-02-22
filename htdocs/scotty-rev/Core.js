@@ -108,19 +108,19 @@ if (typeof Scotty.Core === "undefined") {
     
     this.srNagStateColor = (function (state) {
         if(typeof state === "undefined") {
-            return "grey";
+            return "Grey";
         }
             
         if (state == 0) {
-            return 'green';
+            return 'LimeGreen';
         } 
         
         if (state == 1) {
-            return 'yellow';
+            return 'Gold';
         }
 
         if (state == 2) {
-            return 'red';
+            return 'OrangeRed';
         } 
 
         return "orange";
