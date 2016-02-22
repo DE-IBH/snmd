@@ -105,4 +105,24 @@ if (typeof Scotty.Core === "undefined") {
         
         return Math.round(value / this.si_facts[j]) + this.si_prefs[j] + unit;
     }).bind(this);
+    
+    this.srNagStateColor = (function (state) {
+        if(typeof state === "undefined") {
+            return "grey";
+        }
+            
+        if (state == 0) {
+            return 'green';
+        } 
+        
+        if (state == 1) {
+            return 'yellow';
+        }
+
+        if (state == 2) {
+            return 'red';
+        } 
+
+        return "orange";
+    });
 }).call(Scotty.Core, jQuery);

@@ -55,14 +55,19 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
         if (typeof qtip !== "undefined") {
             this.txt.qtip(qtip);
         }
-
-        /* Variables used for recording data points */
-        this.data = [];
     };
     
-    Text.prototype.update = function (ts, data) {
+    Text.prototype.update = function (val, stroke) {
+        if(this.last_val === val && stroke === this.last_stroke) {
+            return;
+        }
+        
         /* Update text elements */
-        this.txt.textContent = Scotty.Core.srSiFormatNum(data, this.opts.uom, '-');
+        this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-');
+        this.txt.style.fill = stroke;
+
+        this.last_val = val;
+        this.last_stroke = stroke;
     };
 
     Scotty.SVGWidget.srRegisterImpl(

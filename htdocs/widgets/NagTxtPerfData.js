@@ -54,7 +54,7 @@ License:
         }
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
-            this.last[desc.topics[i]] = [0];
+            this.last[desc.topics[i]] = [];
         }
 
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Text"))(root, svg, this.opts);
@@ -69,23 +69,27 @@ License:
             return;
         }
         
-        this.last[topic] = 0;
+        this.last[topic].val = 0;
         try {
-            this.last[topic] = json.perf_data[this.desc.key].val;
+            this.last[topic].val = json.perf_data[this.desc.key].val;
+            this.last[topic].state = json.state;
         } catch (err) {
             console.warn("Error to process performance data: " + err.message);
         }
         
         var val = 0;
+        var state = 0;
         for(var t in this.last) {
-            var v = parseFloat(this.last[t]);
+            var v = parseFloat(this.last[t].val);
             if(isNaN(v)) {
                 v = 0;
             }
             val += v;
+            state = Math.max(state, this.last[t].state);
         }
         
-        this.chart.update(json._timestamp, val);
+        var stroke = Scotty.Core.srNagStateColor(state);
+        this.chart.update(val, stroke);
     };
 
     Scotty.SVGWidget.srRegisterWidget(

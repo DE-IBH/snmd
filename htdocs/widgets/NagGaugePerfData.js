@@ -54,7 +54,7 @@ License:
         }
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
-            this.last[desc.topics[i]] = [0];
+            this.last[desc.topics[i]] = [];
         }
 
         this.max = (typeof desc.max === "undefined" ? 100 : desc.max);
@@ -90,14 +90,7 @@ License:
             state = Math.max(state, this.last[t].state);
         }
         
-        var stroke = 'green';
-        if (state == 1) {
-            stroke = 'yellow';
-        }
-        else if (state == 2) {
-            stroke = 'red';
-        }
-        
+        var stroke = Scotty.Core.srNagStateColor(state);
         this.chart.update(val, this.max, stroke);
     };
 
