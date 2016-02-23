@@ -31,7 +31,7 @@ License:
 (function ($) {
     "use strict";
     
-    var NagiosIfBw = function (root, svg, desc) {
+    var NagGraphDiskTp = function (root, svg, desc) {
         this.opts = {
 /*            dim: {
                 x: dim.x,
@@ -42,34 +42,33 @@ License:
             id: dim.id,*/
             axis: [
                 {
-                    max: 1000000000,
+                    max: 100000000,
                     scale: 'linear'
                 }
             ],
-            stroke: 'grey',
             fill: 'white',
             desc: desc,
             dpi: 60 / 5 / 60
         };
         this.lines = [
             {
-                name: 'out',
+                name: 'write',
                 axis: 0,
-                unit: 'b',
+                unit: 'B',
                 style: {
-                    stroke: 'DodgerBlue',
+                    stroke: 'Orchid',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
                     strokeWidth: 1,
-                    fill: 'DodgerBlue'
+                    fill: 'Orchid'
                 }
             },
             {
-                name: 'in',
+                name: 'read',
                 axis: 0,
-                unit: 'b',
+                unit: 'B',
                 style: {
-                    stroke: 'LimeGreen',
+                    stroke: 'MediumBlue',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
                     strokeWidth: 1.5,
@@ -90,7 +89,7 @@ License:
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
     };
     
-    NagiosIfBw.prototype.handleUpdate = function (topic, msg) {
+    NagGraphDiskTp.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -103,7 +102,7 @@ License:
             this.last[topic][i].val = 0;
             this.last[topic][i].state = 0;
             try {
-                this.last[topic][i].val = json.perf_data[this.lines[i].name].val * 8;
+                this.last[topic][i].val = json.perf_data[this.lines[i].name].val;
                 this.last[topic][i].state = json.state;
             } catch (err) {
                 console.warn("Error to process performance data of " + line + ": " + err.message);
@@ -130,7 +129,7 @@ License:
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagiosIfBw",
-        NagiosIfBw
+        "NagGraphDiskTp",
+        NagGraphDiskTp
     );
 }).call(this, jQuery);

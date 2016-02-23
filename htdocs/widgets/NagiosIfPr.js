@@ -39,7 +39,7 @@ License:
                     scale: 'linear'
                 }
             ],
-            stroke: 'yellow',
+            stroke: 'grey',
             fill: 'white',
             desc: desc,
             dpi: 60 / 5 / 60
@@ -73,8 +73,11 @@ License:
         
         this.desc = desc;
         this.last = {};
-        for (var i = 0; i < desc.topics.length; i++) {
-            this.last[desc.topics[i]] = [0, 0];
+        for (var t = 0; t < desc.topics.length; t++) {
+            this.last[desc.topics[t]] = [];
+            for(var i = 0; i < this.lines.length; i++) {
+                this.last[desc.topics[t]][i] = {};
+            }
         }
 
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
@@ -90,24 +93,33 @@ License:
         }
         
         for (var i = 0; i < this.lines.length; i++) {
-            this.last[topic][i] = 0;
+            this.last[topic][i].val = 0;
+            this.last[topic][i].state = 0;
             try {
-                this.last[topic][i] = json.perf_data[this.lines[i].name].val * 8;
+                this.last[topic][i].val = json.perf_data[this.lines[i].name].val;
+                this.last[topic][i].state = json.state;
             } catch (err) {
                 console.warn("Error to process performance data of " + line + ": " + err.message);
             }
         }
         
         var vals = [];
+        var state = 0;
         for (var i = 0; i < this.lines.length; i++) {
             vals[i] = 0;
 
             for(var t in this.last) {
-                vals[i] += this.last[t][i];
+                var v = parseFloat(this.last[t][i].val);
+                if(isNaN(v)) {
+                    v = 0;
+                }
+                vals[i] += v;
+                state = Math.max(state, this.last[t][i].state);
             }
         }
         
-        this.chart.update(json._timestamp, vals);
+        var stroke = Scotty.Core.srNagStateColor(state);
+        this.chart.update(json._timestamp, vals, stroke);
     };
 
     Scotty.SVGWidget.srRegisterWidget(

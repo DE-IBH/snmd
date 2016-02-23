@@ -39,7 +39,7 @@ License:
                     scale: 'linear'
                 }
             ],
-            stroke: 'yellow',
+            stroke: 'grey',
             fill: 'white',
             desc: desc,
             dpi: 60 / 5 / 60

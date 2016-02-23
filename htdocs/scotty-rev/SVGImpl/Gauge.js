@@ -69,7 +69,19 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
 
         this.last_stroke = '';
         this.last_val = -1;
-        this.update(1, 1, '#404040');
+
+        var alpha = Math.PI;
+        this.pathdata.commands[1].x = (1 - Math.cos(alpha / 2)) * 2 * this.pathdata.commands[1].rX;
+        this.pathdata.commands[1].y = -1 * Math.sin(alpha) * this.pathdata.commands[1].rY;
+        this.root.path(this.pathdata.encode(), {
+            stroke: '#202020',
+            strokeWidth: 4,
+            strokeLineCap: 'round',
+            fill: 'none'
+        });
+        
+        
+        //this.update(1, 1, '#404040');
     };
     
     Gauge.prototype.update = function (val, max, stroke) {

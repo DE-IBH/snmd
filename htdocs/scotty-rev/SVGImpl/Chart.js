@@ -68,6 +68,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             {
                 id: opts.id,
                 stroke: opts.stroke,
+                strokeWidth: 2,
                 fill: opts.fill
 	        }
         );
@@ -104,7 +105,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
     };
     
-    Chart.prototype.update = function (ts, data) {
+    Chart.prototype.update = function (ts, data, stroke) {
         /* Record current data points */
         this.data_ts.push(ts);
         var maxy = (typeof this.opts.axis[0].max === "undefined" ? 0 : this.opts.axis[0].max);
@@ -177,11 +178,15 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             if(typeof this.data_svg[l] !== "undefined")
                 clean.push(this.data_svg[l]);
 
-            if(is_polygon) {
-                this.data_svg[l] = this.root.polygon(points, this.lines[l].style);
-            }
-            else {
-                this.data_svg[l] = this.root.polyline(points, this.lines[l].style);
+            try {
+                if(is_polygon) {
+                    this.data_svg[l] = this.root.polygon(points, this.lines[l].style);
+                }
+                else {
+                    this.data_svg[l] = this.root.polyline(points, this.lines[l].style);
+                }
+            } catch (err) {
+                console.error("Failed to create poly for " + this.rect.id);
             }
 
             if(typeof this.txt[l] !== "undefined") {
@@ -194,6 +199,11 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             var s = clean.shift();
             this.root.remove(s);
         }
+
+        if(stroke !== this.last_stroke) {
+            this.rect.style.stroke = stroke;
+        }
+        this.last_stroke = stroke;
     };
 
     Scotty.SVGWidget.srRegisterImpl(

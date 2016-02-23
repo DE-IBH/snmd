@@ -84,6 +84,7 @@ License:
         }
         
         this.last[topic].val = 0;
+        this.last[topic].state = 0;
         try {
             for(var i = 0; i < this.opts.keys.length; i++) {
                 if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
