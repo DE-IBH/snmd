@@ -70,11 +70,22 @@ License:
         }
         
         this.last[topic].val = 0;
+        var keys;
+        if (typeof this.desc.keys === "undefined") {
+            keys = [this.desc.key];
+        } else {
+            keys = this.desc.keys; 
+        }
+
         try {
-            this.last[topic].val = json.perf_data[this.desc.key].val;
+            for(var i = 0; i < keys.length; i++) {
+                if(typeof json.perf_data[keys[i]] !== "undefined") {
+                    this.last[topic].val += json.perf_data[keys[i]].val;
+                }
+            }
             this.last[topic].state = json.state;
         } catch (err) {
-            console.warn("Error to process performance data: " + err.message);
+            console.err("Error to process performance data [" + topic + "]: " + err.message);
         }
         
         var val = 0;
