@@ -52,6 +52,18 @@ License:
         } else {
             this.opts.uom = this.desc.uom;
         }
+
+        if (typeof desc.keys === "undefined") {
+            this.opts.keys = [desc.key];
+        } else {
+            this.opts.keys = desc.keys;
+        }
+        if (typeof desc.factor !== "undefined") {
+            this.opts.factor = desc.factor;
+        } else {
+            this.opts.factor = 1;
+        }
+
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
             this.last[desc.topics[i]] = [];
@@ -70,17 +82,10 @@ License:
         }
         
         this.last[topic].val = 0;
-        var keys;
-        if (typeof this.desc.keys === "undefined") {
-            keys = [this.desc.key];
-        } else {
-            keys = this.desc.keys; 
-        }
-
         try {
-            for(var i = 0; i < keys.length; i++) {
-                if(typeof json.perf_data[keys[i]] !== "undefined") {
-                    this.last[topic].val += json.perf_data[keys[i]].val;
+            for(var i = 0; i < this.opts.keys.length; i++) {
+                if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
+                    this.last[topic].val += json.perf_data[this.opts.keys[i]].val;
                 }
             }
             this.last[topic].state = json.state;
@@ -100,7 +105,7 @@ License:
         }
         
         var stroke = Scotty.Core.srNagStateColor(state);
-        this.chart.update(val, stroke);
+        this.chart.update(val * this.opts.factor, stroke);
     };
 
     Scotty.SVGWidget.srRegisterWidget(
