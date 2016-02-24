@@ -120,9 +120,9 @@ if (typeof Scotty.Core === "undefined") {
         }
 
         if (state == 2) {
-            return 'OrangeRed';
+            return 'Crimson';
         } 
 
-        return "orange";
+        return "Orange";
     });
 }).call(Scotty.Core, jQuery);
