@@ -39,8 +39,42 @@ if (typeof Scotty.GUI === "undefined") {
     "use strict";
 
     var idCounter = 0;
+    this.TO_SCREEN = 60000;
+    this.TO_SWITCH = 20000;
+    this.screenState = 0;
+
+    this.srScreenTimeOut = (function () {
+        if (this.screenState === 0) {
+            this.screenState += 1;
+
+            console.error("TO_SCREEN");
+        } else {
+            console.error("TO_SWITCH");
+
+            $('.srViews').each(function () {
+                var a = $(this).children('.srViewsNav').find('a');
+                var cur = 0;
+                for (var i = 0; i < a.length; i++) {
+                    if (a[i].hash === Scotty.GUI.currentView) {
+                        cur = i;
+                    }
+                }
+
+                cur += 1;
+                if (cur >= a.length) {
+                    cur = 0;
+                }
+
+                a[cur].click();
+            });
+        }
+        
+        console.log(this.currentView);
+
+        this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SWITCH);
+    }).bind(this);
     
-    this.srInit = function (views) {
+    this.srInit = (function (views) {
         $('.srViews').each(function () {
             var views2id = {};
             
@@ -59,14 +93,25 @@ if (typeof Scotty.GUI === "undefined") {
 
             var tabDivs = div;
 
-            nav.find('a').click(function () {
+            nav.find('a').click(function (event) {
                 console.debug('Viewing '  + this.hash);
+                Scotty.GUI.currentView = this.hash;
 
                 div.children().fadeOut(600).filter(this.hash).fadeIn(600);
                 nav.find('a').removeClass('selected').filter(this).addClass('selected');
 
                 return false;
             }).filter(':first').click();
-        });
-    };
+        }).bind(this);
+        
+        this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
+        $(document).mousemove((function () {
+            this.screenState = 0;
+
+            if (typeof this.screenTimeOut !== "undefined") {
+                window.clearTimeout(this.screenTimeOut);
+                this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
+            }
+        }).bind(this));
+    }).bind(this);
 }).call(Scotty.GUI, jQuery);
