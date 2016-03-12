@@ -47,7 +47,7 @@ License:
 
         
         this.desc = desc;
-        if(typeof this.desc.uom === "undefined") {
+        if (typeof this.desc.uom === "undefined") {
             this.opts.uom = '';
         } else {
             this.opts.uom = this.desc.uom;
@@ -58,15 +58,33 @@ License:
         } else {
             this.opts.keys = desc.keys;
         }
+
+        if (typeof desc.factors === "undefined") {
+            this.opts.factors = [];
+        } else {
+            this.opts.factors = desc.factors;
+        }
+        
         if (typeof desc.factor !== "undefined") {
-            this.opts.factor = desc.factor;
+            this.opts.factor = parseFloat(desc.factor);
+            if (isNaN(this.opts.factor)) {
+                this.opts.factor = 1;
+            }
         } else {
             this.opts.factor = 1;
         }
 
         this.last = {};
+        this.factors = {};
         for (var i = 0; i < desc.topics.length; i++) {
             this.last[desc.topics[i]] = [];
+
+            if (typeof this.opts.factors[i] === "undefined") {
+                this.factors[desc.topics[i]] = this.opts.factor;
+            }
+            else {
+                this.factors[desc.topics[i]] = this.opts.factors[i];
+            }
         }
 
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Text"))(root, svg, this.opts);
@@ -85,7 +103,7 @@ License:
         try {
             for(var i = 0; i < this.opts.keys.length; i++) {
                 if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
-                    this.last[topic].val += parseFloat(json.perf_data[this.opts.keys[i]].val);
+                    this.last[topic].val += parseFloat(json.perf_data[this.opts.keys[i]].val) * this.factors[topic];
                 }
             }
             this.last[topic].state = json.state;
@@ -105,7 +123,7 @@ License:
         }
         
         var stroke = Scotty.Core.srNagStateColor(state);
-        this.chart.update(val * this.opts.factor, stroke);
+        this.chart.update(val, stroke);
     };
 
     Scotty.SVGWidget.srRegisterWidget(
