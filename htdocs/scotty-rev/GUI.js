@@ -103,13 +103,14 @@ if (typeof Scotty.GUI === "undefined") {
                 return false;
             }).filter(':first').click();
         }).bind(this);
-        
-        this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
 
         // Update time of day
         window.setInterval(function () {
             $('div#snmd_clock').text( moment().format("YYYY-MM-DDTHH:mm:ssZZ") );
         }, 1000);
+
+        // Screensaver
+        this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
 
         // Handle mouse moves (reset screen saver timeout)
         $(document).mousemove((function () {
