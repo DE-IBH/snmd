@@ -105,12 +105,31 @@ if (typeof Scotty.GUI === "undefined") {
         }).bind(this);
         
         this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
+
+        // Handle mouse moves (reset screen saver timeout)
         $(document).mousemove((function () {
             this.screenState = 0;
 
             if (typeof this.screenTimeOut !== "undefined") {
                 window.clearTimeout(this.screenTimeOut);
                 this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
+            }
+        }).bind(this));
+
+        // Handle key press (reset screen saver time, handle shortcuts)
+        $(document).keypress((function (ev) {
+            this.screenState = 0;
+
+            if (typeof this.screenTimeOut !== "undefined") {
+                window.clearTimeout(this.screenTimeOut);
+                this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
+            }
+
+            // Select view by numpad
+            if(ev.which > 47 && ev.which < 58) {
+                var key = (ev.which == 48 ? '10' : String.fromCharCode(ev.which));
+
+                $('a[href="#srView-' + key + '"]').click();
             }
         }).bind(this));
     }).bind(this);
