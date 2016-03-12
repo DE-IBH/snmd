@@ -39,8 +39,8 @@ if (typeof Scotty.GUI === "undefined") {
     "use strict";
 
     var idCounter = 0;
-    this.TO_SCREEN = 60000;
-    this.TO_SWITCH = 20000;
+    this.TO_SCREEN = 600000;
+    this.TO_SWITCH = 30000;
     this.screenState = 0;
 
     this.srScreenTimeOut = (function () {
