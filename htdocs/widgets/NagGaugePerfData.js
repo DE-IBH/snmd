@@ -88,7 +88,7 @@ License:
         try {
             for(var i = 0; i < this.opts.keys.length; i++) {
                 if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
-                    this.last[topic].val += json.perf_data[this.opts.keys[i]].val;
+                    this.last[topic].val += parseFloat(json.perf_data[this.opts.keys[i]].val);
                 }
             }
             this.last[topic].state = json.state;
