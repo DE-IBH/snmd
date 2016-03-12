@@ -12,6 +12,7 @@ a MQTT broker.
 The following JavaScript frameworks and librarys are used:
 * [jQuery](https://jquery.com/) 2.2.0
 * [jQuery SVG](http://keith-wood.name/svg.html) 1.5.0
+* [Moment.js](http://momentjs.com/) 2.12.0
 * [Paho JavaScript Client](https://www.eclipse.org/paho/clients/js/) 1.0.1
 * [qTip²](http://qtip2.com/) 2.2.1
 * [sprintf.js](https://github.com/alexei/sprintf.js) 1.0.3
