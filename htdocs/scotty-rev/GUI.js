@@ -46,11 +46,7 @@ if (typeof Scotty.GUI === "undefined") {
     this.srScreenTimeOut = (function () {
         if (this.screenState === 0) {
             this.screenState += 1;
-
-            console.error("TO_SCREEN");
         } else {
-            console.error("TO_SWITCH");
-
             $('.srViews').each(function () {
                 var a = $(this).children('.srViewsNav').find('a');
                 var cur = 0;
