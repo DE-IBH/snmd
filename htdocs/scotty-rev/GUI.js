@@ -106,6 +106,11 @@ if (typeof Scotty.GUI === "undefined") {
         
         this.screenTimeOut = window.setTimeout(this.srScreenTimeOut, this.TO_SCREEN);
 
+        // Update time of day
+        window.setInterval(function () {
+            $('div#snmd_clock').text( moment().format("YYYY-MM-DDTHH:mm:ssZZ") );
+        }, 1000);
+
         // Handle mouse moves (reset screen saver timeout)
         $(document).mousemove((function () {
             this.screenState = 0;

@@ -31,6 +31,16 @@
     border-right: 1px solid black;
 }
 
+#snmd_clock {
+    float: right;
+    padding:2px 3px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
 #scotty_hb {
     float: right;
     width: 14px;
