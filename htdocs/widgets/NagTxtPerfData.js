@@ -74,6 +74,12 @@ License:
             this.opts.factor = 1;
         }
 
+        if (typeof desc.fracts !== "undefined") {
+            this.opts.fracts = desc.fracts;
+        } else {
+            this.opts.fracts = 1;
+        }
+
         this.last = {};
         this.factors = {};
         for (var i = 0; i < desc.topics.length; i++) {

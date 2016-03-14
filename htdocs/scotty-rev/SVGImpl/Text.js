@@ -63,7 +63,7 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
         }
         
         /* Update text elements */
-        this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-');
+        this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-', this.opts.fracts);
         this.txt.style.fill = stroke;
 
         this.last_val = val;

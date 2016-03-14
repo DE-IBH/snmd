@@ -90,9 +90,12 @@ if (typeof Scotty.Core === "undefined") {
         });
     };
     
-    this.srSiFormatNum = (function (value, unit, defstr) {
+    this.srSiFormatNum = (function (value, unit, defstr, fracts) {
         if (typeof value === "undefined") { return defstr; }
         if (isNaN(value)) { return defstr; }
+        if (typeof fracts === "undefined" || isNaN(fracts)) {
+            fracts = 0;
+        }
 
         var j = 4;
         var f = 1;
@@ -103,7 +106,7 @@ if (typeof Scotty.Core === "undefined") {
 	       }
         }
         
-        return Math.round(value / this.si_facts[j]) + this.si_prefs[j] + unit;
+        return Math.round( (value / this.si_facts[j]) * Math.pow(10, fracts) )/Math.pow(10, fracts) + this.si_prefs[j] + unit;
     }).bind(this);
     
     this.srNagStateColor = (function (state) {
