@@ -93,7 +93,10 @@ if (typeof Scotty.GUI === "undefined") {
                 console.debug('Viewing '  + this.hash);
                 Scotty.GUI.currentView = this.hash;
 
-                div.children().fadeOut(600).filter(this.hash).fadeIn(600);
+                div.children().removeClass('current').filter(this.hash).removeClass('next').removeClass('prev').addClass('current');
+                $(Scotty.GUI.currentView).prevAll().removeClass('next').addClass('prev');
+                $(Scotty.GUI.currentView).nextAll().removeClass('prev').addClass('next');
+
                 nav.find('a').removeClass('selected').filter(this).addClass('selected');
 
                 return false;
