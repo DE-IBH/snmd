@@ -125,8 +125,7 @@ License:
             }
         }
         
-        var stroke = Scotty.Core.srNagStateColor(state);
-        this.chart.update(json._timestamp, vals, stroke);
+        this.chart.update(json._timestamp, vals, state);
     };
 
     Scotty.SVGWidget.srRegisterWidget(

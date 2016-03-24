@@ -38,8 +38,6 @@ if (typeof Scotty.SVG === "undefined") {
 (function ($) {
     "use strict";
 
-    var svg = {};
-    
     this.srParseSVG = function (svg, error) {
         if (error) {
             console.error('Failed loading SVG: ' + error);

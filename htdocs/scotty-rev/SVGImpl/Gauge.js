@@ -61,7 +61,7 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
         /* Create SVG background */
         root.remove(svg);
         this.pathdata = new SVGPathData("m " + opts.dim.x + "," + opts.dim.y + " a " + (opts.dim.width / 2) + "," + (opts.dim.height) + " 0 0 1 " + opts.dim.width + ",0");
-        
+
         /* Set qtip if available */
         if (typeof qtip !== "undefined") {
             this.rect.qtip(qtip);
@@ -84,7 +84,9 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
         //this.update(1, 1, '#404040');
     };
     
-    Gauge.prototype.update = function (val, max, stroke) {
+    Gauge.prototype.update = function (val, max, state) {
+        var stroke = Scotty.Core.srNagStateColor(state);
+
         if (val === this.last_val && stroke === this.last_stroke) {
             return;
         }
@@ -110,6 +112,12 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
     
         this.last_val = val;
         this.last_stroke = stroke;
+
+        if (state !== this.last_state) {
+            this.last_state = state;
+
+            Scotty.GUI.srStateChanged(this.root._svg.parentElement.id, this.opts.dim.id, state);
+        }
     };
 
     Scotty.SVGWidget.srRegisterImpl(

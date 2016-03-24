@@ -107,8 +107,7 @@ License:
             state = Math.max(state, this.last[t].state);
         }
         
-        var stroke = Scotty.Core.srNagStateColor(state);
-        this.chart.update(val * this.opts.factor, this.max, stroke);
+        this.chart.update(val * this.opts.factor, this.max, state);
     };
 
     Scotty.SVGWidget.srRegisterWidget(

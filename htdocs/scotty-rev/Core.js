@@ -42,6 +42,7 @@ if (typeof Scotty.Core === "undefined") {
         config;
     this.si_prefs = ['T', 'G', 'M', 'K', '']; //, 'm', 'µ'
     this.si_facts = [ Math.pow(10, 12), Math.pow(10, 9), Math.pow(10, 6), Math.pow(10, 3), 1]; //, Math.pow(10, -3), Math.pow(10, -6)
+    this.genid = 0;
 
     this.srVersion = function () {
         return version;
@@ -128,4 +129,9 @@ if (typeof Scotty.Core === "undefined") {
 
         return "Orange";
     });
+    
+    this.srGenID = (function (prefix) {
+        this.genid += 1;
+        return 'snmd-genid-' + prefix + '-' + this.genid;
+    }).bind(this);
 }).call(Scotty.Core, jQuery);

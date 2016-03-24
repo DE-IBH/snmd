@@ -66,7 +66,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             opts.dim.width,
             opts.dim.height,
             {
-                id: opts.id,
+                id: opts.dim.id,
                 stroke: opts.stroke,
                 strokeWidth: 2,
                 fill: opts.fill
@@ -105,7 +105,9 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
     };
     
-    Chart.prototype.update = function (ts, data, stroke) {
+    Chart.prototype.update = function (ts, data, state) {
+        var stroke = Scotty.Core.srNagStateColor(state);
+        
         /* Record current data points */
         this.data_ts.push(ts);
         var maxy = (typeof this.opts.axis[0].max === "undefined" ? 0 : this.opts.axis[0].max);
@@ -202,8 +204,14 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
 
         if(stroke !== this.last_stroke) {
             this.rect.style.stroke = stroke;
+            this.last_stroke = stroke;
         }
-        this.last_stroke = stroke;
+
+        if (state !== this.last_state) {
+            this.last_state = state;
+
+            Scotty.GUI.srStateChanged(this.rect.parentElement.parentElement.id, this.rect.id, state);
+        }
     };
 
     Scotty.SVGWidget.srRegisterImpl(

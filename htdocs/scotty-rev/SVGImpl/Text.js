@@ -50,15 +50,17 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
 
         /* SVG text element */
         this.txt = svg;
-        
+
         /* Set qtip if available */
         if (typeof qtip !== "undefined") {
             this.txt.qtip(qtip);
         }
     };
     
-    Text.prototype.update = function (val, stroke) {
-        if(this.last_val === val && stroke === this.last_stroke) {
+    Text.prototype.update = function (val, state) {
+        var stroke = Scotty.Core.srNagStateColor(state);
+
+        if (this.last_val === val && stroke === this.last_stroke) {
             return;
         }
         
@@ -68,6 +70,12 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
 
         this.last_val = val;
         this.last_stroke = stroke;
+
+        if (state !== this.last_state) {
+            this.last_state = state;
+
+            Scotty.GUI.srStateChanged(this.root._svg.parentElement.id, this.txt.id, state);
+        }
     };
 
     Scotty.SVGWidget.srRegisterImpl(

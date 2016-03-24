@@ -1,44 +1,12 @@
-#scotty_about_popup {
-    display: none;
-    position: absolute;
-    margin: auto;
-    padding: 1em;
-    width: 550px;
-    height: 400px;
-    background: white;
-    border: 1px solid black;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-
-#scotty_chart {
-    display: none;
-    position: absolute;
-    margin: auto;
-    padding: 1em;
-    background: #e0e0e0;
-    width: 300px;
-}
-
-#scotty_about {
-    float: right;
-    padding:2px 3px;
-    height: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
 #snmd_clock {
     float: right;
-    padding:2px 3px;
+    padding:2px 1ex;
     height: 20px;
     font-size: 14px;
     font-weight: bold;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    color: white;
 }
 
 #scotty_hb {
@@ -51,19 +19,11 @@
     margin-right: 10px;
 }
 
-td.scotty_chart_title {
-    font-weight: bold;
-}
-
-td.scotty_chart_value {
-    font-family: monospace;
-}
-
 ul.srViewsNav {
     list-style:none;
     margin:0;
     padding:0px 10px;
-    background-color: #f0d010;
+    background-color: rgba(38, 41, 44, 1);
     height: 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -75,11 +35,16 @@ ul.srViewsNav li {
 }
 
 ul.srViewsNav li a {
-    padding: 2px 3px;
+    padding: 2px 1ex;
     font-size: 16px;
     text-decoration: none;
-    color: 0;
+    color: #808080;
     border: 1px solid black;
+    transition: background-color 5s ease;
+}
+
+.on-screensaver ul.srViewsNav li a {
+    transition: background-color 15s ease;
 }
 
 ul.srViewsNav li a.selected, ul.nav li a:hover {
@@ -93,26 +58,86 @@ ul.srViewsNav li a:focus {
 
 div.svgview {
     position: absolute;
-    left: 6;
-    right: 6;
-    top: 30;
-    bottom: 6;
-    padding: 0;
+    /*height: 1038px;
+    width: 1906px;*/
+    height: 100%;
+    width: 100%;
     
-    margin-top: 4;
-    background-color: #26292c;
-    border: 1px solid #7f7f7f;
+    background-color: rgba(38, 41, 44, 0.5);
+
+    opacity: 1;
+    transition: opacity 1.5s ease-out, background-color 1.5s ease-out, filter 1.5s ease-in, -webkit-filter 1.5s ease-in;
+    display: block;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     border-radius: 5px;
 
-    opacity: 0;
-    transition: opacity 0.6s ease-in;
+    /*filter: blur(4px);
+    -webkit-filter: blur(4px);*/
 }
 
 
 div.svgview.current {
+    background-color: rgba(38, 41, 44, 1);
+    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s, -webkit-filter 1.5s ease-out 3.5s;
     opacity: 1;
+
+    filter: none;
+    -webkit-filter: none;
 }
 
+.on-screensaver div.svgview.current {
+    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s, -webkit-filter 1.5s ease-out 13.5s;
+}
+
+div.svgview svg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    position: absolute;
+}
+
+
+#snmd-vouter {
+    top:0px;
+    bottom:0;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+
+    padding-top: 22px;
+}
+
+#snmd-vinner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+}
+
+#snmd-views {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 5s;
+
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+
+.on-screensaver #snmd-views {
+    transition: 15s ease-in-out;
+}
 
 #scotty_logd {
     margin-top: 4;
@@ -120,22 +145,17 @@ div.svgview.current {
     height: 14%;
     border: 1px solid #7f7f7f;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-#log {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    outline: none;
-    resize: none;
-    overflow: hidden;
-    background: none;
-    color: #7f7f7f;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 
 body {
     background-color: #000000;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
