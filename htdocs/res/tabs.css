@@ -73,14 +73,15 @@ div.svgview {
     -moz-border-radius: 5px;
     border-radius: 5px;
 
-    /*filter: blur(4px);
-    -webkit-filter: blur(4px);*/
+    /* performance killer
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    */
 }
-
 
 div.svgview.current {
     background-color: rgba(38, 41, 44, 1);
-    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s, -webkit-filter 1.5s ease-out 3.5s;
+    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s, -webkit-filter 1.5s ease-out;
     opacity: 1;
 
     filter: none;
@@ -88,7 +89,7 @@ div.svgview.current {
 }
 
 .on-screensaver div.svgview.current {
-    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s, -webkit-filter 1.5s ease-out 13.5s;
+    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s, -webkit-filter 1.5s ease-out;
 }
 
 div.svgview svg {
