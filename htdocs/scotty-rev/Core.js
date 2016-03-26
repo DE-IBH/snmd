@@ -47,7 +47,17 @@ if (typeof Scotty.Core === "undefined") {
     this.srVersion = function () {
         return version;
     };
+
+    this.srURLParam = function (name, defval) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)[&#/$]').exec(window.location.href);
+
+        if (results && results[1]) {
+            return decodeURIComponent(results[1]);
+        }
     
+        return defval;
+    };
+
     this.srConfigLoaded = function (json) {
         this.config = json;
 
@@ -76,8 +86,7 @@ if (typeof Scotty.Core === "undefined") {
         });
     };
     
-    this.srInit = function (configURI) {
-        console.info('Initializing Scotty REVOLUTION ' + version);
+    this.srInitLoad = function (configURI, failfn) {
         console.debug('Loading ' + configURI);
 
         $.ajax({
@@ -85,12 +94,21 @@ if (typeof Scotty.Core === "undefined") {
             'url': configURI + '?nonce=' + Math.random(),
             'dataType': 'json',
             'success': this.srConfigLoaded.bind(this),
-            'error': ((function (jqXHR, textStatus, errorThrown) {
-                console.error('Failed to load config: ' + textStatus + ' - ' + errorThrown);
-            }).bind(this))
+            'error': failfn
         });
     };
     
+    this.srInit = function () {
+        console.info('Initializing Scotty REVOLUTION ' + version);
+
+        var configName = this.srURLParam('config', 'default');
+        this.srInitLoad('configs/' + configName + '.json', (function () {
+            this.srInitLoad('configs/default.json', function (jqXHR, textStatus, errorThrown) {
+                console.error('Failed to load configuration: ' + textStatus + ' - ' + errorThrown);
+            });
+        }).bind(this));
+    };
+
     this.srSiFormatNum = (function (value, unit, defstr, fracts) {
         if (typeof value === "undefined") { return defstr; }
         if (isNaN(value)) { return defstr; }
