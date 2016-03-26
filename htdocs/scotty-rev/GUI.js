@@ -117,9 +117,11 @@ if (typeof Scotty.GUI === "undefined") {
             Object.keys(views).forEach(function (k) {
                 div.append('<div class="svgview" id="' + views2id[k] + '"></div>');
 
-                $('#'+views2id[k]).css(
-                    'transform', 'rotateY(' + (dps * step) + 'deg) translateZ(' + r + 'px)'
-                );
+                if($(document.body).hasClass('enable-3d')) {
+                    $('#'+views2id[k]).css(
+                        'transform', 'rotateY(' + (dps * step) + 'deg) translateZ(' + r + 'px)'
+                    );
+                }
 
                 Scotty.SVG.srLoadSVG(views2id[k], k);
                 step += 1;
@@ -133,9 +135,11 @@ if (typeof Scotty.GUI === "undefined") {
             var alignView = (function() {
                 var f = Math.min(1/1906 * ($('#snmd-views').width() - 10), 1/1038 * ($('#snmd-views').height()));
 
-                $('#snmd-views').css(
-                    'transform', 'scale(' + f + ') translateZ(-' + r  + 'px) rotateY(' + (-1 * dps * Scotty.GUI.currenStep) + 'deg)'
-                );
+                if($(document.body).hasClass('enable-3d')) {
+                    $('#snmd-views').css(
+                        'transform', 'scale(' + f + ') translateZ(-' + r  + 'px) rotateY(' + (-1 * dps * Scotty.GUI.currenStep) + 'deg)'
+                    );
+                }
             }).bind(this);
             
             $(window).on('resize', function(){
