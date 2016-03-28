@@ -103,7 +103,10 @@ if (typeof Scotty.Core === "undefined") {
         var configName = this.srURLParam('config', 'default');
         if (configName !== 'default') {
             $('#snmd-title').text(configName);
+        } else {
+            $('#snmd-title').text(window.location.host);
         }
+
         this.srInitLoad('configs/' + configName + '.json', (function () {
             this.srInitLoad('configs/default.json', function (jqXHR, textStatus, errorThrown) {
                 console.error('Failed to load configuration: ' + textStatus + ' - ' + errorThrown);
