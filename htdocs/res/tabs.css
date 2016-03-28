@@ -7,6 +7,24 @@
     border-left: 1px solid black;
     border-right: 1px solid black;
     color: white;
+    letter-spacing: 0.1ex;
+}
+
+#snmd-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1ex;
+    padding:2px 1ex;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    color: white;
 }
 
 #scotty_hb {
@@ -38,6 +56,7 @@ ul.srViewsNav li a {
     padding: 2px 1ex;
     font-size: 16px;
     text-decoration: none;
+    letter-spacing: 0.1ex;
     color: #808080;
     border: 1px solid black;
     transition: background-color 5s ease;
@@ -174,6 +193,7 @@ div.svgview svg {
 body {
     background-color: #000000;
     position: relative;
+    font-family: monospace;
 
     width: 100%;
     height: 100%;

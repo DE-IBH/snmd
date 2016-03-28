@@ -102,6 +102,9 @@ if (typeof Scotty.Core === "undefined") {
         console.info('Initializing Scotty REVOLUTION ' + version);
 
         var configName = this.srURLParam('config', 'default');
+        if (configName !== 'default') {
+            $('#snmd-title').text(configName);
+        }
         this.srInitLoad('configs/' + configName + '.json', (function () {
             this.srInitLoad('configs/default.json', function (jqXHR, textStatus, errorThrown) {
                 console.error('Failed to load configuration: ' + textStatus + ' - ' + errorThrown);
