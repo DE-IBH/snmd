@@ -49,8 +49,7 @@ if (typeof Scotty.Core === "undefined") {
     };
 
     this.srURLParam = function (name, defval) {
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)[&#/$]').exec(window.location.href);
-
+        var results = new RegExp('[\?&]' + name + '=([^&#/]*)([&#/]|$)').exec(window.location.href);
         if (results && results[1]) {
             return decodeURIComponent(results[1]);
         }
