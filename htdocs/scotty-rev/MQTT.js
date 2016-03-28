@@ -64,32 +64,36 @@ if (typeof Scotty.MQTT === "undefined") {
             this.topics[topic].push(watcher);
         }
     };
-    
+
+    this.srStatus = function (color) {
+        $('#snmd-title').css('color', color);
+    }.bind(this);
+
     this.srConnect = function () {
-        $('#scotty_hb').css("background", "yellow");
+        this.srStatus('yellow');
         console.debug('Connecting to MQTT broker ' + this.broker_host + ':' + this.broker_port + '...');
         this.client = new Paho.MQTT.Client(this.broker_host, this.broker_port, '', this.clientId);
 
                
         this.client.disconnect = (function () {
             console.error("Disconnected");
-            $('#scotty_hb').css("background", "#7f0000");
+            this.srStatus('#7f0000');
         }).bind(this);
         this.client.onConnectionLost = (function (res) {
-            $('#scotty_hb').css("background", "#ff0000");
+            this.srStatus('#ff0000');
             console.error("Connection Lost: " + res.errorMessage);
 
             if (this.reconnTO) {
                 clearTimeout(this.reconnTO);
             }
-            $('#scotty_hb').css("background", "orange");
+            this.srStatus('orange');
             this.reconnTO = setTimeout(this.srConnect.bind(this), 5000);
         }).bind(this);
         this.client.onMessageArrived = (function (msg) {
-            $('#scotty_hb').css("background", "#00ff00");
+            this.srStatus('#00ff00');
             setTimeout(function () {
-                $('#scotty_hb').css("background", "#007f00");
-            }, 100);
+                this.srStatus('#007f00');
+            }.bind(this), 100);
             
             if (typeof this.topics[msg.destinationName] !== "undefined") {
                 for (var i = 0; i < this.topics[msg.destinationName].length; i++) {
@@ -113,7 +117,7 @@ if (typeof Scotty.MQTT === "undefined") {
         this.client.connect({
             onSuccess: (function () {
                 console.info('Connected to mqtt://' + this.broker_host + ':' + this.broker_port);
-                $('#scotty_hb').css('background', '#7f0000');
+                this.srStatus('#7f0000');
 
                 for(var topic in this.topics) {
                     this.client.subscribe(topic);
@@ -124,7 +128,7 @@ if (typeof Scotty.MQTT === "undefined") {
                 if (this.reconnTO) {
                     clearTimeout(this.reconnTO);
                 }
-                $('#scotty_hb').css('background', 'orange');
+                this.srStatus('orange');
                 this.reconnTO = setTimeout(this.srConnect.bind(this), 5000);
             }).bind(this)
         });
