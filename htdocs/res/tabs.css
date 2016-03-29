@@ -32,9 +32,12 @@
     z-index: 1;
     bottom: 5;
     right: 5;
-    width: 14px;
-    height: 14px;
+    width: 8px;
+    height: 8px;
     background: #7f0000;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
 ul.srViewsNav {
