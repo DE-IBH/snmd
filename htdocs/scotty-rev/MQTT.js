@@ -66,7 +66,7 @@ if (typeof Scotty.MQTT === "undefined") {
     };
 
     this.srStatus = function (color) {
-        $('#snmd-title').css('color', color);
+        $('#snmd-hb').css('background', color);
     }.bind(this);
 
     this.srConnect = function () {
