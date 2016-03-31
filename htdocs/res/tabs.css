@@ -61,19 +61,19 @@ ul.srViewsNav li a {
     font-size: 16px;
     text-decoration: none;
     letter-spacing: 0.1ex;
-    font-weight: bold;
     color: #808080;
     border: 1px solid black;
-    transition: background-color 5s ease;
+    transition: background-color 5s ease, font-weight 5s ease;
 }
 
 .on-screensaver ul.srViewsNav li a {
-    transition: background-color 15s ease;
+    transition: background-color 15s ease, font-weight 15s ease;
 }
 
 ul.srViewsNav li a.selected, ul.nav li a:hover {
     background-color: 0;
     color: #ffffff;
+    font-weight: bold;
 }
 
 ul.srViewsNav li a:focus {
