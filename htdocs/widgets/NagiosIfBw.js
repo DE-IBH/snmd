@@ -42,7 +42,7 @@ License:
             id: dim.id,*/
             axis: [
                 {
-                    max: 1000000000,
+                    max: 100000000,
                     scale: 'linear'
                 }
             ],
@@ -51,6 +51,36 @@ License:
             desc: desc,
             dpi: 60 / 5 / 60
         };
+
+        // get max scaling
+        try {
+            var results = new RegExp('Interface (.*Ethernet)\d').exec(desc.topics[0]);
+            if (results && results[1]) {
+                switch (results[1]) {
+                case "TenGigabitEthernet":
+                    this.opts.axis[0].max =  1000 * 1000000;
+                    break;
+                case "GigabitEthernet":
+                    this.opts.axis[0].max =   100 * 1000000;
+                    break;
+                case "FastEt    hernet":
+                    this.opts.axis[0].max =    10 * 1000000;
+                    break;
+                case "Ethernet":
+                    this.opts.axis[0].max =     1 * 1000000;
+                    break;
+                }
+            }
+        } catch (err) {
+            console.error("Failed to get max scaling for " + svg.id + ": " + err.message);
+        }
+        if (typeof desc.max !== "undefined") {
+            var m = parseFloat(desc.max);
+            if (!isNaN(m)) {
+                this.opts.axis[0].max = m;
+            }
+        }
+
         this.lines = [
             {
                 name: 'out',
@@ -77,7 +107,7 @@ License:
                 }
             }
         ];
-        
+
         this.desc = desc;
         this.last = {};
         for (var t = 0; t < desc.topics.length; t++) {

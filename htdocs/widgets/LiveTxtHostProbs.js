@@ -33,6 +33,7 @@ License:
     
     var LiveTxtHostProbs = function (root, svg, desc) {
         this.opts = {
+            svg: svg,
             desc: desc,
             columns: [
                 { title: "State", width: 4 },
@@ -55,7 +56,13 @@ License:
             return;
         }
         
+        var txt = '';
+        json.forEach(function (row, num) {
+            txt += row.display_name;
+            txt += ", ";
+        }, this);
         //    this.chart.update(val, state);
+        this.opts.svg.textContent = txt;
     };
 
     Scotty.SVGWidget.srRegisterWidget(
