@@ -35,7 +35,7 @@ License:
         this.opts = {
             axis: [
                 {
-                    max: 2000,
+                    max: 1488096,
                     scale: 'linear'
                 }
             ],
@@ -44,6 +44,45 @@ License:
             desc: desc,
             dpi: 60 / 5 / 60
         };
+
+        // get max scaling
+        var max = 0;
+        for (var t = 0; t < desc.topics.length; t++) {
+            var results = new RegExp('Interface (.*Ethernet|POS)').exec(desc.topics[t]);
+            if (results && results[1]) {
+                switch (results[1]) {
+                    case "TenGigabitEthernet":
+                        max +=    10 * 1488096;
+                        break;
+                    case "GigabitEthernet":
+                        max +=     1 * 1488096;
+                        break;
+                    case "POS":
+                        max += 0.155 * 1488096;
+                        break;
+                    case "FastEthernet":
+                        max +=   0.1 * 1488096;
+                        break;
+                    case "Ethernet":
+                        max +=  0.01 * 1488096;
+                        break;
+                    default:
+                        max += this.opts.axis[0].max;
+                        break;
+                }
+            }
+            else {
+                max +=   this.opts.axis[0].max;
+            }
+        }
+        this.opts.axis[0].max = max;
+        if (typeof desc.max !== "undefined") {
+            var m = parseFloat(desc.max);
+            if (!isNaN(m)) {
+                this.opts.axis[0].max = m;
+            }
+        }
+
         this.lines = [
             {
                 name: 'outucast',

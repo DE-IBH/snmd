@@ -42,7 +42,7 @@ License:
             id: dim.id,*/
             axis: [
                 {
-                    max: 100000000,
+                    max: 100 * 1000000,
                     scale: 'linear'
                 }
             ],
@@ -53,27 +53,36 @@ License:
         };
 
         // get max scaling
-        try {
-            var results = new RegExp('Interface (.*Ethernet)\d').exec(desc.topics[0]);
+        var max = 0;
+        for (var t = 0; t < desc.topics.length; t++) {
+            var results = new RegExp('Interface (.*Ethernet|POS)').exec(desc.topics[t]);
             if (results && results[1]) {
                 switch (results[1]) {
-                case "TenGigabitEthernet":
-                    this.opts.axis[0].max =  1000 * 1000000;
-                    break;
-                case "GigabitEthernet":
-                    this.opts.axis[0].max =   100 * 1000000;
-                    break;
-                case "FastEt    hernet":
-                    this.opts.axis[0].max =    10 * 1000000;
-                    break;
-                case "Ethernet":
-                    this.opts.axis[0].max =     1 * 1000000;
-                    break;
+                    case "TenGigabitEthernet":
+                        max +=  1000 * 1000000;
+                        break;
+                    case "GigabitEthernet":
+                        max +=   100 * 1000000;
+                        break;
+                    case "POS":
+                        max +=  15.5 * 1000000;
+                        break;
+                    case "FastEthernet":
+                        max +=    10 * 1000000;
+                        break;
+                    case "Ethernet":
+                        max +=     1 * 1000000;
+                        break;
+                    default:
+                        max +=   this.opts.axis[0].max;
+                        break;
                 }
             }
-        } catch (err) {
-            console.error("Failed to get max scaling for " + svg.id + ": " + err.message);
+            else {
+                max +=   this.opts.axis[0].max;
+            }
         }
+        this.opts.axis[0].max = max;
         if (typeof desc.max !== "undefined") {
             var m = parseFloat(desc.max);
             if (!isNaN(m)) {

@@ -95,7 +95,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
 
         /* TS window: used to drop old data */
-        this.data_tswin = (opts.dim.width - 2) / opts.dpi;
+        this.data_tswin = (opts.dim.width - 6) / opts.dpi;
         /* Variables used for recording data points */
         this.data_ts = [];
         this.data_lines = [];
@@ -103,6 +103,9 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         for (var i = 0; i < lines.length; i++) {
             this.data_lines[i] = [];
         }
+
+        this.axis_maxlines = [];
+        this.axis_maxlasts = [];
     };
     
     Chart.prototype.update = function (ts, data, state) {
@@ -124,18 +127,43 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             }
         }
 
+        /* Axis scaling */
+        if(typeof this.opts.axis[0].max !== "undefined") {
+            if(this.axis_maxlasts[0] != maxy) {
+                this.axis_maxlasts[0] = maxy;
+            }
+        }
+
         /* Adjust max Y for log scale */
         if(this.opts.axis[0].scale == "log") {
             maxy = Math.log10(maxy);
         }
 
         /* Update chart with new lines */
-	    var ox = this.opts.dim.x + this.opts.dim.width - 2;
-	    var oy = this.opts.dim.y + this.opts.dim.height - 2;
+	    var ox = this.opts.dim.x + this.opts.dim.width - 3;
+	    var oy = this.opts.dim.y + this.opts.dim.height - 3;
 	    var my = this.opts.dim.height - 14;
         var fy = my / maxy;
         var clean = [];
         var last = [];
+
+        /* Axis max lines */
+        if(typeof this.opts.axis[0].max !== "undefined") {
+            var numlines = (this.opts.axis[0].max < this.axis_maxlasts[0] ? Math.floor(this.axis_maxlasts[0] / this.opts.axis[0].max) : 0);
+            for(var i = 0; i < numlines; i++) {
+                if(typeof this.axis_maxlines[i] !== "undefined") {
+                    clean.push(this.axis_maxlines[i]);
+                }
+
+                var y = oy - (i + 1) * this.opts.axis[0].max * fy;
+                this.axis_maxlines[i] = this.root.line(this.opts.dim.x, y, this.opts.dim.x + this.opts.dim.width, y, {stroke: 'black', strokeWidth: 0.5});
+            }
+            if(this.axis_maxlines.length > numlines) {
+                clean = clean.concat( this.axis_maxlines.splice(numlines, this.axis_maxlines.length - numlines) );
+            }
+        }
+
+        /* Data lines */
         for (var l = 0; l < this.data_lines.length; l++) {
             var points = [];
             var is_polygon = (this.lines[l].style.fill.toLowerCase() != 'none');
@@ -195,7 +223,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 this.txt[l].textContent = Scotty.Core.srSiFormatNum(last[l], (typeof this.lines[l].unit === "undefined" ? '' : this.lines[l].unit), '-')
             }
         }
-        
+
         /* Remove old lines */
         while(clean.length) {
             var s = clean.shift();
