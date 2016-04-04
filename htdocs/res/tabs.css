@@ -184,6 +184,17 @@ div.svgview svg {
     transition: 15s ease-in-out;
 }
 
+div.svgview iframe {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    top: 12px;
+    overflow: hidden;
+    margin: auto;
+    border: none;
+}
+
 #scotty_logd {
     margin-top: 4;
     width: 100%;

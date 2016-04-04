@@ -105,7 +105,7 @@ if (typeof Scotty.GUI === "undefined") {
                 views2id[k] = 'srView-' + (idCounter += 1).toString(16);
                 Scotty.GUI.viewStates[views2id[k]] = {};
                 Scotty.GUI.viewFinalStates[views2id[k]] = -1;
-                nav.append('<li><a id="switch-' + views2id[k] + '" href="#' + views2id[k] + '"><span>' + views[k] + "</span></a></li>");
+                nav.append('<li><a id="switch-' + views2id[k] + '" href="#' + views2id[k] + '"><span>' + views[k]['title'] + "</span></a></li>");
             });
 
             var div = $('#snmd-views');
@@ -123,7 +123,17 @@ if (typeof Scotty.GUI === "undefined") {
                     );
                 }
 
-                Scotty.SVG.srLoadSVG(views2id[k], k);
+                switch(views[k]['render']) {
+                    case 'html':
+                        Scotty.HTML.srLoadHTML(views2id[k], views[k]['url']);
+                        break;
+
+                    case 'svg':
+                    default:
+                        Scotty.SVG.srLoadSVG(views2id[k], views[k]['url']);
+                        break;
+                }
+
                 step += 1;
             });
 
