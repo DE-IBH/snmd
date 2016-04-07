@@ -35,7 +35,7 @@ License:
         this.opts = {
             axis: [
                 {
-                    max: 1488096,
+                    max: 200 * 1488.096,
                     scale: 'linear'
                 }
             ],
@@ -52,19 +52,19 @@ License:
             if (results && results[1]) {
                 switch (results[1]) {
                     case "TenGigabitEthernet":
-                        max +=    10 * 1488096;
+                        max += 2000 * 1488.096;
                         break;
                     case "GigabitEthernet":
-                        max +=     1 * 1488096;
+                        max +=  200 * 1488.096;
                         break;
                     case "POS":
-                        max += 0.155 * 1488096;
+                        max +=   31 * 1488.096;
                         break;
                     case "FastEthernet":
-                        max +=   0.1 * 1488096;
+                        max +=   20 * 1488.096;
                         break;
                     case "Ethernet":
-                        max +=  0.01 * 1488096;
+                        max +=    2 * 1488.096;
                         break;
                     default:
                         max += this.opts.axis[0].max;
