@@ -156,7 +156,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 }
 
                 var y = oy - (i + 1) * this.opts.axis[0].max * fy;
-                this.axis_maxlines[i] = this.root.line(this.opts.dim.x, y, this.opts.dim.x + this.opts.dim.width, y, {stroke: 'black', strokeWidth: 0.5});
+                this.axis_maxlines[i] = this.root.line(this.opts.dim.x, y, this.opts.dim.x + this.opts.dim.width, y, {stroke: 'black', strokeWidth: 0.6});
             }
             if(this.axis_maxlines.length > numlines) {
                 clean = clean.concat( this.axis_maxlines.splice(numlines, this.axis_maxlines.length - numlines) );

@@ -42,7 +42,7 @@ License:
             id: dim.id,*/
             axis: [
                 {
-                    max: 100 * 1000000,
+                    max: 200 * 1000000,
                     scale: 'linear'
                 }
             ],
@@ -59,19 +59,19 @@ License:
             if (results && results[1]) {
                 switch (results[1]) {
                     case "TenGigabitEthernet":
-                        max +=  1000 * 1000000;
+                        max +=  2000 * 1000000;
                         break;
                     case "GigabitEthernet":
-                        max +=   100 * 1000000;
+                        max +=   200 * 1000000;
                         break;
                     case "POS":
-                        max +=  15.5 * 1000000;
+                        max +=    31 * 1000000;
                         break;
                     case "FastEthernet":
-                        max +=    10 * 1000000;
+                        max +=    20 * 1000000;
                         break;
                     case "Ethernet":
-                        max +=     1 * 1000000;
+                        max +=     2 * 1000000;
                         break;
                     default:
                         max +=   this.opts.axis[0].max;
