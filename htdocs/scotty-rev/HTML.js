@@ -42,6 +42,8 @@ if (typeof Scotty.HTML === "undefined") {
         console.debug('Loading #' + id + ': ' + url);
         $('<iframe>', {
             src: url,
+	    width: '95%',
+	    height: '95%',
             scrolling: 'no'
         }).addClass('htmlview').appendTo($('#' + id));
         //svg({loadURL: url + '?nonce=' + Math.random(), 'max-width': '100%', 'max-height': '100%', onLoad: this.srParseSVG});
