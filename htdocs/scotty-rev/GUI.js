@@ -125,7 +125,7 @@ if (typeof Scotty.GUI === "undefined") {
 
                 switch(views[k]['render']) {
                     case 'html':
-                        Scotty.HTML.srLoadHTML(views2id[k], views[k]['url']);
+                        Scotty.HTML.srLoadHTML(views2id[k], views[k]['url'], views[k]['reload']);
                         break;
 
                     case 'svg':
