@@ -64,11 +64,11 @@ License:
                 axis: 0,
                 unit: 'B',
                 style: {
-                    stroke: 'Violet',
+                    stroke: 'Orchid',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
-                    strokeWidth: 1,
-                    fill: 'Violet'
+                    strokeWidth: 1.5,
+                    fill: 'Orchid'
                 }
             },
             {

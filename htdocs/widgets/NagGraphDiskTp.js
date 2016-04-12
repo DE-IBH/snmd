@@ -59,7 +59,7 @@ License:
                     stroke: 'Orchid',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
-                    strokeWidth: 1,
+                    strokeWidth: 1.5,
                     fill: 'Orchid'
                 }
             },
@@ -68,7 +68,7 @@ License:
                 axis: 0,
                 unit: 'B',
                 style: {
-                    stroke: 'MediumBlue',
+                    stroke: 'RoyalBlue',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
                     strokeWidth: 1.5,
