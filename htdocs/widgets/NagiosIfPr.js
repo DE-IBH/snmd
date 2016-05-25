@@ -92,7 +92,7 @@ License:
                     stroke: 'DodgerBlue',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
-                    strokeWidth: 1,
+                    strokeWidth: 1.5,
                     fill: 'DodgerBlue'
                 }
             },
@@ -136,9 +136,12 @@ License:
             this.last[topic][i].state = 0;
             try {
                 this.last[topic][i].val = json.perf_data[this.lines[i].name].val;
+            } catch (err) {
+            }
+            try {
                 this.last[topic][i].state = json.state;
             } catch (err) {
-                console.warn("Error to process performance data of " + line + ": " + err.message);
+                console.warn("Error to process state data: " + err.message);
             }
         }
         

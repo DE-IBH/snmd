@@ -31,28 +31,36 @@ License:
 (function ($) {
     "use strict";
     
-    var NagGraphDiskTp = function (root, svg, desc) {
+    var NagFcBwChart = function (root, svg, desc) {
         this.opts = {
-/*            dim: {
-                x: dim.x,
-                y: dim.y,
-                w: dim.width,
-                h: dim.height
-            },
-            id: dim.id,*/
             axis: [
                 {
-                    max: 100000000,
+                    max: 100 * 1000000,
                     scale: 'linear'
                 }
             ],
+            stroke: 'grey',
             fill: 'white',
             desc: desc,
             dpi: 60 / 5 / 60
         };
+
+        // get max scaling
+        var max = 0;
+        for (var t = 0; t < desc.topics.length; t++) {
+            max +=   this.opts.axis[0].max;
+        }
+        this.opts.axis[0].max = max;
+        if (typeof desc.max !== "undefined") {
+            var m = parseFloat(desc.max);
+            if (!isNaN(m)) {
+                this.opts.axis[0].max = m;
+            }
+        }
+
         this.lines = [
             {
-                name: 'write',
+                name: 'out',
                 axis: 0,
                 unit: 'B',
                 style: {
@@ -64,7 +72,7 @@ License:
                 }
             },
             {
-                name: 'read',
+                name: 'in',
                 axis: 0,
                 unit: 'B',
                 style: {
@@ -76,7 +84,7 @@ License:
                 }
             }
         ];
-        
+
         this.desc = desc;
         this.last = {};
         for (var t = 0; t < desc.topics.length; t++) {
@@ -89,7 +97,7 @@ License:
         this.chart = new (Scotty.SVGWidget.srLookupImpl("Chart"))(root, svg, this.opts, this.lines);
     };
     
-    NagGraphDiskTp.prototype.handleUpdate = function (topic, msg) {
+    NagFcBwChart.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -128,7 +136,7 @@ License:
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagGraphDiskTp",
-        NagGraphDiskTp
+        "NagFcBwChart",
+        NagFcBwChart
     );
 }).call(this, jQuery);

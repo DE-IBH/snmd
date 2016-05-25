@@ -53,7 +53,7 @@ License:
                     stroke: 'Orchid',
                     strokeLineCap: 'round',
                     strokeLineJoin: 'round',
-                    strokeWidth: 1,
+                    strokeWidth: 1.5,
                     fill: 'Orchid'
                 }
             }
