@@ -107,8 +107,11 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
             stroke: stroke,
             strokeWidth: 8,
             strokeLineCap: 'round',
-            fill: 'none'
+            fill: 'none',
         });
+        if (state > 0) {
+            this.svg.classList.add('ani-pulse');
+        }
     
         this.last_val = val;
         this.last_stroke = stroke;

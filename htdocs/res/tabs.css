@@ -220,3 +220,13 @@ body {
 .notransition * {
     transition: none !important;
 }
+
+@keyframes kfPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+} 
+
+.ani-pulse {
+    animation: kfPulse 2s ease infinite;
+}

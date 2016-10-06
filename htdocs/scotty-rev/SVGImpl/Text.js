@@ -67,6 +67,11 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
         /* Update text elements */
         this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-', this.opts.fracts);
         this.txt.style.fill = stroke;
+        if (state > 0) {
+            this.txt.classList.add('ani-pulse');
+        } else {
+            this.txt.classList.remove('ani-pulse');
+        }
 
         this.last_val = val;
         this.last_stroke = stroke;

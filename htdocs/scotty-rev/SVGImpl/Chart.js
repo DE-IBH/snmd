@@ -236,6 +236,12 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
 
         if (state !== this.last_state) {
+            if (state > 0) {
+                this.rect.classList.add('ani-pulse');
+            } else {
+                this.rect.classList.remove('ani-pulse');
+            }
+
             this.last_state = state;
 
             Scotty.GUI.srStateChanged(this.rect.parentElement.parentElement.id, this.rect.id, state);
