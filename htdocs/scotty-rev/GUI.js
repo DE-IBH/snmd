@@ -142,6 +142,16 @@ if (typeof Scotty.GUI === "undefined") {
             );
             var tabDivs = div;
 
+            var alignView = (function() {
+                var f = 1; //Math.min(($('#snmd-views').width() - 10) / 1906, ($('#snmd-views').height()) / 1038);
+
+                if($(document.body).hasClass('enable-3d')) {
+                    $('#snmd-views').css(
+                        'transform', 'scale(' + f + ') translateZ(-' + r  + 'px) rotateY(' + (-1 * dps * Scotty.GUI.currenStep) + 'deg)'
+                    );
+                }
+            }).bind(this);
+            
             nav.find('a').click(function (event) {
                 console.debug('Viewing '  + this.hash);
                 Scotty.GUI.currentView = this.hash;
