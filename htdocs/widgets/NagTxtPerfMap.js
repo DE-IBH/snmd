@@ -78,7 +78,6 @@ License:
                     val = this.opts.map[val];
                 }
             }
-            console.warn("val = " + val + "; state = " + json.state);
             this.chart.update(val, json.state);
         } catch (err) {
             console.err("Error to process performance data [" + topic + "]: " + err.message);
