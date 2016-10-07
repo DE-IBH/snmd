@@ -57,6 +57,38 @@ if (typeof Scotty.SVGWidget === "undefined") {
         return this.Widgets[name];
     }).bind(this);
     
+    this.srClassOpts = (function (desc, impl) {
+        var cls = {
+            base: ['snmd-bcl-' + impl],
+            state: ['snmd-scl-']
+        };
+
+        /* add default base class by widget */
+        if (typeof desc.type !== "undefined") {
+            cls.base.push('snmd-bcls-' + desc.type);
+        }
+
+        /* add CSS base classes */
+        if (typeof desc.bcls !== "undefined") {
+            cls.base.push.apply(opts.cls.base, desc.bcls);
+        }
+
+        if (typeof desc.bcl !== "undefined") {
+            cls.base.push(desc.bcl);
+        }
+
+        /* add CSS classes depending on state */
+        if (typeof desc.scls !== "undefined") {
+            cls.state.push.apply(opts.cls.state, desc.scls);
+        }
+
+        if (typeof desc.scl !== "undefined") {
+            cls.state.push(desc.scl);
+        }
+
+        return cls;
+    }).bind(this);
+    
     this.srCreateWidget = (function (root, svg, desc) {
 
         if (typeof desc.type === "undefined") {

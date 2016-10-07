@@ -33,21 +33,9 @@ License:
     
     var NagClassState = function (root, svg, desc) {
         this.opts = {
-            classes: []
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Class")
         };
         
-        if (typeof desc.sclasses !== "undefined") {
-            this.opts.sclasses = desc.sclasses;
-        }
-        
-        if (typeof desc.sclass !== "undefined") {
-            this.opts.classes.push(desc.sclass);
-        }
-        
-        if (this.opts.sclasses.length() === 0) {
-            this.opts.sclasses.push('sani-opacity-');
-        }
-
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
             this.last[desc.topics[i]] = [];

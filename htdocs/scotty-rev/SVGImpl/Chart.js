@@ -67,9 +67,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
             opts.dim.height,
             {
                 id: opts.dim.id,
-                stroke: opts.stroke,
-                strokeWidth: 2,
-                fill: opts.fill
+                'class': opts.cls.base.join(' ')
 	        }
         );
 
@@ -236,12 +234,14 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
 
         if (state !== this.last_state) {
-            if (state > 0) {
-                this.rect.classList.add('ani-pulse');
-            } else {
-                this.rect.classList.remove('ani-pulse');
-            }
+            this.opts.cls.state.forEach(function (cl) {
+                this.rect.classList.remove(cl + this.last_state);
+            }, this);
 
+            this.opts.cls.state.forEach(function (cl) {
+                this.rect.classList.add(cl + state);
+            }, this);
+            
             this.last_state = state;
 
             Scotty.GUI.srStateChanged(this.rect.parentElement.parentElement.id, this.rect.id, state);

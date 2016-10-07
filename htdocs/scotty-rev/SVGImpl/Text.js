@@ -50,6 +50,12 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
 
         /* SVG text element */
         this.txt = svg;
+        this.txt.style.stroke = "";
+        this.txt.style.fill = "";
+        this.txt.textContent = "?";
+        opts.cls.base.forEach(function (cl) {
+            this.txt.classList.add(cl);
+        }, this);
 
         /* Set qtip if available */
         if (typeof qtip !== "undefined") {
@@ -58,25 +64,24 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
     };
     
     Text.prototype.update = function (val, state) {
-        var stroke = Scotty.Core.srNagStateColor(state);
-
-        if (this.last_val === val && stroke === this.last_stroke) {
+        if (this.last_val === val && state === this.last_state) {
             return;
         }
         
-        /* Update text elements */
+        /* Update text elements. */
         this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-', this.opts.fracts);
-        this.txt.style.fill = stroke;
-        if (state > 0) {
-            this.txt.classList.add('ani-pulse');
-        } else {
-            this.txt.classList.remove('ani-pulse');
-        }
-
         this.last_val = val;
-        this.last_stroke = stroke;
 
+        /* Add state classes. */
         if (state !== this.last_state) {
+            this.opts.cls.state.forEach(function (cl) {
+                this.txt.classList.remove(cl + this.last_state);
+            }, this);
+
+            this.opts.cls.state.forEach(function (cl) {
+                this.txt.classList.add(cl + state);
+            }, this);
+
             this.last_state = state;
 
             Scotty.GUI.srStateChanged(this.root._svg.parentElement.id, this.txt.id, state);

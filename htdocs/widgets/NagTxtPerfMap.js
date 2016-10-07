@@ -39,13 +39,11 @@ License:
                     scale: 'linear'
                 }
             ],
-            stroke: 'grey',
-            fill: 'white',
             desc: desc,
-            dpi: 60 / 5 / 60
+            dpi: 60 / 5 / 60,
+            cls: Scotty.SVGWidget.srClassOpts(desc, "String")
         };
 
-        
         this.desc = desc;
         
         this.opts.key = desc.key;

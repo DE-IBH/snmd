@@ -45,6 +45,7 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
         /* Meta data */
         this.opts = opts;
         this.lines = lines;
+        this.cls = opts.cls.base;
 
         /* SVG container */
         this.root = root;
@@ -74,10 +75,9 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
         this.pathdata.commands[1].x = (1 - Math.cos(alpha / 2)) * 2 * this.pathdata.commands[1].rX;
         this.pathdata.commands[1].y = -1 * Math.sin(alpha) * this.pathdata.commands[1].rY;
         this.root.path(this.pathdata.encode(), {
-            stroke: '#202020',
-            strokeWidth: 4,
-            strokeLineCap: 'round',
-            fill: 'none'
+            'class': this.cls.map(function (cl) {
+                return cl + '-BG';
+            }).join(' ')
         });
         
         
@@ -85,36 +85,40 @@ if (typeof Scotty.SVGImpl.Gauge === "undefined") {
     };
     
     Gauge.prototype.update = function (val, max, state) {
-        var stroke = Scotty.Core.srNagStateColor(state);
-
-        if (val === this.last_val && stroke === this.last_stroke) {
+        if (val === this.last_val && state === this.last_state) {
             return;
         }
 
         if (val > max) {
             val = max;
         }
-
         var alpha = (val / max) * Math.PI;
         this.pathdata.commands[1].x = (1 - Math.cos(alpha / 2)) * 2 * this.pathdata.commands[1].rX;
         this.pathdata.commands[1].y = -1 * Math.sin(alpha) * this.pathdata.commands[1].rY;
 
+        if (state !== this.last_state) {
+            this.opts.cls.state.forEach(function (cl) {
+                
+                var idx = this.cls.indexOf(cl + this.last_state);
+                if (idx > -1) {
+                    this.cls.splice(idx, 1);
+                }
+            }, this);
+
+            this.opts.cls.state.forEach(function (cl) {
+                this.cls.push(cl + state);
+            }, this);
+        }
+        
         if (typeof this.svg !== "undefined") {
             this.root.remove(this.svg);
         }
         this.svg = this.root.path(this.pathdata.encode(), {
             id: this.opts.dim.id,
-            stroke: stroke,
-            strokeWidth: 8,
-            strokeLineCap: 'round',
-            fill: 'none',
+            'class': this.cls.join(' ')
         });
-        if (state > 0) {
-            this.svg.classList.add('ani-pulse');
-        }
     
         this.last_val = val;
-        this.last_stroke = stroke;
 
         if (state !== this.last_state) {
             this.last_state = state;

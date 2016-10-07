@@ -48,8 +48,10 @@ License:
             ],
             fill: 'white',
             desc: desc,
-            dpi: 60 / 5 / 60
+            dpi: 60 / 5 / 60,
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
         };
+
         this.lines = [
             {
                 name: 'write',

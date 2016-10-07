@@ -39,10 +39,9 @@ License:
                     scale: 'linear'
                 }
             ],
-            stroke: 'yellow',
-            fill: 'white',
             desc: desc,
-            dpi: 60 / 5 / 60
+            dpi: 60 / 5 / 60,
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
         };
         this.lines = [
             {
@@ -58,7 +57,7 @@ License:
                 }
             }
         ];
-        
+
         this.desc = desc;
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
