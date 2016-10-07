@@ -49,8 +49,6 @@ if (typeof Scotty.MQTT === "undefined") {
     };
     
     this.srRegisterTopic = function (topic, watcher) {
-        console.debug("REG: " + topic);
-        
         if (typeof this.topics === "undefined") {
             this.topics = {};
         }

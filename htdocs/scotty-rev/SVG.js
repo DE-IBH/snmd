@@ -50,8 +50,6 @@ if (typeof Scotty.SVG === "undefined") {
         svg.root().setAttribute('height', '100%');
 
         $('[id^="sr_"]', svg.root()).each(function () {
-	        console.log(' ' + this.id.substring(3));
-           
             var json;
             try {
                 json = JSON.parse($(this).find("desc").text());

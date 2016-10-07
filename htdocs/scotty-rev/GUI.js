@@ -77,7 +77,6 @@ if (typeof Scotty.GUI === "undefined") {
 
         if(this.viewFinalStates[root] < state) {
             this.viewFinalStates[root] = state;
-            console.log(root + " => " + this.viewFinalStates[root]);
             $('#switch-' + root).css('color', Scotty.Core.srNagStateColor(this.viewFinalStates[root]))
         }
         else {
@@ -89,7 +88,6 @@ if (typeof Scotty.GUI === "undefined") {
                     }
                 });
                 this.viewFinalStates[root] = fs;
-                console.log(root + " => " + this.viewFinalStates[root]);
                 $('#switch-' + root).css('color', Scotty.Core.srNagStateColor(this.viewFinalStates[root]))
             }
             
