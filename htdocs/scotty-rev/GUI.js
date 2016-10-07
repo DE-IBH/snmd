@@ -142,20 +142,6 @@ if (typeof Scotty.GUI === "undefined") {
             );
             var tabDivs = div;
 
-            var alignView = (function() {
-                var f = Math.min(1/1906 * ($('#snmd-views').width() - 10), 1/1038 * ($('#snmd-views').height()));
-
-                if($(document.body).hasClass('enable-3d')) {
-                    $('#snmd-views').css(
-                        'transform', 'scale(' + f + ') translateZ(-' + r  + 'px) rotateY(' + (-1 * dps * Scotty.GUI.currenStep) + 'deg)'
-                    );
-                }
-            }).bind(this);
-            
-            $(window).on('resize', function(){
-                alignView();
-            });
-            
             nav.find('a').click(function (event) {
                 console.debug('Viewing '  + this.hash);
                 Scotty.GUI.currentView = this.hash;
