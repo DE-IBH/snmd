@@ -100,14 +100,14 @@ if (typeof Scotty.SVGWidget === "undefined") {
             console.error("Widget " + svg.id + " has unknown type: " + desc.type);
             return;
         }
-        
+
         try {
             var obj = new (this.Widgets[desc.type])(root, svg, desc, this.Widgets[desc.type]);
             desc.topics.forEach(function (topic) {
                 Scotty.MQTT.srRegisterTopic(topic, obj);
             });
         } catch (err) {
-            console.error("Failed to create widget " + svg.id + ": " + err.message);
+            console.error("Failed to create widget " + svg.id + " of type " + desc.type + ": " + err.message);
             return;
         }
     }).bind(this);

@@ -58,7 +58,7 @@ License:
             throw "NagTextPerfMap supports a single topic, only!";
         }
 
-        this.chart = new (Scotty.SVGWidget.srLookupImpl("String"))(root, svg, this.opts);
+        this.chart = new (Scotty.SVGWidget.srLookupImpl("Text"))(root, svg, this.opts);
     };
     
     NagTxtPerfMap.prototype.handleUpdate = function (topic, msg) {
