@@ -42,12 +42,17 @@ if (typeof Scotty.SVGImpl.Class === "undefined") {
     "use strict";
     
     var Class = function (root, svg, opts, qtip) {
+        /* Root SVG */
+        this.root = root;
+
         /* Meta data */
         this.opts = opts;
         
         /* SVG element */
         this.el = svg;
-
+        this.opts.cls.base.forEach(function (cl) {
+            this.el.classList.add(cl);
+        }, this);
         /* Set qtip if available */
         if (typeof qtip !== "undefined") {
             this.el.qtip(qtip);
@@ -59,12 +64,16 @@ if (typeof Scotty.SVGImpl.Class === "undefined") {
             return;
         }
         
-        /* Update Class elements */
-        this.txt.classList.add('snmd-state-' + state);
-        this.txt.classList.remove('snmd-state-' + this.last_state);
+        this.opts.cls.state.forEach(function (cl) {
+            this.el.classList.remove(cl + this.last_state);
+        }, this);
+
+        this.opts.cls.state.forEach(function (cl) {
+            this.el.classList.add(cl + state);
+        }, this);
 
         this.last_state = state;
-        Scotty.GUI.srStateChanged(this.root._svg.parentElement.id, this.txt.id, state);
+        //Scotty.GUI.srStateChanged(this.root.parentElement.id, this.txt.id, state);
     };
 
     Scotty.SVGWidget.srRegisterImpl(

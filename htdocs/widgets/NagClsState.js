@@ -31,7 +31,7 @@ License:
 (function ($) {
     "use strict";
     
-    var NagClassState = function (root, svg, desc) {
+    var NagClsState = function (root, svg, desc) {
         this.opts = {
             cls: Scotty.SVGWidget.srClassOpts(desc, "Class")
         };
@@ -44,7 +44,7 @@ License:
         this.el = new (Scotty.SVGWidget.srLookupImpl("Class"))(root, svg, this.opts);
     };
     
-    NagClassState.prototype.handleUpdate = function (topic, msg) {
+    NagClsState.prototype.handleUpdate = function (topic, msg) {
         var json;
         try {
             json = JSON.parse(msg);
@@ -69,7 +69,7 @@ License:
     };
 
     Scotty.SVGWidget.srRegisterWidget(
-        "NagClassState",
-        NagClassState
+        "NagClsState",
+        NagClsState
     );
 }).call(this, jQuery);

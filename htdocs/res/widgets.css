@@ -82,3 +82,23 @@
 .snmd-bcl-Text.snmd-scl-3 {
     fill: Orange;
 }
+
+
+
+.snmd-bcl-opacity {
+    opacity: 0.5;
+}
+.snmd-bcl-opacity.snmd-scl-0 {
+    opacity: 1;
+}
+.snmd-bcl-opacity.snmd-scl-1 {
+    opacity: 1;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-opacity.snmd-scl-2 {
+    opacity: 1;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-opacity.snmd-scl-3 {
+    opacity: 0.5;
+}

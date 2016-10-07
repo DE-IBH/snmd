@@ -65,7 +65,7 @@ if (typeof Scotty.SVGWidget === "undefined") {
 
         /* add default base class by widget */
         if (typeof desc.type !== "undefined") {
-            cls.base.push('snmd-bcls-' + desc.type);
+            cls.base.push('snmd-bcl-' + desc.type);
         }
 
         /* add CSS base classes */
