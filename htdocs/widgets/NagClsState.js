@@ -38,7 +38,13 @@ License:
         
         this.last = {};
         for (var i = 0; i < desc.topics.length; i++) {
-            this.last[desc.topics[i]] = [];
+            this.last[desc.topics[i]] = [3];
+        }
+
+        if (typeof desc.clrsty !== "undefined") {
+            for (var i = 0; i < desc.clrsty.length; i++) {
+                svg.style[desc.clrsty[i]] = '';
+            }
         }
 
         this.el = new (Scotty.SVGWidget.srLookupImpl("Class"))(root, svg, this.opts);
