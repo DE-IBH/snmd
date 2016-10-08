@@ -160,7 +160,7 @@ if (typeof Scotty.GUI === "undefined") {
 
                 nav.find('a').removeClass('selected').filter(this).addClass('selected');
 
-                Scotty.GUI.currenStep = $(Scotty.GUI.currentView).prevAll().size();
+                Scotty.GUI.currenStep = $(Scotty.GUI.currentView).prevAll().length;
                 alignView();
                 
                 return false;
