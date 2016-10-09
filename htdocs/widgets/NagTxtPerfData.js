@@ -33,14 +33,7 @@ License:
     
     var NagTxtPerfData = function (root, svg, desc) {
         this.opts = {
-            axis: [
-                {
-                    max: 50,
-                    scale: 'linear'
-                }
-            ],
             desc: desc,
-            dpi: 60 / 5 / 60,
             cls: Scotty.SVGWidget.srClassOpts(desc, "Text")
         };
         

@@ -63,13 +63,17 @@ if (typeof Scotty.SVGImpl.Text === "undefined") {
         }
     };
     
-    Text.prototype.update = function (val, state) {
+    Text.prototype.update = function (val, state, formatNumeric) {
         if (this.last_val === val && state === this.last_state) {
             return;
         }
+
+        if (typeof formatNumeric === "undefined") {
+            formatNumeric = true;
+        }
         
         /* Update text elements. */
-        this.txt.textContent = Scotty.Core.srSiFormatNum(val, this.opts.uom, '-', this.opts.fracts);
+        this.txt.textContent = (formatNumeric ? Scotty.Core.srSiFormatNum(val, this.opts.uom, '-', this.opts.fracts) : val);
         this.last_val = val;
 
         /* Add state classes. */

@@ -33,15 +33,8 @@ License:
     
     var NagTxtPerfMap = function (root, svg, desc) {
         this.opts = {
-            axis: [
-                {
-                    max: 50,
-                    scale: 'linear'
-                }
-            ],
             desc: desc,
-            dpi: 60 / 5 / 60,
-            cls: Scotty.SVGWidget.srClassOpts(desc, "String")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Text")
         };
 
         this.desc = desc;
@@ -69,16 +62,19 @@ License:
             console.error('JSON error in performance data: ' + err.message);
             return;
         }
-        
+
         try {
             var val = '';
             if (typeof json.perf_data[this.opts.key] !== "undefined") {
                 val = json.perf_data[this.opts.key].val;
                 if (val in this.opts.map) {
                     val = this.opts.map[val];
+                } else {
+                    val = '?';
+                    console.debug("No mapping available [" + topic + "]: " + this.opts.key + " => " + val);
                 }
             }
-            this.chart.update(val, json.state);
+            this.chart.update(val, json.state, false);
         } catch (err) {
             console.err("Error to process performance data [" + topic + "]: " + err.message);
         }
