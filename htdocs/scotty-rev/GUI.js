@@ -165,6 +165,11 @@ if (typeof Scotty.GUI === "undefined") {
                 
                 return false;
             }).filter(':first').click();
+
+            if(window.location.hash !== "undefined") {
+                var nth = parseInt( window.location.hash.replace(/^#srView-/, "") ) - 1;
+                var a = nav.find('a:eq(' + nth + ')').click();
+            }
         }).bind(this);
 
         // Update time of day

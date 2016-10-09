@@ -26,12 +26,14 @@
         return false;
     }
 
-    if(getSupportedTransform() === false) {
-        document.location = 'index-2d.html';
+    var loc = 'index-2d.html';
+    if(getSupportedTransform() === true) {
+        loc = 'index-3d.html';
     }
-    else {
-        document.location = 'index-3d.html';
+    if(document.location.hash) {
+        loc = loc + document.location.hash;
     }
+    document.location = loc;
 </script>
 
 </body>
