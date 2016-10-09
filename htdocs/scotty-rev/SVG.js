@@ -55,6 +55,7 @@ if (typeof Scotty.SVG === "undefined") {
                 json = JSON.parse($(this).find("desc").text());
             } catch (err) {
                 console.error('JSON error in description for graph #' + this.id + ': ' + err.message);
+                console.debug($(this).find("desc").text());
             }
             if (json) {
 //                svg.remove(this);
