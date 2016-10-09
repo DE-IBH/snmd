@@ -70,7 +70,7 @@ if (typeof Scotty.SVGWidget === "undefined") {
 
         /* add CSS base classes */
         if (typeof desc.bcls !== "undefined") {
-            cls.base.push.apply(opts.cls.base, desc.bcls);
+            cls.base.push.apply(cls.base, desc.bcls);
         }
 
         if (typeof desc.bcl !== "undefined") {
