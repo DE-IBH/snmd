@@ -45,7 +45,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         /* Meta data */
         this.opts = opts;
         this.lines = lines;
-        
+
         /* Prepare line classes */
         if(typeof this.opts.lcls !== "undefined") {
             for (var l = 0; l < this.lines.length; l++) {
@@ -158,7 +158,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         /* Update chart with new lines */
 	    var ox = this.opts.dim.x + this.opts.dim.width - 3;
 	    var oy = this.opts.dim.y + this.opts.dim.height - 3;
-	    var my = this.opts.dim.height - 18;
+	    var my = this.opts.dim.height - 20;
         var fy = my / maxy;
         var clean = [];
         var last = [];

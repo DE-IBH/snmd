@@ -54,22 +54,28 @@ License:
             if (results && results[1]) {
                 switch (results[1]) {
                     case "TenGigabitEthernet":
-                        max += 2000 * 1488.096;
+                        var m = 2000 * 97.05;
+                        max = (m > max ? m : max);
                         break;
                     case "GigabitEthernet":
-                        max +=  200 * 1488.096;
+                        var m =  200 * 97.05;
+                        max = (m > max ? m : max);
                         break;
                     case "POS":
-                        max +=   31 * 1488.096;
+                        var m =   31 * 97.05;
+                        max = (m > max ? m : max);
                         break;
                     case "FastEthernet":
-                        max +=   20 * 1488.096;
+                        var m =   20 * 97.05;
+                        max = (m > max ? m : max);
                         break;
                     case "Ethernet":
-                        max +=    2 * 1488.096;
+                        var m =    2 * 97.05;
+                        max = (m > max ? m : max);
                         break;
                     default:
-                        max += this.opts.axis[0].max;
+                        var m = this.opts.axis[0].max;
+                        max = (m > max ? m : max);
                         break;
                 }
             }
