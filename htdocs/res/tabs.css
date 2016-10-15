@@ -1,3 +1,36 @@
+#snmd-ctrl {
+    float: right;
+    width: auto;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.1ex;
+}
+
+ul.snmd-ctrl {
+    list-style:none;
+    margin:0;
+    background-color: rgba(38, 41, 44, 1);
+    height: 20px;
+    border-radius: 5px;
+}
+
+ul.snmd-ctrl li {
+    display: inline;
+}
+
+ul.snmd-ctrl li a {
+    padding: 2px 1ex;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 0.1ex;
+    color: #808080;
+    border: 1px solid black;
+    transition: background-color 5s ease, font-weight 5s ease;
+}
+
+
 #snmd_clock {
     float: right;
     padding:2px 1ex;
@@ -36,8 +69,6 @@
     width: 8px;
     height: 8px;
     background: #7f0000;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px;
 }
 
@@ -47,8 +78,6 @@ ul.srViewsNav {
     padding:0px 10px;
     background-color: rgba(38, 41, 44, 1);
     height: 20px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
@@ -90,16 +119,13 @@ div.svgview {
     background-color: rgba(38, 41, 44, 0.5);
 
     opacity: 0;
-    transition: opacity 1.5s ease-out, background-color 1.5s ease-out, filter 1.5s ease-in, -webkit-filter 1.5s ease-in;
+    transition: opacity 1.5s ease-out, background-color 1.5s ease-out, filter 1.5s ease-in;
     display: block;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
 
     /* performance killer
     filter: blur(2px);
-    -webkit-filter: blur(2px);
     */
 }
 
@@ -112,20 +138,19 @@ div.svgview.current {
     opacity: 1;
 
     filter: none;
-    -webkit-filter: none;
 }
 
 .enable-3d div.svgview.current {
     opacity: 1;
-    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s, -webkit-filter 1.5s ease-out;
+    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s;
 }
 
 .on-screensaver div.svgview.current {
-    transition: opacity 1.5s ease-in, background-color 1.5s ease-in, filter 1.5s ease-out, -webkit-filter 1.5s ease-out;
+    transition: opacity 1.5s ease-in, background-color 1.5s ease-in, filter 1.5s ease-out;
 }
 
 .enable-3d .on-screensaver div.svgview.current {
-    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s, -webkit-filter 1.5s ease-out;
+    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s;
 }
 
 div.svgview svg {
@@ -159,8 +184,6 @@ div.svgview svg {
 
 .enable-3d #snmd-vinner {
     perspective: 1000px;
-    -webkit-perspective: 1000px;
-    -moz-perspective: 1000px;
 }
 
 #snmd-views {
@@ -170,14 +193,10 @@ div.svgview svg {
     transition: 5s;
 
     transform-style: flat;
-    -webkit-transform-style: flat;
-    -moz-transform-style: flat;
 }
 
 .enable-3d #snmd-views {
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
 }
 
 .on-screensaver #snmd-views {
@@ -201,8 +220,6 @@ div.svgview iframe {
     height: 14%;
     border: 1px solid #7f7f7f;
 
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     border-radius: 10px;
 }
 

@@ -6,6 +6,7 @@
         @import "res/widgets.css";
         @import "lib/svg-1.5.0/jquery.svg.css";
         @import "lib/qtip2/jquery.qtip-3.0.3.min.css";
+        @import "lib/font-awesome-4.6.3/css/font-awesome.min.css";
         @import "css/local.css";
     </style>
     <script type="text/javascript" src="lib/jquery/jquery-2.2.4.min.js"></script>
@@ -50,7 +51,13 @@
 <body class="notransition">
     <div id="snmd-hb"></div>
     <div id="snmd_clock">-</div>
-    <div id="snmd-title"></div>
+    <div id="snmd-ctrl">
+        <ul class="snmd-ctrl">
+            <li><a id="ctrl-volume" href="#volume" title="Enable alert sounds."><i class="fa fa-volume-off"></i></a></li>
+            <li><a id="ctrl-rotate" href="#rotate" title="Enable auto rotate."><i class="fa fa-repeat"></i></a></li>
+            <li><a id="ctrl-follow" href="#follow" title="Switch to view on state change."><i class="fa fa-hand-o-down"></i></a></li>
+        </ul>
+    </div>    <div id="snmd-title"></div>
     <div class="srViews">
         <ul class="srViewsNav"></ul>
     </div>

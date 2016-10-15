@@ -170,6 +170,12 @@ if (typeof Scotty.GUI === "undefined") {
                 var nth = parseInt( window.location.hash.replace(/^#srView-/, "") ) - 1;
                 var a = nav.find('a:eq(' + nth + ')').click();
             }
+
+            $('#snmd-ctrl').find('a').click(function (event) {
+                console.debug('Control: '  + this.hash);
+
+                return false;
+            }).filter(':first').click();
         }).bind(this);
 
         // Update time of day
