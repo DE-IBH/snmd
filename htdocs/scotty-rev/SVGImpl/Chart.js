@@ -136,10 +136,26 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         }
         
         /* Drop old data reaching TS window */
+        var shift_ts;
+        var shift_data = [];
         while(this.data_ts[0] < ts - this.data_tswin) {
-            this.data_ts.shift();
+            shift_ts = this.data_ts.shift();
             for (var i = 0; i < this.data_lines.length; i++) {
-                this.data_lines[i].shift();
+                shift_data[i] = this.data_lines[i].shift();
+            }
+        }
+
+        /* Linear approximate values at last visible timestamp */
+        if(typeof shift_ts !== "undefined") {
+            if(this.data_ts.length > 0) {
+                var nts = ts - this.data_tswin;
+                this.data_ts.unshift(nts);
+
+                for (var i = 0; i < this.data_lines.length; i++) {
+                    this.data_lines[i].unshift(
+                        shift_data[i] + (this.data_lines[i][0] - shift_data[i])*(nts - shift_ts)/(this.data_ts[1] - shift_ts)
+                    );
+                }
             }
         }
 
