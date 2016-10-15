@@ -45,6 +45,24 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         /* Meta data */
         this.opts = opts;
         this.lines = lines;
+        
+        /* Prepare line classes */
+        if(typeof this.opts.lcls !== "undefined") {
+            for (var l = 0; l < this.lines.length; l++) {
+                var classes = this.opts.lcls.slice(0);
+                this.opts.lcls.forEach(function (cl) {
+                    classes.push(cl + "-" + this.lines[l].name);
+                }, this);
+                this.lines[l].style = { 'class': classes.join(' ') };
+            }
+        }
+
+        /* Prepare scaling line classes */
+        if(typeof this.opts.mcls !== "undefined") {
+            this.maxline_style =  {
+                'class': this.opts.mcls.join(' ')
+            };
+        }
 
         /* SVG container */
         this.root = root;
@@ -78,18 +96,18 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
 
         /* SVG text elements showing current values */
         this.txt = [
-            root.text(opts.dim.x + 2, opts.dim.y + 10, '', {
-                fontSize: '10px',
-                fill: this.lines[0].style.stroke,
-                textAnchor: 'begin'
-            })
+            root.text(opts.dim.x, opts.dim.y, '')
         ];
         if (lines.length > 1) {
-            this.txt[1] = root.text(opts.dim.x + opts.dim.width - 2, opts.dim.y + 10, '', {
-                fontSize: '10px',
-                fill: this.lines[1].style.stroke,
-                textAnchor: 'end'
-            });
+            this.txt[1] = root.text(opts.dim.x + opts.dim.width, opts.dim.y, '');
+        }
+        for (var l = 0; l < this.txt.length; l++) {
+            if(typeof this.opts.tcls !== "undefined") {
+                this.opts.tcls.forEach(function (cl) {
+                    this.txt[l].classList.add(cl);
+                    this.txt[l].classList.add(cl + "-" + this.lines[l].name);
+                }, this);
+            }
         }
 
         /* TS window: used to drop old data */
@@ -140,7 +158,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         /* Update chart with new lines */
 	    var ox = this.opts.dim.x + this.opts.dim.width - 3;
 	    var oy = this.opts.dim.y + this.opts.dim.height - 3;
-	    var my = this.opts.dim.height - 14;
+	    var my = this.opts.dim.height - 18;
         var fy = my / maxy;
         var clean = [];
         var last = [];
@@ -154,7 +172,7 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
                 }
 
                 var y = oy - (i + 1) * this.opts.axis[0].max * fy;
-                this.axis_maxlines[i] = this.root.line(this.opts.dim.x, y, this.opts.dim.x + this.opts.dim.width, y, {stroke: 'black', strokeWidth: 0.6});
+                this.axis_maxlines[i] = this.root.line(this.opts.dim.x, y, this.opts.dim.x + this.opts.dim.width, y, this.maxline_style);
             }
             if(this.axis_maxlines.length > numlines) {
                 clean = clean.concat( this.axis_maxlines.splice(numlines, this.axis_maxlines.length - numlines) );
@@ -164,7 +182,15 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         /* Data lines */
         for (var l = 0; l < this.data_lines.length; l++) {
             var points = [];
-            var is_polygon = (this.lines[l].style.fill.toLowerCase() != 'none');
+            var is_polygon = true;
+
+            /* assume the line is just a polyline if the style does not apply a fill pattern */
+            if(typeof this.data_svg[l] !== "undefined") {
+                var style = window.getComputedStyle(this.data_svg[l]);
+                if(style['fill'] === 'none' || style['fill'] === '') {
+                    is_polygon = false;
+                }
+            }
             
             for (var t = 0; t < this.data_ts.length; t++) {
                 var x = ox + (this.data_ts[t] - ts)*this.opts.dpi;
@@ -226,11 +252,6 @@ if (typeof Scotty.SVGImpl.Chart === "undefined") {
         while(clean.length) {
             var s = clean.shift();
             this.root.remove(s);
-        }
-
-        if(stroke !== this.last_stroke) {
-            this.rect.style.stroke = stroke;
-            this.last_stroke = stroke;
         }
 
         if (state !== this.last_state) {

@@ -101,14 +101,14 @@ if (typeof Scotty.SVGWidget === "undefined") {
             return;
         }
 
-        try {
+  //      try {
             var obj = new (this.Widgets[desc.type])(root, svg, desc, this.Widgets[desc.type]);
             desc.topics.forEach(function (topic) {
                 Scotty.MQTT.srRegisterTopic(topic, obj);
             });
-        } catch (err) {
-            console.error("Failed to create widget " + svg.id + " of type " + desc.type + ": " + err.message);
-            return;
-        }
+      //  } catch (err) {
+//            console.error("Failed to create widget " + svg.id + " of type " + desc.type + ": " + err.message);
+          //  return;
+        //}
     }).bind(this);
 }).call(Scotty.SVGWidget, jQuery);

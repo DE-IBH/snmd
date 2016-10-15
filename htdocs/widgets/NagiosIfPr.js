@@ -41,7 +41,10 @@ License:
             ],
             desc: desc,
             dpi: 60 / 5 / 60,
-            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart"),               /* rect classes    */
+            lcls: ['snmd-lcl-Nag', 'snmd-lcl-NagIf', 'snmd-lcl-NagIfPr'],     /* line classes    */
+            mcls: ['snmd-mcl-Nag', 'snmd-mcl-NagIf', 'snmd-mcl-NagIfPr'],     /* maxline classes */
+            tcls: ['snmd-tcl-Nag', 'snmd-tcl-NagIf', 'snmd-tcl-NagIfPr']      /* text classes    */
         };
 
         // get max scaling
@@ -84,28 +87,14 @@ License:
 
         this.lines = [
             {
-                name: 'outucast',
-                axis: 0,
-                unit: 'p',
-                style: {
-                    stroke: 'DodgerBlue',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'DodgerBlue'
-                }
-            },
-            {
                 name: 'inucast',
                 axis: 0,
                 unit: 'p',
-                style: {
-                    stroke: 'LimeGreen',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'none'
-                }
+            },
+            {
+                name: 'outucast',
+                axis: 0,
+                unit: 'p',
             }
         ];
         

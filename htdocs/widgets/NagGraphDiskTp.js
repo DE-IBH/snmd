@@ -33,13 +33,6 @@ License:
     
     var NagGraphDiskTp = function (root, svg, desc) {
         this.opts = {
-/*            dim: {
-                x: dim.x,
-                y: dim.y,
-                w: dim.width,
-                h: dim.height
-            },
-            id: dim.id,*/
             axis: [
                 {
                     max: 100000000,
@@ -49,33 +42,22 @@ License:
             fill: 'white',
             desc: desc,
             dpi: 60 / 5 / 60,
-            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart"),               /* rect classes    */
+            lcls: ['snmd-lcl-Nag', 'snmd-lcl-NagIO', 'snmd-lcl-NagIOTp'],   /* line classes    */
+            mcls: ['snmd-mcl-Nag', 'snmd-mcl-NagIO', 'snmd-mcl-NagIOTp'],   /* maxline classes */
+            tcls: ['snmd-tcl-Nag', 'snmd-tcl-NagIO', 'snmd-tcl-NagIOTp']    /* text classes    */
         };
 
         this.lines = [
             {
-                name: 'write',
-                axis: 0,
-                unit: 'B',
-                style: {
-                    stroke: 'Orchid',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'Orchid'
-                }
-            },
-            {
                 name: 'read',
                 axis: 0,
-                unit: 'B',
-                style: {
-                    stroke: 'RoyalBlue',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'none'
-                }
+                unit: 'B'
+            },
+            {
+                name: 'write',
+                axis: 0,
+                unit: 'B'
             }
         ];
         

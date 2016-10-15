@@ -149,3 +149,74 @@
 .snmd-bcl-opacity-fill.snmd-scl-3 {
     fill: Orange;
 }
+
+
+
+
+.snmd-mcl-Nag {
+    stroke: Black;
+    stroke-linecap: round;
+    stroke-width: 1.5px;
+}
+
+
+.snmd-lcl-Nag {
+    fill: none;
+    stroke: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+}
+
+.snmd-tcl-Nag {
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+
+.snmd-lcl-NagIf-in,
+.snmd-lcl-NagIf-inucast {
+    fill: LawnGreen;
+    stroke: LawnGreen;
+}
+.snmd-lcl-NagIf-out,
+.snmd-lcl-NagIf-outucast {
+    stroke: DodgerBlue;
+}
+
+.snmd-tcl-NagIf-in,
+.snmd-tcl-NagIf-inucast {
+    text-anchor: begin;
+    fill: LimeGreen;
+    transform: translate(3px, 13px);
+}
+.snmd-tcl-NagIf-out,
+.snmd-tcl-NagIf-outucast {
+    text-anchor: end;
+    fill: DodgerBlue;
+    transform: translate(-3px, 13px);
+}
+
+
+.snmd-lcl-NagFc-in,
+.snmd-lcl-NagIO-read {
+    fill: Orchid;
+    stroke: Orchid;
+}
+.snmd-lcl-NagFc-out,
+.snmd-lcl-NagIO-write {
+    stroke: RoyalBlue;
+}
+
+.snmd-tcl-NagFc-in,
+.snmd-tcl-NagIO-read {
+    text-anchor: begin;
+    fill: Orchid;
+    transform: translate(3px, 13px);
+}
+.snmd-tcl-NagFc-out,
+.snmd-tcl-NagIO-write {
+    text-anchor: end;
+    fill: RoyalBlue;
+    transform: translate(-3px, 13px);
+}

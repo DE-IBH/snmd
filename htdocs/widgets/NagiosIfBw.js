@@ -48,7 +48,10 @@ License:
             ],
             desc: desc,
             dpi: 60 / 5 / 60,
-            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart"),               /* rect classes    */
+            lcls: ['snmd-lcl-Nag', 'snmd-lcl-NagIf', 'snmd-lcl-NagIfBw'],     /* line classes    */
+            mcls: ['snmd-mcl-Nag', 'snmd-mcl-NagIf', 'snmd-mcl-NagIfBw'],     /* maxline classes */
+            tcls: ['snmd-tcl-Nag', 'snmd-tcl-NagIf', 'snmd-tcl-NagIfBw']      /* text classes    */
         };
 
         // get max scaling
@@ -58,22 +61,28 @@ License:
             if (results && results[1]) {
                 switch (results[1]) {
                     case "TenGigabitEthernet":
-                        max +=  2000 * 1000000;
+                        var m =  2000 * 1000000;
+                        max = (m > max ? m : max);
                         break;
                     case "GigabitEthernet":
-                        max +=   200 * 1000000;
+                        var m =  200 * 1000000;
+                        max = (m > max ? m : max);
                         break;
                     case "POS":
-                        max +=    31 * 1000000;
+                        var m =   31 * 1000000;
+                        max = (m > max ? m : max);
                         break;
                     case "FastEthernet":
-                        max +=    20 * 1000000;
+                        var m =   20 * 1000000;
+                        max = (m > max ? m : max);
                         break;
                     case "Ethernet":
-                        max +=     2 * 1000000;
+                        var m =    2 * 1000000;
+                        max = (m > max ? m : max);
                         break;
                     default:
-                        max +=   this.opts.axis[0].max;
+                        var m =  this.opts.axis[0].max;
+                        max = (m > max ? m : max);
                         break;
                 }
             }
@@ -91,28 +100,14 @@ License:
 
         this.lines = [
             {
-                name: 'out',
-                axis: 0,
-                unit: 'b',
-                style: {
-                    stroke: 'DodgerBlue',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'DodgerBlue'
-                }
-            },
-            {
                 name: 'in',
                 axis: 0,
                 unit: 'b',
-                style: {
-                    stroke: 'LimeGreen',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'none'
-                }
+            },
+            {
+                name: 'out',
+                axis: 0,
+                unit: 'b',
             }
         ];
 

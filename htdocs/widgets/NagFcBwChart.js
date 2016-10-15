@@ -41,7 +41,10 @@ License:
             ],
             desc: desc,
             dpi: 60 / 5 / 60,
-            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Chart"),               /* rect classes    */
+            lcls: ['snmd-lcl-Nag', 'snmd-lcl-NagFc', 'snmd-lcl-NagFcBw'],   /* line classes    */
+            mcls: ['snmd-mcl-Nag', 'snmd-mcl-NagFc', 'snmd-mcl-NagFcBw'],   /* maxline classes */
+            tcls: ['snmd-tcl-Nag', 'snmd-tcl-NagFc', 'snmd-tcl-NagFcBw']    /* text classes    */
         };
 
         // get max scaling
@@ -59,31 +62,17 @@ License:
 
         this.lines = [
             {
-                name: 'out',
-                axis: 0,
-                unit: 'B',
-                style: {
-                    stroke: 'Orchid',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'Orchid'
-                }
-            },
-            {
                 name: 'in',
                 axis: 0,
-                unit: 'B',
-                style: {
-                    stroke: 'RoyalBlue',
-                    strokeLineCap: 'round',
-                    strokeLineJoin: 'round',
-                    strokeWidth: 1.5,
-                    fill: 'none'
-                }
+                unit: 'B'
+            },
+            {
+                name: 'out',
+                axis: 0,
+                unit: 'B'
             }
         ];
-
+        
         this.desc = desc;
         this.last = {};
         for (var t = 0; t < desc.topics.length; t++) {
