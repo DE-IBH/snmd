@@ -50,12 +50,12 @@ License:
 
         this.lines = [
             {
-                name: 'read',
+                name: 'dist_read_throughput',
                 axis: 0,
                 unit: 'B'
             },
             {
-                name: 'write',
+                name: 'dist_write_throughput',
                 axis: 0,
                 unit: 'B'
             }
@@ -89,7 +89,7 @@ License:
                 this.last[topic][i].val = json.perf_data[this.lines[i].name].val;
                 this.last[topic][i].state = json.state;
             } catch (err) {
-                console.warn("Error to process performance data of " + line + ": " + err.message);
+                console.warn("Error to process performance data of " + this.lines[i].name + ": " + err.message);
             }
         }
         
