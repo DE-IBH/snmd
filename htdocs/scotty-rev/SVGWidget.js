@@ -103,9 +103,11 @@ if (typeof Scotty.SVGWidget === "undefined") {
 
         try {
             var obj = new (this.Widgets[desc.type])(root, svg, desc, this.Widgets[desc.type]);
-            desc.topics.forEach(function (topic) {
-                Scotty.MQTT.srRegisterTopic(topic, obj);
-            });
+            if (typeof desc.topics !== "undefined") {
+                desc.topics.forEach(function (topic) {
+                    Scotty.MQTT.srRegisterTopic(topic, obj);
+                });
+            }
         } catch (err) {
             console.error("Failed to create widget " + svg.id + " of type " + desc.type + ": " + err.message);
             return;

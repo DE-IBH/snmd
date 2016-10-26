@@ -71,7 +71,8 @@ if (typeof Scotty.SVGImpl.Gradient === "undefined") {
         svg.style.fill = 'url(#foo)';
     };
     
-    Gradient.prototype.update = function (val, state, formatNumeric) {
+    Gradient.prototype.update = function (stops, state) {
+        console.info(JSON.stringify(stops));
     };
 
     Scotty.SVGWidget.srRegisterImpl(

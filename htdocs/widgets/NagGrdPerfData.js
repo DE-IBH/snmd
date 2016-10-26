@@ -35,10 +35,32 @@ License:
         this.opts = {
             cls: Scotty.SVGWidget.srClassOpts(desc, "Gradient")
         };
-        
+
+        this.desc = desc;
         this.last = {};
+        this.states = {};
+        this.tmap = {};
+
+        for (var stop in desc.stops) {
+            this.last[stop] = [];
+            for(var t = 0; t < this.stops[stop].length; t++) {
+                var topic = desc.stops[stop][t];
+
+                if (this.tmap[topic].indexOf(stop) == -1) {
+                    this.tmap[topic].push(stop);
+                }
+
+                this.last[stop][topic] = 0;
+            }
+        }
 
         this.grad = new (Scotty.SVGWidget.srLookupImpl("Gradient"))(root, svg, this.opts);
+
+        /* subscribe to topics */
+        for (var topic in this.tmap) {
+            console.warn(topic);
+            Scotty.MQTT.srRegisterTopic(topic, this);
+        };
     };
     
     NagGrdPerfData.prototype.handleUpdate = function (topic, msg) {
@@ -49,8 +71,50 @@ License:
             console.error('JSON error in performance data: ' + err.message);
             return;
         }
+
+        /* set last value of current topic to zero */
+        for (var i = 0; i < this.tmap[topic].length; i++) {
+            this.last[ this.tmap[topic][i] ][topic] = val;
+        }
+
+        /* extract current value */
+        var val = 0;
+        try {
+            this.states[topic] = json.state;
+
+            for (var i = 0; i < this.opts.keys.length; i++) {
+                if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
+                    val += parseFloat(json.perf_data[this.opts.keys[i]].val) * this.factors[topic];
+                }
+            }
+
+            for (var i = 0; i < this.tmap[topic].length; i++) {
+                this.last[ this.tmap[topic][i] ][topic] = val;
+            }
+
+        } catch (err) {
+            console.err("Error to process performance data [" + topic + "]: " + err.message);
+        }
         
-        //this.grad.update(state);
+        var state = 0;
+        var stops = [];
+        for(var stop in this.last) {
+            var val = 0;
+
+            for(var topic in this.last[stop]) {
+                var v = parseFloat(this.last[stop][topic]);
+                if(isNaN(v)) {
+                    v = 0;
+                }
+                val += v;
+
+                state = Math.max(state, this.states[topic]);
+            }
+
+            stops[stop] = val / this.last[stop].length;
+        }
+        
+        this.grad.update(stops, state);
     };
 
     Scotty.SVGWidget.srRegisterWidget(
