@@ -33,7 +33,10 @@ License:
     
     var NagGrdPerfData = function (root, svg, desc) {
         this.opts = {
-            cls: Scotty.SVGWidget.srClassOpts(desc, "Gradient")
+            cls: Scotty.SVGWidget.srClassOpts(desc, "Gradient"),
+            key: desc.key,
+            range: desc.range,
+            coords: desc.coords
         };
 
         this.desc = desc;
@@ -42,23 +45,27 @@ License:
         this.tmap = {};
 
         for (var stop in desc.stops) {
-            this.last[stop] = [];
-            for(var t = 0; t < this.stops[stop].length; t++) {
+            this.last[stop] = {};
+            for(var t = 0; t < desc.stops[stop].length; t++) {
                 var topic = desc.stops[stop][t];
+
+                if (typeof this.tmap[topic] === "undefined") {
+                    this.tmap[topic] = [];
+                }
 
                 if (this.tmap[topic].indexOf(stop) == -1) {
                     this.tmap[topic].push(stop);
                 }
 
-                this.last[stop][topic] = 0;
+                this.last[stop][topic] = undefined;
             }
         }
+        this.opts.stops = Object.keys(this.last);
 
         this.grad = new (Scotty.SVGWidget.srLookupImpl("Gradient"))(root, svg, this.opts);
 
         /* subscribe to topics */
         for (var topic in this.tmap) {
-            console.warn(topic);
             Scotty.MQTT.srRegisterTopic(topic, this);
         };
     };
@@ -82,36 +89,45 @@ License:
         try {
             this.states[topic] = json.state;
 
-            for (var i = 0; i < this.opts.keys.length; i++) {
-                if(typeof json.perf_data[this.opts.keys[i]] !== "undefined") {
-                    val += parseFloat(json.perf_data[this.opts.keys[i]].val) * this.factors[topic];
-                }
+            if(typeof json.perf_data[this.opts.key] !== "undefined") {
+                val = parseFloat(json.perf_data[this.opts.key].val);
             }
 
             for (var i = 0; i < this.tmap[topic].length; i++) {
                 this.last[ this.tmap[topic][i] ][topic] = val;
             }
-
         } catch (err) {
-            console.err("Error to process performance data [" + topic + "]: " + err.message);
+            console.error("Error to process performance data [" + topic + "]: " + err.message);
         }
         
         var state = 0;
         var stops = [];
         for(var stop in this.last) {
             var val = 0;
+            var ok = true;
 
             for(var topic in this.last[stop]) {
                 var v = parseFloat(this.last[stop][topic]);
                 if(isNaN(v)) {
                     v = 0;
+                    ok = false;
                 }
                 val += v;
 
                 state = Math.max(state, this.states[topic]);
             }
 
-            stops[stop] = val / this.last[stop].length;
+            val /= Object.keys(this.last[stop]).length;
+
+            /* ignore values out-of-range */
+            if (val < this.opts.range[0]) {
+                val = this.opts.range[0];
+            }
+            if (val > this.opts.range[1]) {
+                val = this.opts.range[1];
+            }
+
+            stops[stop] = (ok ? 80 - (val - this.opts.range[0]) * 80 / (this.opts.range[1] - this.opts.range[0]) : undefined);
         }
         
         this.grad.update(stops, state);

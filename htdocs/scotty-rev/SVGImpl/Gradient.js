@@ -59,20 +59,37 @@ if (typeof Scotty.SVGImpl.Gradient === "undefined") {
             this.svg.qtip(qtip);
         }
 
-        this.grad = root.linearGradient(null, 'foo', [
-            [0.0769, 'hsl(49.16,100%,50%)'],
-            [0.2308, 'hsl(50.04,100%,50%)'],
-            [0.3846, 'hsl(47.04,100%,50%)'],
-            [0.5385, 'hsl(50.40,100%,50%)'],
-            [0.6923, 'hsl(49.40,100%,50%)'],
-            [0.8462, 'hsl(57.60,100%,50%)'],
-            [1.0000, 'hsl(56.16,100%,50%)']
-        ], 0, 0, 1, 0);
-        svg.style.fill = 'url(#foo)';
+        var s = [];
+        for (var stop in this.opts.stops) {
+            s.push([this.opts.stops[stop], '#404040']);
+        }
+
+        this.grad = root.linearGradient(null, Scotty.Core.srGenID('lgrd'), s, this.opts.coords[0], this.opts.coords[1], this.opts.coords[2], this.opts.coords[3]);
+
+        this.stops = {};
+        var i = 0;
+        for (var stop in this.opts.stops) {
+            this.stops[ this.opts.stops[stop] ] = this.grad.childNodes[i];
+            i++;
+        }
+
+        svg.style.fill = 'url(#' + this.grad.id + ')';
+        opts.cls.base.forEach(function (cl) {
+            svg.classList.add(cl);
+            this.grad.classList.add(cl);
+        }, this);
     };
     
     Gradient.prototype.update = function (stops, state) {
-        console.info(JSON.stringify(stops));
+        for (var stop in stops) {
+            if (typeof stops[stop] !== "undefined") {
+                this.stops[stop].setAttribute('stop-color', 'hsl(' + stops[stop] + ',100%,50%')
+            }
+            else {
+                this.stops[stop].setAttribute('stop-color', '#404040')
+            }
+        }
+        console.info(stops);
     };
 
     Scotty.SVGWidget.srRegisterImpl(
