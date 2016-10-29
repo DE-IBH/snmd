@@ -1,3 +1,3 @@
-{
-    "svg/demo.svg": "Demo",
-}
+[
+    { "url": "svg/demo.svg", "title": "Demo" }
+]
