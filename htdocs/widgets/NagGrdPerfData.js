@@ -129,7 +129,7 @@ License:
                 val = this.opts.range[1];
             }
 
-            stops[stop] = (ok ? this.opts.hoffset + (val - this.opts.range[0]) * this.opts.hscale / (this.opts.range[1] - this.opts.range[0]) : undefined);
+            stops[stop] = (ok ? (  this.opts.hoffset + (val - this.opts.range[0]) * this.opts.hscale / (this.opts.range[1] - this.opts.range[0])  ) % 360 : undefined);
         }
         
         this.grad.update(stops, state);
