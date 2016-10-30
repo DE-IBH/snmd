@@ -36,6 +36,8 @@ License:
             cls: Scotty.SVGWidget.srClassOpts(desc, "Gradient"),
             key: desc.key,
             range: desc.range,
+            hoffset: desc.hoffset,
+            hscale: desc.hscale,
             coords: desc.coords
         };
 
@@ -127,7 +129,7 @@ License:
                 val = this.opts.range[1];
             }
 
-            stops[stop] = (ok ? 80 - (val - this.opts.range[0]) * 80 / (this.opts.range[1] - this.opts.range[0]) : undefined);
+            stops[stop] = (ok ? this.opts.hoffset + (val - this.opts.range[0]) * this.opts.hscale / (this.opts.range[1] - this.opts.range[0]) : undefined);
         }
         
         this.grad.update(stops, state);
