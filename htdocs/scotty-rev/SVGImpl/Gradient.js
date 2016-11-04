@@ -79,11 +79,11 @@ if (typeof Scotty.SVGImpl.Gradient === "undefined") {
             this.grad.classList.add(cl);
         }, this);
     };
-    
+
     Gradient.prototype.update = function (stops, state) {
         for (var stop in stops) {
             if (typeof stops[stop] !== "undefined") {
-                this.stops[stop].setAttribute('stop-color', 'hsl(' + stops[stop] + ',100%,50%')
+                this.stops[stop].setAttribute('stop-color', 'hsl(' + stops[stop] + ',100%,50%)')
             }
             else {
                 this.stops[stop].setAttribute('stop-color', '#404040')
