@@ -1,0 +1,228 @@
+@keyframes snmp-kf-opacity {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes snmp-kf-stroke {
+  0% {  }
+  50% { stroke: white; }
+  100% {  }
+}
+
+.snmd-bcl-Chart {
+    stroke: grey;
+    stroke-width: 2.5;
+    fill: white;
+    animation: snmp-kf-stroke 6s ease infinite;
+}
+.snmd-bcl-Chart.snmd-scl-0 {
+    stroke: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-Chart.snmd-scl-1 {
+    stroke: Gold;
+    animation: snmp-kf-stroke 4s ease infinite;
+}
+.snmd-bcl-Chart.snmd-scl-2 {
+    stroke: Crimson;
+    animation: snmp-kf-stroke 2s ease infinite;
+}
+.snmd-bcl-Chart.snmd-scl-3 {
+    stroke: Orange;
+}
+
+
+.snmd-bcl-Gauge-BG {
+    stroke: #202020;
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+}
+.snmd-bcl-Gauge {
+    stroke: Grey;
+    stroke-width: 8;
+    stroke-linecap: round;
+    fill: none;
+    animation: snmp-kf-opacity 6s ease infinite;
+}
+.snmd-bcl-Gauge.snmd-scl-0 {
+    stroke: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-Gauge.snmd-scl-1 {
+    stroke: Gold;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-Gauge.snmd-scl-2 {
+    stroke: Crimson;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-Gauge.snmd-scl-3 {
+    stroke: Orange;
+}
+
+
+.snmd-bcl-Text {
+    fill: Grey;
+    animation: snmp-kf-opacity 6s ease infinite;
+}
+.snmd-bcl-Text.snmd-scl-0 {
+    fill: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-Text.snmd-scl-1 {
+    fill: Gold;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-Text.snmd-scl-2 {
+    fill: Crimson;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-Text.snmd-scl-3 {
+    fill: Orange;
+}
+
+
+.snmd-bcl-opacity {
+    opacity: 0.5;
+}
+.snmd-bcl-opacity.snmd-scl-0 {
+    opacity: 1;
+}
+.snmd-bcl-opacity.snmd-scl-1 {
+    opacity: 1;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-opacity.snmd-scl-2 {
+    opacity: 1;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-opacity.snmd-scl-3 {
+    opacity: 0.5;
+}
+
+
+.snmd-bcl-opacity-stroke {
+    stroke: Grey;
+    animation: snmp-kf-opacity 6s ease infinite;
+}
+.snmd-bcl-opacity-stroke.snmd-bcl-NagTxtState {
+    stroke-width: 1px;
+}
+.snmd-bcl-opacity-stroke.snmd-scl-0 {
+    stroke: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-opacity-stroke.snmd-bcl-NagTxtState.snmd-scl-0 {
+    stroke: none;
+}
+.snmd-bcl-opacity-stroke.snmd-scl-1 {
+    stroke: Gold;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-opacity-stroke.snmd-scl-2 {
+    stroke: Crimson;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-opacity-stroke.snmd-scl-3 {
+    stroke: Orange;
+}
+
+
+.snmd-bcl-opacity-fill {
+    fill: Grey;
+    animation: snmp-kf-opacity 6s ease infinite;
+}
+.snmd-bcl-opacity-fill.snmd-scl-0 {
+    fill: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-opacity-fill.snmd-scl-1 {
+    fill: Gold;
+    animation: snmp-kf-opacity 4s ease infinite;
+}
+.snmd-bcl-opacity-fill.snmd-scl-2 {
+    fill: Crimson;
+    animation: snmp-kf-opacity 2s ease infinite;
+}
+.snmd-bcl-opacity-fill.snmd-scl-3 {
+    fill: Orange;
+}
+
+
+
+
+.snmd-mcl-Nag {
+    stroke: Black;
+    stroke-linecap: round;
+    stroke-width: 1.5px;
+}
+
+
+.snmd-lcl-Nag {
+    fill: none;
+    stroke: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+}
+
+.snmd-tcl-Nag {
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+
+.snmd-lcl-NagIf-in,
+.snmd-lcl-NagIf-inucast {
+    fill: LawnGreen;
+    stroke: LawnGreen;
+}
+.snmd-lcl-NagIf-out,
+.snmd-lcl-NagIf-outucast {
+    stroke: DodgerBlue;
+}
+
+.snmd-tcl-NagIf-in,
+.snmd-tcl-NagIf-inucast {
+    text-anchor: begin;
+    fill: LimeGreen;
+    transform: translate(3px, 13px);
+}
+.snmd-tcl-NagIf-out,
+.snmd-tcl-NagIf-outucast {
+    text-anchor: end;
+    fill: DodgerBlue;
+    transform: translate(-3px, 13px);
+}
+
+
+.snmd-lcl-NagFc-in,
+.snmd-lcl-NagIO-read {
+    fill: Orchid;
+    stroke: Orchid;
+}
+.snmd-lcl-NagFc-out,
+.snmd-lcl-NagIO-write {
+    stroke: RoyalBlue;
+}
+
+.snmd-tcl-NagFc-in,
+.snmd-tcl-NagIO-read {
+    text-anchor: begin;
+    fill: Orchid;
+    transform: translate(3px, 13px);
+}
+.snmd-tcl-NagFc-out,
+.snmd-tcl-NagIO-write {
+    text-anchor: end;
+    fill: RoyalBlue;
+    transform: translate(-3px, 13px);
+}
+
+
+
+linearGradient.snmd-bcl-Gradient > stop {
+    transition: stop-color 4s ease !important;
+}

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="blib/open-sans-fontface/open-sans.css" type="text/css" />
+    <script type="text/javascript" src="lib/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="lib/modernizr/modernizr-custom-3.3.1.js"></script>
+</head>
+
+<body>
+
+<p>
+    Choose visualation mode:
+</p>
+<ul>
+    <li><a href="index-2d.html">flat</a></li>
+    <li><a href="index-3d.html">3D</a></li>
+</ul>
+
+<script type="text/javascript">
+    var loc = 'index-2d.html';
+    if(Modernizr.csstransforms3d) {
+        loc = 'index-3d.html';
+    }
+    if(document.location.hash) {
+        loc = loc + document.location.hash;
+    }
+    document.location = loc;
+</script>
+
+</body>
+</html>
