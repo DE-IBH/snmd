@@ -109,7 +109,7 @@ if (typeof Scotty.GUI === "undefined") {
             var div = $('#snmd-views');
             var dps = 360 / Object.keys(views).length;
             var step = 0;
-            var r = (1906/2) / Math.tan( Math.PI / Object.keys(views).length);
+            var r = (Object.keys(views).length > 1 ? (1906/2) / Math.tan( Math.PI / Object.keys(views).length) : 0);
             var oy = ($('#snmd-views').height() - 30 - 1038)/2 + 30;
             
             Object.keys(views).forEach(function (k) {
