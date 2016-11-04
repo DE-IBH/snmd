@@ -89,7 +89,6 @@ if (typeof Scotty.SVGImpl.Gradient === "undefined") {
                 this.stops[stop].setAttribute('stop-color', '#404040')
             }
         }
-        console.info(stops);
     };
 
     Scotty.SVGWidget.srRegisterImpl(
