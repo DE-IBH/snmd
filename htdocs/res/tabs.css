@@ -226,7 +226,8 @@ div.svgview iframe {
 body {
     background-color: #000000;
     position: relative;
-    font-family: monospace;
+    font-family: 'Open Sans';
+    font-weight: bold;
 
     width: 100%;
     height: 100%;
