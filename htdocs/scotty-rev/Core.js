@@ -130,7 +130,7 @@ if (typeof Scotty.Core === "undefined") {
 	       }
         }
         
-        return Math.round( (value / this.si_facts[j]) * Math.pow(10, fracts) )/Math.pow(10, fracts) + this.si_prefs[j] + unit;
+        return  sprintf("%." + fracts + "f%s%s", value / this.si_facts[j], this.si_prefs[j], unit);
     }).bind(this);
     
     this.srNagStateColor = (function (state) {
