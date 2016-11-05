@@ -60,7 +60,7 @@ if (typeof Scotty.SVGWidget === "undefined") {
     this.srClassOpts = (function (desc, impl) {
         var cls = {
             base: ['snmd-bcl-' + impl],
-            state: ['snmd-scl-']
+            state: ['snmd-scl-', 'snmd-scl-' + impl + '-']
         };
 
         /* add default base class by widget */
@@ -79,7 +79,7 @@ if (typeof Scotty.SVGWidget === "undefined") {
 
         /* add CSS classes depending on state */
         if (typeof desc.scls !== "undefined") {
-            cls.state.push.apply(opts.cls.state, desc.scls);
+            cls.state.push.apply(cls.state, desc.scls);
         }
 
         if (typeof desc.scl !== "undefined") {
