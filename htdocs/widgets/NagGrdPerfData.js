@@ -34,12 +34,17 @@ License:
     var NagGrdPerfData = function (root, svg, desc) {
         this.opts = {
             cls: Scotty.SVGWidget.srClassOpts(desc, "Gradient"),
-            key: desc.key,
             range: desc.range,
             hoffset: desc.hoffset,
             hscale: desc.hscale,
             coords: desc.coords
         };
+
+        if (typeof desc.keys === "undefined") {
+            this.opts.keys = [desc.key];
+        } else {
+            this.opts.keys = desc.keys;
+        }
 
         this.desc = desc;
         this.last = {};
@@ -91,8 +96,11 @@ License:
         try {
             this.states[topic] = json.state;
 
-            if(typeof json.perf_data[this.opts.key] !== "undefined") {
-                val = parseFloat(json.perf_data[this.opts.key].val);
+            for(var i in this.opts.keys) {
+                if(typeof json.perf_data[ this.opts.keys[i] ] !== "undefined") {
+                    val = parseFloat(json.perf_data[ this.opts.keys[i] ].val);
+                    break;
+                }
             }
 
             for (var i = 0; i < this.tmap[topic].length; i++) {
