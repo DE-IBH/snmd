@@ -71,7 +71,7 @@ License:
                     val = this.opts.map[val];
                 } else {
                     val = '?';
-                    console.debug("No mapping available [" + topic + "]: '" + val + "' => " + val);
+                    console.debug("No mapping available [" + topic + "]: " + this.opts.key + " => '" + json.perf_data[this.opts.key].val + "'");
                 }
             }
             this.chart.update(val, json.state, false);
