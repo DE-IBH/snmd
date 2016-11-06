@@ -46,7 +46,6 @@ License:
             this.opts.keys = desc.keys;
         }
 
-        this.desc = desc;
         this.last = {};
         this.states = {};
         this.tmap = {};
@@ -93,6 +92,7 @@ License:
 
         /* extract current value */
         var val = 0;
+        var changed = false;
         try {
             this.states[topic] = json.state;
 
@@ -104,10 +104,17 @@ License:
             }
 
             for (var i = 0; i < this.tmap[topic].length; i++) {
-                this.last[ this.tmap[topic][i] ][topic] = val;
+                if ( this.last[ this.tmap[topic][i] ][topic] !== val ) {
+                    this.last[ this.tmap[topic][i] ][topic] = val;
+                    changed = true;
+                }
             }
         } catch (err) {
             console.error("Error to process performance data [" + topic + "]: " + err.message);
+        }
+
+        if(changed === false) {
+            return;
         }
         
         var state = 0;
@@ -139,7 +146,7 @@ License:
 
             stops[stop] = (ok ? (  this.opts.hoffset + (val - this.opts.range[0]) * this.opts.hscale / (this.opts.range[1] - this.opts.range[0])  ) % 360 : undefined);
         }
-        
+
         this.grad.update(stops, state);
     };
 

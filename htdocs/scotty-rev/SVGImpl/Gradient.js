@@ -81,6 +81,10 @@ if (typeof Scotty.SVGImpl.Gradient === "undefined") {
     };
 
     Gradient.prototype.update = function (stops, state) {
+        if (typeof stops === 'undefined') {
+            return;
+        }
+
         for (var stop in stops) {
             if (typeof stops[stop] !== "undefined") {
                 this.stops[stop].setAttribute('stop-color', 'hsl(' + stops[stop] + ',100%,50%)')
