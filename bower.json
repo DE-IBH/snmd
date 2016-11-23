@@ -18,7 +18,7 @@
     "sprintf": "^1.0.3",
     "moment": "momentjs#^2.15.2",
     "jquery": "^2",
-    "qtip2": "qtip2-main#^3.0.3"
+    "qtip2": "qtip2-main#^3.0.3",
     "snmd-core": "https://github.com/liske/snmd-core.git",
     "snmd-widgets-nagios": "https://github.com/liske/snmd-widgets-nagios.git"
   }
