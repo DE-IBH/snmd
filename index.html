@@ -1,31 +1,32 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="blib/open-sans-fontface/open-sans.css" type="text/css" />
-    <script type="text/javascript" src="blib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/modernizr/modernizr-custom-3.3.1.js"></script>
+    <link rel="stylesheet" href="blib/snmd-core/blib/open-sans-fontface/open-sans.css" type="text/css" />
+    <style type="text/css">
+        @import "css/widgets.css";
+        @import "blib/snmd-core/lib/svg-1.5.0/jquery.svg.css";
+        @import "blib/snmd-core/blib/qtip2/dist/jquery.qtip.min.css";
+        @import "blib/snmd-core/blib/font-awesome/css/font-awesome.min.css";
+        @import "css/local.css";
+    </style>
+
+    <script type="text/javascript" src="blib/alameda/alameda.js" data-main="js/Boot"></script>
 </head>
 
-<body>
-
-<p>
-    Choose visualation mode:
-</p>
-<ul>
-    <li><a href="index-2d.html">flat</a></li>
-    <li><a href="index-3d.html">3D</a></li>
-</ul>
-
-<script type="text/javascript">
-    var loc = 'index-2d.html';
-    if(Modernizr.csstransforms3d) {
-        loc = 'index-3d.html';
-    }
-    if(document.location.hash) {
-        loc = loc + document.location.hash;
-    }
-    document.location = loc;
-</script>
-
+<body class="snmd-in-2d">
+    <div id="snmd-hb"></div>
+    <div id="snmd_clock">-</div>
+    <div id="snmd-ctrl">
+        <ul class="snmd-ctrl"></ul>
+    </div>
+    <div id="snmd-title"></div>
+    <div class="srViews">
+        <ul class="srViewsNav"></ul>
+    </div>
+    <div id="snmd-vouter">
+        <div id="snmd-vinner">
+            <div id="snmd-views"></div>
+        </div>
+    </div>
 </body>
 </html>

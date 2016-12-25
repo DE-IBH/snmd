@@ -1,51 +1,11 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="blib/open-sans-fontface/open-sans.css" type="text/css" />
-    <style type="text/css">
-        @import "css/tabs.css";
-        @import "css/widgets.css";
-        @import "blib/snmd-core/lib/svg-1.5.0/jquery.svg.css";
-        @import "blib/qtip2/dist/jquery.qtip.min.css";
-        @import "blib/font-awesome/css/font-awesome.min.css";
-        @import "css/local.css";
-    </style>
-    <script type="text/javascript" src="blib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/svg-1.5.0/jquery.svg.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/svg-1.5.0/jquery.svggraph.min.js"></script>
-    <script type="text/javascript" src="blib/qtip2/dist/jquery.qtip.min.js"></script>
-    <script type="text/javascript" src="blib/sprintf/dist/sprintf.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/svgpathdata-1.0.3/SVGPathData.js"></script>
-    <script type="text/javascript" src="blib/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/paho.javascript-1.0.2/mqttws31-min.js"></script>
+    <link rel="stylesheet" href="blib/snmd-core/blib/open-sans-fontface/open-sans.css" type="text/css" />
 
-    <script type="text/javascript" src="blib/snmd-core/dist/snmd-core.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-widgets-nagios/dist/snmd-widgets-nagios.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            Scotty.Core.srInit();
-        });
-    </script>
+    <script type="text/javascript" src="blib/alameda/alameda.js" data-main="js/Redir-2D"></script>
 </head>
 
-<body class="notransition">
-    <div id="snmd-hb"></div>
-    <div id="snmd_clock">-</div>
-    <div id="snmd-ctrl">
-        <ul class="snmd-ctrl">
-            <li><a id="ctrl-volume" href="#volume" title="Enable alert sounds."><i class="fa fa-volume-off"></i></a></li>
-            <li><a id="ctrl-rotate" href="#rotate" title="Enable auto rotate."><i class="fa fa-repeat"></i></a></li>
-            <li><a id="ctrl-follow" href="#follow" title="Switch to view on state change."><i class="fa fa-hand-o-down"></i></a></li>
-        </ul>
-    </div>    <div id="snmd-title"></div>
-    <div class="srViews">
-        <ul class="srViewsNav"></ul>
-    </div>
-    <div id="snmd-vouter">
-        <div id="snmd-vinner">
-            <div id="snmd-views"></div>
-        </div>
-    </div>
+<body>
 </body>
 </html>

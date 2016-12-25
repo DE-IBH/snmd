@@ -1,0 +1,9 @@
+{
+    "amd_baseUrl": "blib",
+    "amd_paths": { },
+    "amd_shim": { },
+
+    "snmd_widgets": {
+        "Nagios": "snmd-widgets-nagios"
+    }
+}
