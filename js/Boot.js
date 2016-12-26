@@ -41,13 +41,19 @@ require.config({
         "jquery": "jquery/dist/jquery",
         "js-logger": "js-logger/src/logger.min",
         "snmd-core": "snmd-core/src",
-        "snmd-widgets-nagios": "snmd-widgets-nagios/src"
+        "snmd-widgets-nagios": "snmd-widgets-nagios/src",
+        "JSON.minify" : "../lib/JSON.minify-javascript/minify.json.min"
+    },
+    shim: {
+        "JSON.minify" : {
+            exports: "JSON"
+        }
     },
     enforceDefine: true,
     urlArgs: "v=" + (new Date()).getTime()
 });
 
-require(["jquery", "js-logger"], function ($, Logger) {
+require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
     'use strict';
 
     Logger.useDefaults();
@@ -56,6 +62,9 @@ require(["jquery", "js-logger"], function ($, Logger) {
     $.ajax({
         url: 'config.json',
         dataType: 'json',
+        dataFilter: function (data, type) {
+            return JSON.minify(data);
+        },
         success: function (config, textStatus) {
             require(["snmd-core/Main"], function (Main) {
                 var main = new Main(config);
