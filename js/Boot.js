@@ -40,8 +40,6 @@ require.config({
     paths: {
         "jquery": "jquery/dist/jquery",
         "js-logger": "js-logger/src/logger.min",
-        "snmd-core": "snmd-core/src",
-        "snmd-widgets-nagios": "snmd-widgets-nagios/src",
         "JSON.minify" : "../lib/JSON.minify-javascript/minify.json.min"
     },
     shim: {
@@ -50,12 +48,13 @@ require.config({
         }
     },
     enforceDefine: true,
-    urlArgs: "v=" + (new Date()).getTime()
+    urlArgs: "ts=" + (new Date()).getTime()
 });
 
 require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
     'use strict';
 
+    var version = '0.2';
     Logger.useDefaults();
     Logger.setLevel(Logger.INFO);
 
@@ -66,6 +65,26 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
             return JSON.minify(data);
         },
         success: function (config, textStatus) {
+            if (config.snmd_devel) {
+                Logger.setLevel(Logger.DEBUG);
+
+                // use non-minified snmd-core package
+                require.config({
+                    paths: {
+                        "snmd-core": "snmd-core/js"
+                    }
+                });
+            } else {
+                // use minified snmd-core package and allow js caching
+                require.config({
+                    paths: {
+                        "snmd-core": "snmd-core/dist"
+                    },
+                    urlArgs: "snmd=" + version
+                });
+            }
+
+
             require(["snmd-core/Main"], function (Main) {
                 var main = new Main(config);
             });

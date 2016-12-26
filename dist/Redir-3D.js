@@ -1,0 +1,2 @@
+require.config({baseUrl:"blib",paths:{"js-cookie":"snmd-core/blib/js-cookie/src/js.cookie"},enforceDefine:!0}),require(["js-cookie"],function(e){"use strict";e.set("snmd-ctrl-3d",1);var o=window.location.href;window.location=o.replace("-3d","")});
+//# sourceMappingURL=dist/Redir-3D.map

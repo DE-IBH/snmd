@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/Redir-2D.js"],"names":["require","config","baseUrl","paths","js-cookie","enforceDefine","cookie","remove","loc","window","location","href","replace"],"mappings":"AAqCAA,QAAQC,QACJC,QAAS,OACTC,OACIC,YAAa,0CAEjBC,eAAe,IAGnBL,SAAS,aAAc,SAAUM,GAC7B,YAGAA,GAAOC,OAAO,eAEd,IAAIC,GAAMC,OAAOC,SAASC,IAC1BF,QAAOC,SAAWF,EAAII,QAAQ,MAAO","file":"dist/Redir-2D.js"}
