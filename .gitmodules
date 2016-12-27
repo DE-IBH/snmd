@@ -1,6 +1,0 @@
-[submodule "dev/snmd-core"]
-	path = dev/snmd-core
-	url = git@github.com:liske/snmd-core.git
-[submodule "dev/snmd-widgets-nagios"]
-	path = dev/snmd-widgets-nagios
-	url = git@github.com:liske/snmd-widgets-nagios.git
