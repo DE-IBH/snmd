@@ -17,6 +17,7 @@
     "snmd-core": "https://github.com/liske/snmd-core.git",
     "snmd-widgets-nagios": "https://github.com/liske/snmd-widgets-nagios.git",
     "js-logger": "^1.3.0",
-    "open-sans-fontface": "^1.4.2"
+    "open-sans-fontface": "^1.4.2",
+    "font-awesome": "^4.7.0"
   }
 }
