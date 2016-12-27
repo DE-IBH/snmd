@@ -65,7 +65,7 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
             return JSON.minify(data);
         },
         success: function (config, textStatus) {
-            if (config.snmd_devel) {
+            if (config.snmd_devel === true) {
                 Logger.setLevel(Logger.DEBUG);
 
                 // use non-minified snmd-core package
