@@ -91,7 +91,7 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             var msg = "Failed to config file due to " + textStatus + ": " + errorThrown;
-            console.error(msg);
+            Logger.error(msg);
             $('body').text(msg).css({
                 'font-size': 'larger',
                 'font-weight': 'bold',
