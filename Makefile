@@ -4,8 +4,11 @@ DISTS:= \
 	dist/Redir-2D.js \
 	dist/Redir-3D.js
 
+CSS:= \
+	css/core.css \
+	css/widgets.css
 
-all: $(DISTS)
+all: $(DISTS) dist/snmd.min.css
 
 dist/%.js: js/%.js
 	uglifyjs \
@@ -17,5 +20,8 @@ dist/%.js: js/%.js
 	    --stats \
 	    -- $+
 
+dist/snmd.min.css: $(CSS)
+	uglifycss $+ > $@
+
 clean:
-	rm -f dist/*.js dist/*.map
+	rm -f dist/*.js dist/*.map dist/snmd.min.css

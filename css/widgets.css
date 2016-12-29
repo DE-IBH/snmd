@@ -107,15 +107,9 @@
     stroke: Grey;
     animation: snmp-kf-opacity 6s ease infinite;
 }
-.snmd-bcl-opacity-stroke.snmd-bcl-NagTxtState {
-    stroke-width: 1px;
-}
 .snmd-bcl-opacity-stroke.snmd-scl-0 {
     stroke: LimeGreen;
     animation: none;
-}
-.snmd-bcl-opacity-stroke.snmd-bcl-NagTxtState.snmd-scl-0 {
-    stroke: none;
 }
 .snmd-bcl-opacity-stroke.snmd-scl-1 {
     stroke: Gold;
@@ -173,77 +167,6 @@
 }
 
 
-
-.snmd-mcl-Nag {
-    stroke: Black;
-    stroke-linecap: round;
-    stroke-width: 1.5px;
-}
-
-
-.snmd-lcl-Nag {
-    fill: none;
-    stroke: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 3px;
-}
-
-.snmd-tcl-Nag {
-    font-size: 12px;
-    font-weight: bolder;
-}
-
-
-.snmd-lcl-NagIf-in,
-.snmd-lcl-NagIf-inucast {
-    fill: LawnGreen;
-    stroke: LawnGreen;
-}
-.snmd-lcl-NagIf-out,
-.snmd-lcl-NagIf-outucast {
-    stroke: DodgerBlue;
-}
-
-.snmd-tcl-NagIf-in,
-.snmd-tcl-NagIf-inucast {
-    text-anchor: begin;
-    fill: LimeGreen;
-    transform: translate(3px, 13px);
-}
-.snmd-tcl-NagIf-out,
-.snmd-tcl-NagIf-outucast {
-    text-anchor: end;
-    fill: DodgerBlue;
-    transform: translate(-3px, 13px);
-}
-
-
-.snmd-lcl-NagFc-in,
-.snmd-lcl-NagIO-read {
-    fill: Orchid;
-    stroke: Orchid;
-}
-.snmd-lcl-NagFc-out,
-.snmd-lcl-NagIO-write {
-    stroke: RoyalBlue;
-}
-
-.snmd-tcl-NagFc-in,
-.snmd-tcl-NagIO-read {
-    text-anchor: begin;
-    fill: Orchid;
-    transform: translate(3px, 13px);
-}
-.snmd-tcl-NagFc-out,
-.snmd-tcl-NagIO-write {
-    text-anchor: end;
-    fill: RoyalBlue;
-    transform: translate(-3px, 13px);
-}
-
-
-
 linearGradient.snmd-bcl-Gradient > stop {
     transition: stop-color 4s ease !important;
 }
@@ -252,24 +175,4 @@ linearGradient.snmd-bcl-Gradient > stop {
 .snmd-bcl-Transform {
     transform-origin: center;
     transition: transform 4s ease;
-}
-
-.snmd-bcl-NagTrPerfData {
-    fill: Grey;
-    animation: snmp-kf-opacity 6s ease infinite;
-}
-.snmd-bcl-NagTrPerfData.snmd-scl-0 {
-    fill: LimeGreen;
-    animation: none;
-}
-.snmd-bcl-NagTrPerfData.snmd-scl-1 {
-    fill: Gold;
-    animation: snmp-kf-opacity 4s ease infinite;
-}
-.snmd-bcl-NagTrPerfData.snmd-scl-2 {
-    fill: Crimson;
-    animation: snmp-kf-opacity 2s ease infinite;
-}
-.snmd-bcl-NagTrPerfData.snmd-scl-3 {
-    fill: Orange;
 }

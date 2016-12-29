@@ -1,0 +1,288 @@
+#snmd-ctrl {
+    float: right;
+    width: auto;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.1ex;
+}
+
+ul.snmd-ctrl {
+    list-style:none;
+    margin:0;
+    background-color: rgb(38, 41, 44);
+    height: 20px;
+    border-radius: 5px;
+}
+
+ul.snmd-ctrl li {
+    display: inline;
+}
+
+ul.snmd-ctrl li a {
+    padding: 2px 1ex;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 0.1ex;
+    border: 1px solid black;
+    transition: background-color 5s ease, font-weight 5s ease;
+}
+
+ul.snmd-ctrl li a i {
+    width: 1em;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+
+#snmd_clock {
+    float: right;
+    padding:2px 1ex;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    color: white;
+    letter-spacing: 0.1ex;
+}
+
+#snmd-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.6ex;
+    padding:2px 1ex;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    color: #808080;
+    pointer-events: none;
+}
+
+#snmd-hb {
+    position: absolute;
+    z-index: 1;
+    bottom: 5;
+    right: 5;
+    width: 8px;
+    height: 8px;
+    background: #7f0000;
+    border-radius: 4px;
+}
+
+ul.srViewsNav {
+    list-style:none;
+    margin:0;
+    padding:0px 10px;
+    background-color: rgb(38, 41, 44);
+    height: 20px;
+    border-radius: 5px;
+}
+
+ul.srViewsNav li {
+    display: inline;
+}
+
+ul.srViewsNav li a {
+    padding: 2px 1ex;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 0.1ex;
+    color: #808080;
+    border: 1px solid black;
+    transition: background-color 5s ease, font-weight 5s ease;
+    font-weight: normal;
+}
+
+.on-screensaver ul.srViewsNav li a {
+    transition: background-color 15s ease, font-weight 15s ease;
+}
+
+ul.srViewsNav li a.selected, ul.nav li a:hover {
+    background-color: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+ul.srViewsNav li a:focus {
+    outline:0;
+}
+
+div.svgview {
+    position: absolute;
+    /*height: 1038px;
+    width: 1906px;*/
+    height: 100%;
+    width: 100%;
+    
+    background-color: rgba(38, 41, 44, 0.5);
+
+    opacity: 0;
+    transition: opacity 1.5s ease-out, background-color 1.5s ease-out, filter 1.5s ease-in;
+    display: block;
+
+    border-radius: 5px;
+
+    /* performance killer
+    filter: blur(2px);
+    */
+}
+
+.snmd-in-3d div.svgview {
+    opacity: 1;
+}
+
+div.svgview.current {
+    background-color: rgb(38, 41, 44);
+    opacity: 1;
+
+    filter: none;
+}
+
+.snmd-in-3d div.svgview.current {
+    opacity: 1;
+    transition: opacity 1.5s ease-in 3.5s, background-color 1.5s ease-in 3.5s, filter 1.5s ease-out 3.5s;
+}
+
+.on-screensaver div.svgview.current {
+    transition: opacity 1.5s ease-in, background-color 1.5s ease-in, filter 1.5s ease-out;
+}
+
+.snmd-in-3d .on-screensaver div.svgview.current {
+    transition: opacity 1.5s ease-in 13.5s, background-color 1.5s ease-in 13.5s, filter 1.5s ease-out 13.5s;
+}
+
+div.svgview svg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    position: absolute;
+}
+
+
+#snmd-vouter {
+    top:0px;
+    bottom:0;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+
+    padding-top: 22px;
+}
+
+#snmd-vinner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.snmd-in-3d #snmd-vinner {
+    perspective: 1000px;
+}
+
+#snmd-views {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 5s;
+
+    transform-style: flat;
+    transform-origin; 100% 50% 50%;
+}
+
+.snmd-in-3d #snmd-views {
+    transform-style: preserve-3d;
+}
+
+.on-screensaver #snmd-views {
+    transition: 15s ease-in-out;
+}
+
+div.svgview iframe {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    top: 12px;
+    overflow: hidden;
+    margin: auto;
+    border: none;
+}
+
+#scotty_logd {
+    margin-top: 4;
+    width: 100%;
+    height: 14%;
+    border: 1px solid #7f7f7f;
+
+    border-radius: 10px;
+}
+
+body {
+    background-color: #000000;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.snmd-in-2d * {
+    transition: none !important;
+}
+
+@keyframes kfPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+} 
+
+.ani-pulse {
+    animation: kfPulse 2s ease infinite;
+}
+
+#snmd-load-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    background-color: rgb(38, 41, 44);
+    border-radius: 5px;
+    z-index: 1000;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    transition: opacity 2s ease;
+}
+
+#snmd-load-dspin {
+    font-size: 240%;
+    font-weight: bolder;
+}
+
+#snmd-load-dsub {
+    margin-top: 1em;
+    font-size: 120%;
+    font-style: italic;
+}
