@@ -27,7 +27,6 @@ ul.snmd-ctrl li a {
     letter-spacing: 0.1ex;
     border: 1px solid black;
     transition: background-color 5s ease, font-weight 5s ease;
-    pointer-events: all;
 }
 
 ul.snmd-ctrl li a i {
