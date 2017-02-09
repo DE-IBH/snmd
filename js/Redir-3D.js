@@ -38,7 +38,7 @@ License:
 require.config({
     baseUrl: "blib",
     paths: {
-        "js-cookie": "snmd-core/blib/js-cookie/src/js.cookie"
+        "js-cookie": "js-cookie/src/js.cookie"
     },
     enforceDefine: true
 });
