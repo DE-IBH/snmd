@@ -54,7 +54,7 @@ require.config({
 require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
     'use strict';
 
-    var version = '0.2';
+    var version = '0.3';
     Logger.useDefaults();
     Logger.setLevel(Logger.INFO);
 
@@ -71,7 +71,7 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
                 // use non-minified snmd-core package
                 require.config({
                     paths: {
-                        "snmd-core": "snmd-core/js"
+                        "snmd-core": "snmd-core"
                     }
                 });
             } else {
@@ -85,7 +85,7 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
             }
 
 
-            require(["snmd-core/Main"], function (Main) {
+            require(["snmd-core/js/Main"], function (Main) {
                 var main = new Main(config);
             });
         },
