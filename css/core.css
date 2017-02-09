@@ -21,49 +21,45 @@ ul.snmd-ctrl li {
 }
 
 ul.snmd-ctrl li a {
-    padding: 2px 1ex;
+    padding: 0 1ex;
     font-size: 16px;
     text-decoration: none;
     letter-spacing: 0.1ex;
     border: 1px solid black;
     transition: background-color 5s ease, font-weight 5s ease;
+    pointer-events: all;
 }
 
 ul.snmd-ctrl li a i {
     width: 1em;
     color: white;
-    font-weight: normal;
     text-align: center;
 }
 
 #snmd_clock {
     float: right;
-    padding:2px 1ex;
-    height: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    padding: 0 1ex;
+    font-size: 16px;
     color: white;
     letter-spacing: 0.1ex;
+    cursor: default;
 }
 
 #snmd-title {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.6ex;
-    padding:2px 1ex;
-    height: 20px;
+    padding: 2px 1ex;
     font-size: 14px;
     font-weight: bold;
     border-left: 1px solid black;
     border-right: 1px solid black;
     color: #808080;
-    pointer-events: none;
+    height: 16px;
 }
 
 #snmd-hb {
@@ -75,6 +71,15 @@ ul.snmd-ctrl li a i {
     height: 8px;
     background: #7f0000;
     border-radius: 4px;
+}
+
+#snmd-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 20px;
+    overflow: hidden;
 }
 
 ul.srViewsNav {
@@ -286,3 +291,45 @@ body {
     font-size: 120%;
     font-style: italic;
 }
+
+
+/* Dropdown Button */
+.snmd-dd-btn {
+    cursor: default;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.snmd-dd-div {
+    position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.snmd-dd-list {
+    display: none;
+    position: absolute;
+    background-color: rgb(38, 41, 44);;
+    min-width: 160px;
+    left:0;
+    right:0;
+    border: 0.5px solid black;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.snmd-dd-list a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.snmd-dd-list a:hover {
+    background-color: #606060;
+}
+
+/* Show the dropdown menu on hover */
+.snmd-dd-div:hover .snmd-dd-list {
+    display: block;
+}
+
