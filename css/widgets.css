@@ -10,6 +10,12 @@
   100% {  }
 }
 
+@keyframes snmp-kf-box-shadow {
+  0% {  }
+  50% { box-shadow: none; }
+  100% {  }
+}
+
 .snmd-bcl-Chart {
     stroke: grey;
     stroke-width: 2.5;
@@ -175,4 +181,25 @@ linearGradient.snmd-bcl-Gradient > stop {
 .snmd-bcl-Transform {
     transform-origin: center;
     transition: transform 4s ease;
+}
+
+
+.svgview {
+    box-shadow: inset 0px 0px 12px 1px Grey;
+    animation: snmp-kf-box-shadow 6s ease infinite;
+}
+.svgview.snmd-scl-0 {
+    box-shadow: none;
+    animation: none;
+}
+.svgview.snmd-scl-1 {
+    box-shadow: inset 0px 0px 12px 1px Gold;
+    animation: snmp-kf-box-shadow 4s ease infinite;
+}
+.svgview.snmd-scl-2 {
+    box-shadow: inset 0px 0px 12px 1px Crimson;
+    animation: snmp-kf-box-shadow 2s ease infinite;
+}
+.svgview.snmd-scl-3 {
+    box-shadow: inset 0px 0px 12px 1px Orange;
 }
