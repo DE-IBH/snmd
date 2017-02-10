@@ -332,3 +332,21 @@ body {
     display: block;
 }
 
+.snmd-nav-key {
+    display: inline-block;
+    border-radius: 25%;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    margin-right: 1ex;
+    padding-left: 0.5ex;
+    padding-right: 0.5ex;
+}
+
+ul.snmd-nav-icolist {
+    list-style:none;
+    padding: 0;
+}
+
+div.qtip {
+}
