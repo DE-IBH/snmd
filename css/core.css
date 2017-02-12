@@ -359,6 +359,12 @@ body {
 }
 
 ul.snmd-nav-icolist {
-    list-style:none;
-    padding: 0;
+    list-style: none;
+    padding: 0 0 0 1em;
+    text-indent: -1em;
+}
+
+ul.snmd-nav-icolist li i {
+    width: 1em;
+    text-align: center;
 }
