@@ -72,7 +72,8 @@ require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
                 require.config({
                     paths: {
                         "snmd-core": "snmd-core"
-                    }
+                    },
+                    urlArgs: "snmd=" + version
                 });
             } else {
                 // use minified snmd-core package and allow js caching
