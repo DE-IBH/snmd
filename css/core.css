@@ -11,9 +11,8 @@
 ul.snmd-ctrl {
     list-style:none;
     margin:0;
-    background-color: rgb(38, 41, 44);
+    padding: 0;
     height: 20px;
-    border-radius: 5px;
 }
 
 ul.snmd-ctrl li {
@@ -42,6 +41,7 @@ ul.snmd-ctrl li a i {
     color: white;
     letter-spacing: 0.1ex;
     cursor: default;
+    border-radius: 0 5px 5px 0;
 }
 
 #snmd-title {
@@ -90,19 +90,21 @@ ul.snmd-ctrl li a i {
     top: 0;
     height: 20px;
     overflow: hidden;
+    border-radius: 5px;
+    background-color: rgb(38, 41, 44);
 }
 
 ul.srViewsNav {
     list-style:none;
-    margin:0;
-    padding:0px 10px;
-    background-color: rgb(38, 41, 44);
+    margin: 0;
+    padding: 0px 10px;
     height: 20px;
     border-radius: 5px;
 }
 
 ul.srViewsNav li {
     display: inline;
+    background-color: rgb(38, 41, 44);
 }
 
 ul.srViewsNav li a {

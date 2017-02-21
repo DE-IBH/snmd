@@ -16,6 +16,19 @@
   100% {  }
 }
 
+@keyframes snmp-kf-snmd-nav-bgcol {
+  0% {  }
+  50% { background-color: rgb(38, 41, 44); }
+  100% {  }
+}
+
+@keyframes snmp-kf-snmd-nav-switch {
+  0% {  }
+  50% { color: Gray; }
+  100% {  }
+}
+
+
 .snmd-bcl-Chart {
     stroke: grey;
     stroke-width: 2.5;
@@ -202,4 +215,31 @@ linearGradient.snmd-bcl-Gradient > stop {
 }
 .svgview.snmd-scl-3 {
     box-shadow: inset 0px 0px 12px 1px Orange;
+}
+
+
+
+#snmd-nav.snmd-scl-1 {
+    background-color: Gold;
+    animation: snmp-kf-snmd-nav-bgcol 4s ease infinite;
+}
+#snmd-nav.snmd-scl-2 {
+    background-color: Crimson;
+    animation: snmp-kf-snmd-nav-bgcol 2s ease infinite;
+}
+
+
+a.snmd-nav-switch.snmd-scl-0 {
+    color: LimeGreen;
+}
+a.snmd-nav-switch.snmd-scl-1 {
+    color: Gold;
+    animation: snmp-kf-snmd-nav-switch 4s ease infinite;
+}
+a.snmd-nav-switch.snmd-scl-2 {
+    color: Crimson;
+    animation: snmp-kf-snmd-nav-switch 2s ease infinite;
+}
+a.snmd-nav-switch.snmd-scl-3 {
+    color: orange;
 }
