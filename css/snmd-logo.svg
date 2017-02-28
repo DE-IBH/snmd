@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64mm"
+   height="64mm"
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.0 r15299"
+   sodipodi:docname="snmd-logo.svg"
+   inkscape:export-filename="/mnt/home/thomas/src/snmd/css/snmd-logo.png"
+   inkscape:export-xdpi="25.399998"
+   inkscape:export-ydpi="25.399998">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0121847"
+     inkscape:cx="488.67784"
+     inkscape:cy="-208.27557"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1892"
+     inkscape:window-height="1183"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-72.817703,-41.597797)">
+    <rect
+       style="opacity:1;fill:#25445e;fill-opacity:1;stroke:#25445e;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4485"
+       width="56"
+       height="56.000004"
+       x="76.817703"
+       y="45.597797" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19.75555611px;line-height:6.61458302px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ee2946;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="104.89005"
+       y="101.81735"
+       id="text6386"><tspan
+         sodipodi:role="line"
+         id="tspan6384"
+         x="104.89005"
+         y="101.81735"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19.75555611px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ee2946;fill-opacity:1;stroke-width:0.26458332px">SNMD</tspan></text>
+    <path
+       id="path7881"
+       d="m 130.37084,64.350178 q -5.05738,-7.852267 -12.67675,-11.74513 2.02962,3.460322 2.02962,7.486273 0,6.155379 -4.37531,10.53069 -4.37531,4.375311 -10.53069,4.375311 -6.155383,0 -10.530696,-4.375311 -4.375308,-4.375311 -4.375308,-10.53069 0,-4.025951 2.029611,-7.486273 -7.61936,3.892863 -12.676756,11.74513 4.425221,6.820826 11.096322,10.863412 6.671099,4.042588 14.456827,4.042588 7.78572,0 14.45682,-4.042588 6.6711,-4.042586 11.09631,-10.863412 z m -23.95607,-12.77657 q 0,-0.665448 -0.46581,-1.131259 -0.46581,-0.465814 -1.13125,-0.465814 -4.15904,0 -7.136915,2.977874 -2.977873,2.977873 -2.977873,7.136912 0,0.665447 0.46581,1.131259 0.465815,0.465812 1.13126,0.465812 0.665446,0 1.13126,-0.465812 0.46581,-0.465812 0.46581,-1.131259 0,-2.861419 2.029616,-4.891031 2.029612,-2.029611 4.891032,-2.029611 0.66544,0 1.13125,-0.465813 0.46581,-0.465813 0.46581,-1.131258 z m 28.21493,12.77657 q 0,1.131258 -0.66544,2.29579 -4.65812,7.652635 -12.52703,12.260853 -7.8689,4.608213 -16.61952,4.608213 -8.750623,0 -16.619527,-4.624851 -7.868905,-4.624854 -12.527031,-12.244215 -0.665446,-1.164532 -0.665446,-2.29579 0,-1.131259 0.665446,-2.29579 4.658126,-7.619361 12.527031,-12.244214 7.868904,-4.624853 16.619527,-4.624853 8.75062,0 16.61952,4.624853 7.86891,4.624853 12.52703,12.244214 0.66544,1.164531 0.66544,2.29579 z"
+       inkscape:connector-curvature="0"
+       style="fill:#ee2946;fill-opacity:1;stroke-width:0.26458332" />
+  </g>
+</svg>
