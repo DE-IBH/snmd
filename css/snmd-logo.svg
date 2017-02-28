@@ -17,8 +17,8 @@
    inkscape:version="0.92.0 r15299"
    sodipodi:docname="snmd-logo.svg"
    inkscape:export-filename="/mnt/home/thomas/src/snmd/css/snmd-logo.png"
-   inkscape:export-xdpi="25.399998"
-   inkscape:export-ydpi="25.399998">
+   inkscape:export-xdpi="12.7"
+   inkscape:export-ydpi="12.7">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0121847"
-     inkscape:cx="488.67784"
-     inkscape:cy="-208.27557"
+     inkscape:zoom="1.4314453"
+     inkscape:cx="299.32277"
+     inkscape:cy="-28.217125"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -42,7 +42,8 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     showguides="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -61,27 +62,16 @@
      id="layer1"
      transform="translate(-72.817703,-41.597797)">
     <rect
-       style="opacity:1;fill:#25445e;fill-opacity:1;stroke:#25445e;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4485"
-       width="56"
-       height="56.000004"
-       x="76.817703"
-       y="45.597797" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19.75555611px;line-height:6.61458302px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ee2946;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="104.89005"
-       y="101.81735"
-       id="text6386"><tspan
-         sodipodi:role="line"
-         id="tspan6384"
-         x="104.89005"
-         y="101.81735"
-         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:19.75555611px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ee2946;fill-opacity:1;stroke-width:0.26458332px">SNMD</tspan></text>
+       style="opacity:1;fill:#ee2946;fill-opacity:1;stroke:#ee2946;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4494"
+       width="6.460166"
+       height="7.485878"
+       x="97.476982"
+       y="61.67379" />
     <path
        id="path7881"
-       d="m 130.37084,64.350178 q -5.05738,-7.852267 -12.67675,-11.74513 2.02962,3.460322 2.02962,7.486273 0,6.155379 -4.37531,10.53069 -4.37531,4.375311 -10.53069,4.375311 -6.155383,0 -10.530696,-4.375311 -4.375308,-4.375311 -4.375308,-10.53069 0,-4.025951 2.029611,-7.486273 -7.61936,3.892863 -12.676756,11.74513 4.425221,6.820826 11.096322,10.863412 6.671099,4.042588 14.456827,4.042588 7.78572,0 14.45682,-4.042588 6.6711,-4.042586 11.09631,-10.863412 z m -23.95607,-12.77657 q 0,-0.665448 -0.46581,-1.131259 -0.46581,-0.465814 -1.13125,-0.465814 -4.15904,0 -7.136915,2.977874 -2.977873,2.977873 -2.977873,7.136912 0,0.665447 0.46581,1.131259 0.465815,0.465812 1.13126,0.465812 0.665446,0 1.13126,-0.465812 0.46581,-0.465812 0.46581,-1.131259 0,-2.861419 2.029616,-4.891031 2.029612,-2.029611 4.891032,-2.029611 0.66544,0 1.13125,-0.465813 0.46581,-0.465813 0.46581,-1.131258 z m 28.21493,12.77657 q 0,1.131258 -0.66544,2.29579 -4.65812,7.652635 -12.52703,12.260853 -7.8689,4.608213 -16.61952,4.608213 -8.750623,0 -16.619527,-4.624851 -7.868905,-4.624854 -12.527031,-12.244215 -0.665446,-1.164532 -0.665446,-2.29579 0,-1.131259 0.665446,-2.29579 4.658126,-7.619361 12.527031,-12.244214 7.868904,-4.624853 16.619527,-4.624853 8.75062,0 16.61952,4.624853 7.86891,4.624853 12.52703,12.244214 0.66544,1.164531 0.66544,2.29579 z"
+       d="m 130.53199,73.597797 q -5.08928,-7.901786 -12.7567,-11.819198 2.04242,3.482143 2.04242,7.533484 0,6.194197 -4.40289,10.597099 -4.40291,4.402903 -10.59711,4.402903 -6.194198,0 -10.597103,-4.402903 -4.4029,-4.402902 -4.4029,-10.597099 0,-4.05134 2.04241,-7.533484 -7.667409,3.917412 -12.7567,11.819198 4.453128,6.86384 11.1663,10.931921 6.713168,4.068082 14.547993,4.068082 7.83482,0 14.54799,-4.068082 6.71317,-4.06808 11.16629,-10.931921 z M 106.42484,60.740654 q 0,-0.669645 -0.46874,-1.138393 -0.46875,-0.468752 -1.13839,-0.468752 -4.18527,0 -7.181919,2.996654 -2.996653,2.996652 -2.996653,7.181919 0,0.669644 0.468747,1.138394 0.468753,0.468749 1.138395,0.468749 0.669642,0 1.138393,-0.468749 0.468749,-0.46875 0.468749,-1.138394 0,-2.879464 2.042409,-4.921875 2.042409,-2.042411 4.921879,-2.042411 0.66964,0 1.13839,-0.468751 0.46874,-0.46875 0.46874,-1.138391 z m 28.39286,12.857143 q 0,1.138392 -0.66963,2.310268 -4.6875,7.700895 -12.60603,12.338174 -7.91852,4.637274 -16.72433,4.637274 -8.805804,0 -16.724332,-4.654017 -7.918529,-4.65402 -12.60603,-12.321431 -0.669643,-1.171876 -0.669643,-2.310268 0,-1.138394 0.669643,-2.310267 4.687501,-7.667411 12.60603,-12.32143 7.918528,-4.654019 16.724332,-4.654019 8.80581,0 16.72433,4.654019 7.91853,4.654019 12.60603,12.32143 0.66963,1.171874 0.66963,2.310267 z"
        inkscape:connector-curvature="0"
-       style="fill:#ee2946;fill-opacity:1;stroke-width:0.26458332" />
+       style="fill:#25445e;fill-opacity:1;stroke-width:0.26458329" />
   </g>
 </svg>
