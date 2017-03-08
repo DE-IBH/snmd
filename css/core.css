@@ -4,7 +4,7 @@
     height: 20px;
     font-size: 14px;
     font-weight: bold;
-    color: white;
+    color: var(--S_base1);
     letter-spacing: 0.1ex;
 }
 
@@ -24,13 +24,13 @@ ul.snmd-ctrl li a {
     font-size: 16px;
     text-decoration: none;
     letter-spacing: 0.1ex;
-    border: 1px solid black;
+    border: 1px solid var(--S_base03);
     transition: background-color 5s ease, font-weight 5s ease;
 }
 
 ul.snmd-ctrl li a i {
     width: 1em;
-    color: white;
+    color: var(--S_base1);
     text-align: center;
 }
 
@@ -38,7 +38,7 @@ ul.snmd-ctrl li a i {
     float: right;
     padding: 0 1ex;
     font-size: 16px;
-    color: white;
+    color: var(--S_base1);
     letter-spacing: 0.1ex;
     cursor: default;
     border-radius: 0 5px 5px 0;
@@ -55,17 +55,17 @@ ul.snmd-ctrl li a i {
     padding: 2px 1ex;
     font-size: 14px;
     font-weight: bold;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    color: #808080;
+    border-left: 1px solid var(--S_base03);
+    border-right: 1px solid var(--S_base03);
+    color: var(--S_base1);
     height: 16px;
 }
 
 #snmd-title-label sup {
     display: inline-block;
     font-size: 60%;
-    background: #a0a0a0;
-    color: black;
+    background: var(--S_base1);
+    color: var(--S_base03);
     margin: 0;
     letter-spacing: 0;
     padding: 0 0.2em;
@@ -91,7 +91,7 @@ ul.snmd-ctrl li a i {
     height: 20px;
     overflow: hidden;
     border-radius: 5px;
-    background-color: rgb(38, 41, 44);
+    background-color: var(--S_base02);
 }
 
 ul.srViewsNav {
@@ -104,7 +104,7 @@ ul.srViewsNav {
 
 ul.srViewsNav li {
     display: inline;
-    background-color: rgb(38, 41, 44);
+    background-color: var(--S_base02);
 }
 
 ul.srViewsNav li a {
@@ -113,7 +113,7 @@ ul.srViewsNav li a {
     text-decoration: none;
     letter-spacing: 0.1ex;
     color: #808080;
-    border: 1px solid black;
+    border: 1px solid var(--S_base03);
     transition: background-color 5s ease, font-weight 5s ease;
     font-weight: normal;
 }
@@ -123,8 +123,8 @@ ul.srViewsNav li a {
 }
 
 ul.srViewsNav li a.selected, ul.nav li a:hover {
-    background-color: 0;
-    color: #ffffff;
+    background-color: var(--S_base03);
+    color: var(--S_base1);
     font-weight: bold;
 }
 
@@ -139,7 +139,8 @@ div.svgview {
     height: 100%;
     width: 100%;
     
-    background-color: rgba(38, 41, 44, 0.5);
+/*  *HACK*  hardcoded S_base02 at 50%  *HACK* */
+    background-color: rgba(7, 54, 66, 0.5);
 
     opacity: 0;
     transition: opacity 1.5s ease-out, background-color 1.5s ease-out, filter 1.5s ease-in;
@@ -152,12 +153,17 @@ div.svgview {
     */
 }
 
+.solarized-light div.svgview {
+/*  *HACK*  hardcoded S_base02 at 50% for solarized-light  *HACK* */
+    background-color: rgba(238, 232, 213, 0.5);
+}
+
 .snmd-in-3d div.svgview {
     opacity: 1;
 }
 
 div.svgview.current {
-    background-color: rgb(38, 41, 44);
+    background-color: var(--S_base02);
     opacity: 1;
 
     filter: none;
@@ -248,7 +254,8 @@ div.svgview iframe {
 }
 
 body {
-    background-color: #000000;
+    background-color: var(--S_base03);
+
     position: relative;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
@@ -280,10 +287,10 @@ body {
     left: 0;
     top: 0;
 
-    background-color: rgb(38, 41, 44);
+    background-color: var(--S_base02);
     border-radius: 5px;
     z-index: 1000;
-    color: white;
+    color: var(--S_base1);
 
     display: flex;
     align-items: center;
@@ -319,16 +326,16 @@ body {
 .snmd-dd-list {
     display: none;
     position: absolute;
-    background-color: rgb(38, 41, 44);;
+    background-color: var(--S_base02);
     left:0;
     right:0;
-    border: 0.5px solid black;
+    border: 0.5px solid var(--S_base03);
     z-index: 1;
 }
 
 /* Links inside the dropdown */
 .snmd-dd-list a {
-    color: white;
+    color: var(--S_base1);
     padding: 4px 1em;
     text-decoration: none;
     display: block;
@@ -336,7 +343,7 @@ body {
 }
 
 .snmd-dd-list a:nth-child(n + 2) {
-    border-top: 0.5px solid black;
+    border-top: 0.5px solid var(--S_base03);
 }
 
 /* Change color of dropdown links on hover */
@@ -352,8 +359,8 @@ body {
 .snmd-nav-key {
     display: inline-block;
     border-radius: 25%;
-    background-color: black;
-    color: white;
+    background-color: var(--S_base03);
+    color: var(--S_base1);
     text-transform: uppercase;
     margin-right: 1ex;
     padding-left: 0.5ex;

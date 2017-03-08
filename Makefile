@@ -5,6 +5,7 @@ DISTS:= \
 	dist/Redir-3D.js
 
 CSS:= \
+	css/solarized.css \
 	css/core.css \
 	css/widgets.css
 
