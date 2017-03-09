@@ -54,7 +54,7 @@ require.config({
 require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
     'use strict';
 
-    var version = '0.3';
+    var version = '0.3.2';
     Logger.useDefaults();
     Logger.setLevel(Logger.INFO);
 
