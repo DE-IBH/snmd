@@ -1,0 +1,84 @@
+/*
+ * Simple polyfill for CSS variables used in snmd-core.
+ */
+
+.polyfill-cssvars #snmd-ctrl {
+    color: #93a1a1;
+}
+
+.polyfill-cssvars ul.snmd-ctrl li a {
+    border: 1px solid #002b36;
+}
+
+.polyfill-cssvars ul.snmd-ctrl li a i {
+    color: #93a1a1;
+}
+
+
+.polyfill-cssvars #snmd_clock {
+    color: #93a1a1;
+}
+
+.polyfill-cssvars #snmd-title {
+    border-left: 1px solid #002b36;
+    border-right: 1px solid #002b36;
+    color: #93a1a1;
+}
+
+.polyfill-cssvars #snmd-title-label sup {
+    background: #93a1a1;
+    color: #002b36;
+}
+
+.polyfill-cssvars #snmd-nav {
+    background-color: #073642;
+}
+
+.polyfill-cssvars ul.srViewsNav li {
+    background-color: #073642;
+}
+
+.polyfill-cssvars ul.srViewsNav li a {
+    border: 1px solid #002b36;
+}
+
+.polyfill-cssvars ul.srViewsNav li a.selected, ul.nav li a:hover {
+    background-color: #002b36;
+    color: #93a1a1;
+}
+
+.polyfill-cssvars div.svgview.current {
+    background-color: #073642;
+}
+
+body.polyfill-cssvars {
+    background-color: #002b36;
+}
+
+.polyfill-cssvars #snmd-load-div {
+    background-color: #073642;
+    color: #93a1a1;
+}
+
+.polyfill-cssvars .snmd-dd-list {
+    background-color: #073642;
+    border: 0.5px solid #002b36;
+}
+
+.polyfill-cssvars .snmd-dd-list a {
+    color: #93a1a1;
+}
+
+.polyfill-cssvars .snmd-dd-list a:hover {
+    color: #586e75;
+    background-color: #eee8d5;
+}
+
+.polyfill-cssvars .snmd-dd-list a:nth-child(n + 2) {
+    border-top: 0.5px solid #002b36;
+}
+
+.polyfill-cssvars .snmd-nav-key {
+    background-color: #002b36;
+    color: #93a1a1;
+}
