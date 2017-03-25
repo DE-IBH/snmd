@@ -1,3 +1,6 @@
 {
-    "default_view": "views/default.json"
+    "view": {
+        "title" : "snmd",
+        "json" : "views/default.json"
+    }
 }

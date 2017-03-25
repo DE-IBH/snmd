@@ -1,0 +1,27 @@
+{
+    /* Enable development mode.
+       FALSE
+         - use minified js files (snmd-core and widgets)
+         - set loglevel to info
+         - allow js caching by using a version depending
+           urlArgs parameter (requirejs)
+       TRUE
+         - use non-minified js files (snmd-core and widgets)
+         - set loglevel to debug
+         - prevent any caching by using a full dynamic urlArgs
+           parameter (requirejs)
+    */
+    "snmd_devel": false,
+
+    /* Load widget packages
+       Each entry requires a prefix and a library value:
+       - prefix: string used in SVG to reference a widget of this library
+       - package: the bower package name
+    */
+    "snmd_widgets": [
+        {
+            "package": "snmd-widgets-nagios",
+            "prefix": "Nagios"
+        }
+    ]
+}

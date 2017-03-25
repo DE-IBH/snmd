@@ -2,30 +2,35 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="blib/open-sans-fontface/open-sans.css" type="text/css" />
-    <script type="text/javascript" src="blib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="blib/snmd-core/lib/modernizr/modernizr-custom-3.3.1.js"></script>
+    <link rel="stylesheet" href="blib/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="dist/snmd.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/local.css" type="text/css" />
+
+    <script type="text/javascript" src="blib/alameda/alameda.js" data-main="dist/Boot"></script>
+    <link rel="shortcut icon" href="css/snmd-logo.png">
 </head>
 
-<body>
-
-<p>
-    Choose visualation mode:
-</p>
-<ul>
-    <li><a href="index-2d.html">flat</a></li>
-    <li><a href="index-3d.html">3D</a></li>
-</ul>
-
-<script type="text/javascript">
-    var loc = 'index-2d.html';
-    if(Modernizr.csstransforms3d) {
-        loc = 'index-3d.html';
-    }
-    if(document.location.hash) {
-        loc = loc + document.location.hash;
-    }
-    document.location = loc;
-</script>
-
+<body class="snmd-in-2d">
+    <div id="snmd-vouter">
+        <div id="snmd-vinner">
+            <div id="snmd-views"></div>
+            <div id="snmd-load-div">
+                <div id="snmd-load-dspin"><i class="fa fa-spinner fa-spin"></i></div>
+                <div id="snmd-load-dsub">Loading&hellip;</div>
+            </div>
+        </div>
+    </div>
+    <div id="snmd-nav">
+        <div id="snmd_clock">-</div>
+        <div id="snmd-ctrl">
+            <ul class="snmd-ctrl"></ul>
+        </div>
+        <ul class="srViewsNav snmd-navbar-state"></ul>
+    </div>
+    <div id="snmd-title" class="snmd-dd-div">
+        <span class="snmd-dd-btn" id="snmd-title-label"></span>
+        <div class="snmd-dd-list"></div>
+    </div>
+    <div id="snmd-hb"></div>
 </body>
 </html>

@@ -1,0 +1,7 @@
+{
+    "sounds": {
+        "state-0": ["snd/default/ok.webm", "snd/default/ok.mp3"],
+        "state-1": ["snd/default/warning.webm", "snd/default/warning.mp3"],
+        "state-2": ["snd/default/critical.webm", "snd/default/critical.mp3"]
+    }
+}

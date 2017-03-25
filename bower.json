@@ -9,11 +9,16 @@
   "license": "GPL-2.0+",
   "private": true,
   "ignore": [
-    "**/.*",
-    "blib"
+    "**/.*"
   ],
   "dependencies": {
+    "alameda": "requirejs/alameda#^1.1.0",
+    "jquery": "^2",
     "snmd-core": "https://github.com/liske/snmd-core.git",
-    "snmd-widgets-nagios": "https://github.com/liske/snmd-widgets-nagios.git"
+    "snmd-widgets-nagios": "https://github.com/liske/snmd-widgets-nagios.git",
+    "js-logger": "^1.3.0",
+    "open-sans-fontface": "^1.4.2",
+    "font-awesome": "^4.7.0",
+    "favico.js": "^0.3.10"
   }
 }
