@@ -40,7 +40,8 @@ require.config({
     paths: {
         "jquery": "jquery/dist/jquery",
         "js-logger": "js-logger/src/logger.min",
-        "JSON.minify" : "../lib/JSON.minify-javascript/minify.json.min"
+        "JSON.minify" : "../lib/JSON.minify-javascript/minify.json.min",
+        "jquery-mobile" : "../lib/jquery.mobile/jquery.mobile.custom.min"
     },
     shim: {
         "JSON.minify" : {
@@ -51,7 +52,7 @@ require.config({
     urlArgs: "ts=" + (new Date()).getTime()
 });
 
-require(["jquery", "js-logger", "JSON.minify"], function ($, Logger, JSON) {
+require(["jquery", "jquery-mobile", "js-logger", "JSON.minify"], function ($, jqm, Logger, JSON) {
     'use strict';
 
     var version = '0.3.2';
