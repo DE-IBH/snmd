@@ -254,7 +254,7 @@ div.svgview iframe {
 body {
     background-color: var(--S_base03);
 
-    position: relative;
+    position: absolute;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 
@@ -262,6 +262,16 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+@media only screen and (orientation:portrait){
+    body {  
+        height: 100vw;
+        left: 100vw;
+        width: 100vh;
+        transform: rotate(90deg);
+        transform-origin: 0 0;
+    }
 }
 
 .snmd-in-2d * {
