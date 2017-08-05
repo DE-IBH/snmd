@@ -49,7 +49,7 @@ require.config({
         }
     },
     enforceDefine: true,
-    urlArgs: "ts=" + (new Date()).getTime()
+    urlArgs: "cid=" + (new Date()).getTime()
 });
 
 require(["jquery", "jquery-mobile", "js-logger", "JSON.minify"], function ($, jqm, Logger, JSON) {
@@ -59,46 +59,61 @@ require(["jquery", "jquery-mobile", "js-logger", "JSON.minify"], function ($, jq
     Logger.useDefaults();
     Logger.setLevel(Logger.INFO);
 
-    $.ajax({
-        url: 'config.json',
-        dataType: 'json',
-        dataFilter: function (data, type) {
-            return JSON.minify(data);
-        },
-        success: function (config, textStatus) {
-            if (config.snmd_devel === true) {
-                Logger.setLevel(Logger.DEBUG);
+    var loadSNMD = function(cache_id) {
+        $.ajax({
+            url: 'config.json',
+            dataType: 'json',
+            dataFilter: function (data, type) {
+                return JSON.minify(data);
+            },
+            success: function (config, textStatus) {
+                if (config.snmd_devel === true) {
+                    Logger.setLevel(Logger.DEBUG);
 
-                // use non-minified snmd-core package
-                require.config({
-                    paths: {
-                        "snmd-core": "snmd-core"
-                    },
-                    urlArgs: "snmd=" + version
+                    // use non-minified snmd-core package
+                    require.config({
+                        paths: {
+                            "snmd-core": "snmd-core"
+                        },
+                        urlArgs: "cid=" + (new Date()).getTime()
+                    });
+                } else {
+                    // use minified snmd-core package and allow js caching
+                    require.config({
+                        paths: {
+                            "snmd-core": "snmd-core/dist"
+                        },
+                        urlArgs: "cid=" + cache_id
+                    });
+                }
+
+
+                require(["snmd-core/js/Main"], function (Main) {
+                    var main = new Main(config);
                 });
-            } else {
-                // use minified snmd-core package and allow js caching
-                require.config({
-                    paths: {
-                        "snmd-core": "snmd-core/dist"
-                    },
-                    urlArgs: "snmd=" + version
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                var msg = "Failed to config file due to " + textStatus + ": " + errorThrown;
+                Logger.error(msg);
+                $('body').text(msg).css({
+                    'font-size': 'larger',
+                    'font-weight': 'bold',
+                    color: 'red'
                 });
             }
+        });
+        
+    };
 
-
-            require(["snmd-core/js/Main"], function (Main) {
-                var main = new Main(config);
-            });
+    
+    $.ajax({
+        url: 'cache.id',
+        dataType: 'text',
+        success: function (cache_id) {
+            loadSNMD(cache_id);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            var msg = "Failed to config file due to " + textStatus + ": " + errorThrown;
-            Logger.error(msg);
-            $('body').text(msg).css({
-                'font-size': 'larger',
-                'font-weight': 'bold',
-                color: 'red'
-            });
+        error: function () {
+            loadSNMD(version);
         }
     });
 });

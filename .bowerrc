@@ -1,3 +1,6 @@
 {
-  "directory" : "blib"
+  "directory" : "blib",
+  "scripts": {
+    "postinstall": "./gen-cache-id.js"
+  }
 }
