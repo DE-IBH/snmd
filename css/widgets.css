@@ -191,6 +191,33 @@ linearGradient.snmd-bcl-Gradient > stop {
 }
 
 
+radialGradient.snmd-bcl-RadialGradient > stop {
+    transition: stop-color 4s ease !important;
+}
+
+.snmd-bcl-RadialGradient {
+    stroke: grey;
+    stroke-width: 2.5;
+    fill: white;
+    animation: snmp-kf-stroke 6s ease infinite;
+}
+.snmd-bcl-RadialGradient.snmd-scl-0 {
+    stroke: LimeGreen;
+    animation: none;
+}
+.snmd-bcl-RadialGradient.snmd-scl-1 {
+    stroke: Gold;
+    animation: snmp-kf-stroke 4s ease infinite;
+}
+.snmd-bcl-RadialGradient.snmd-scl-2 {
+    stroke: Crimson;
+    animation: snmp-kf-stroke 2s ease infinite;
+}
+.snmd-bcl-RadialGradient.snmd-scl-3 {
+    stroke: Orange;
+}
+
+
 .snmd-bcl-Transform {
     transform-origin: center;
     transition: transform 4s ease;
