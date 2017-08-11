@@ -18,7 +18,7 @@
 
 @keyframes snmp-kf-snmd-nav-bgcol {
   0% {  }
-  50% { background-color: rgb(38, 41, 44); }
+  50% { background-color: var(--S_base02); }
   100% {  }
 }
 
