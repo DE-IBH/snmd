@@ -28,7 +28,7 @@
   100% {  }
 }
 
-.snmd-bcl-Widget {
+.svgview.current .snmd-bcl-Widget {
     pointer-events: visible;
 }
 
