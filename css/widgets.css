@@ -28,6 +28,9 @@
   100% {  }
 }
 
+.snmd-bcl-Widget {
+    pointer-events: visible;
+}
 
 .snmd-bcl-Chart {
     stroke: grey;
