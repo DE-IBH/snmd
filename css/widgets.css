@@ -273,3 +273,18 @@ a.snmd-nav-switch.snmd-scl-2 {
 a.snmd-nav-switch.snmd-scl-3 {
     color: orange;
 }
+
+
+/* set background-color property depending on current state */
+.snmd-bcl-bgcolor.snmd-scl-0 {
+    background-color: LimeGreen;
+}
+.snmd-bcl-bgcolor.snmd-scl-1 {
+    background-color: Gold;
+}
+.snmd-bcl-bgcolor.snmd-scl-2 {
+    background-color: Crimson;
+}
+.snmd-bcl-bgcolor.snmd-scl-3 {
+    background-color: Orange;
+}
