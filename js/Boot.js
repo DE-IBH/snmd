@@ -75,7 +75,7 @@ require(["jquery", "jquery-mobile", "js-logger", "JSON.minify"], function ($, jq
                         paths: {
                             "snmd-core": "snmd-core"
                         },
-                        urlArgs: "cid=" + (new Date()).getTime()
+                        urlArgs: "cid=" + cache_id
                     });
                 } else {
                     // use minified snmd-core package and allow js caching
