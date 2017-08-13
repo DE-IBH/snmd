@@ -9,7 +9,10 @@ CSS:= \
 	css/core.css \
 	css/widgets.css
 
-all: $(DISTS) dist/snmd.min.css
+all: $(DISTS) dist/snmd.min.css cache.id
+
+cache.id: $(DISTS) $(CSS)
+	./gen-cache-id.js
 
 dist/%.js: js/%.js
 	uglifyjs \

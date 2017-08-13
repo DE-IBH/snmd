@@ -1,3 +1,5 @@
+#!/usr/bin/env nodejs
+
 /*
 SNMD - Simple Network Monitoring Dashboard
   https://github.com/DE-IBH/snmd/
@@ -7,7 +9,7 @@ Authors:
 
 Copyright Holder:
   2012 - 2013 (C) Thomas Liske [https://fiasko-nw.net/~thomas/]
-  2014 - 2016 (C) IBH IT-Service GmbH [https://www.ibh.de/]
+  2014 - 2017 (C) IBH IT-Service GmbH [https://www.ibh.de/]
 
 License:
   This program is free software; you can redistribute it and/or modify
@@ -25,30 +27,22 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 */
 
-/*jslint
-    devel: true,
-    plusplus: true,
-    vars: true
-*/
+var crypto = require('crypto');
+var fs = require('fs');
+var os = require('os');
 
-/*global
-    require
-*/
+/* build pseudo random unique hash */
+var hash  = crypto.createHash('sha1').update(
+    new Date().toISOString() +
+    os.hostname() +
+    os.uptime() +
+    os.freemem()
+                                            ).digest('hex');
 
-require.config({
-    baseUrl: "blib",
-    paths: {
-        "js-cookie": "js-cookie/src/js.cookie"
-    },
-    enforceDefine: true
-});
+fs.writeFile("cache.id", hash, function(err) {
+    if(err) {
+        return console.log(err);
+    }
 
-require(["js-cookie"], function (cookie) {
-    'use strict';
-
-    /* Unset 3D cookie. */
-    cookie.set('snmd-ctrl-3d', 1);
-
-    var loc = window.location.href;
-    window.location = loc.replace("-3d", "");
-});
+    console.log("cache id: " + hash);
+}); 
