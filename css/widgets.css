@@ -304,3 +304,7 @@ a.snmd-nav-switch.snmd-scl-3 {
     margin-left: 0.2em;
     border-radius: 0.2em;
 }
+
+.snmd-qt-nocls {
+    background-color: LightGrey;
+}
