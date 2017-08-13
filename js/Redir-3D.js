@@ -1,5 +1,5 @@
 /*
-SNMD - Scotty Network Management Dashboard
+SNMD - Simple Network Monitoring Dashboard
   https://github.com/DE-IBH/snmd/
 
 Authors:

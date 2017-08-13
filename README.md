@@ -1,4 +1,4 @@
-snmd - Scotty Network Monitoring Dashboard
+snmd - Simple Network Monitoring Dashboard
 ==========================================
 
 *snmd* uses HTML5 and JavaScript code to build a monitoring dashboard. Any
