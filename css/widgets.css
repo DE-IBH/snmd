@@ -290,7 +290,10 @@ a.snmd-nav-switch.snmd-scl-3 {
 }
 
 
-/* style qTip legend */
+/* style qTip */
+.qtip.qtip-default {
+    max-width: 22vmax;
+}
 .snmd-qt-legend {
     float: right;
 }
