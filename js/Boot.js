@@ -55,11 +55,11 @@ require.config({
 require(["jquery", "jquery-mobile", "js-logger", "JSON.minify"], function ($, jqm, Logger, JSON) {
     'use strict';
 
-    var version = '0.3.3';
+    var version = '0.4.0';
     Logger.useDefaults();
     Logger.setLevel(Logger.INFO);
 
-    var loadSNMD = function(cache_id) {
+    var loadSNMD = function (cache_id) {
         $.ajax({
             url: 'config.json',
             dataType: 'json',

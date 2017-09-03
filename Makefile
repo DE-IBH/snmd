@@ -17,7 +17,7 @@ cache.id: $(DISTS) $(CSS)
 dist/%.js: js/%.js
 	uglifyjs \
 	    --output $@ \
-	    --source-map $(subst .js,.map,$@) \
+	    --source-map \
 	    --compress \
 	    --mangle \
 	    --lint \
