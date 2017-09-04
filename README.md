@@ -1,6 +1,8 @@
 snmd - Simple Network Monitoring Dashboard
 ==========================================
 
+![Documentation Status](https://readthedocs.org/projects/snmd/badge/?version=latest)
+
 *snmd* uses HTML5 and JavaScript code to build a monitoring dashboard. Any
 data which is to be visualized needs to be published via MQTT. Widget
 libraries are required to visualize the data. A library for Nagios state
