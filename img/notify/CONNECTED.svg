@@ -13,7 +13,10 @@
    version="1.1"
    id="svg14"
    sodipodi:docname="CONNECTED.svg"
-   inkscape:version="0.92.1 r15371">
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="/mnt/home/thomas/src/snmd/img/notify/CONNECTED.png"
+   inkscape:export-xdpi="8.1700001"
+   inkscape:export-ydpi="8.1700001">
   <metadata
      id="metadata20">
     <rdf:RDF>
@@ -22,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,9 +44,9 @@
      inkscape:window-height="1183"
      id="namedview16"
      showgrid="false"
-     inkscape:zoom="0.37431257"
-     inkscape:cx="606.67439"
-     inkscape:cy="1205.0194"
+     inkscape:zoom="0.13298567"
+     inkscape:cx="-846.56301"
+     inkscape:cy="911.93324"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"

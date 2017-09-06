@@ -15,8 +15,8 @@
    sodipodi:docname="DISCONNECTED.svg"
    inkscape:version="0.92.1 r15371"
    inkscape:export-filename="/mnt/home/thomas/src/snmd/img/notify/DISCONNECTED.png"
-   inkscape:export-xdpi="1.71"
-   inkscape:export-ydpi="1.71">
+   inkscape:export-xdpi="10.5"
+   inkscape:export-ydpi="10.5">
   <metadata
      id="metadata7687">
     <rdf:RDF>
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,9 +44,9 @@
      inkscape:window-height="1183"
      id="namedview7683"
      showgrid="false"
-     inkscape:zoom="0.52832903"
-     inkscape:cx="770.13147"
-     inkscape:cy="896"
+     inkscape:zoom="0.26545438"
+     inkscape:cx="-637.6617"
+     inkscape:cy="603.92709"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"

@@ -14,9 +14,9 @@
    id="svg5177"
    sodipodi:docname="CRITICAL.svg"
    inkscape:version="0.92.1 r15371"
-   inkscape:export-filename="/home/thomas/src/snmd/img/notify/CRITICAL.png"
-   inkscape:export-xdpi="1.71"
-   inkscape:export-ydpi="1.71">
+   inkscape:export-filename="/mnt/home/thomas/src/snmd/img/notify/CRITICAL.png"
+   inkscape:export-xdpi="10.5"
+   inkscape:export-ydpi="10.5">
   <metadata
      id="metadata5183">
     <rdf:RDF>
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,12 +40,12 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1572"
-     inkscape:window-height="883"
+     inkscape:window-width="1920"
+     inkscape:window-height="1183"
      id="namedview5179"
      showgrid="false"
-     inkscape:zoom="0.36933426"
-     inkscape:cx="662.2512"
+     inkscape:zoom="1.4845506"
+     inkscape:cx="491.82926"
      inkscape:cy="540.41338"
      inkscape:window-x="0"
      inkscape:window-y="0"
