@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1792"
+   height="1792"
+   viewBox="0 0 1792 1792"
+   version="1.1"
+   id="svg7681"
+   sodipodi:docname="DISCONNECTED.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="/mnt/home/thomas/src/snmd/img/notify/DISCONNECTED.png"
+   inkscape:export-xdpi="1.71"
+   inkscape:export-ydpi="1.71">
+  <metadata
+     id="metadata7687">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7685" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1183"
+     id="namedview7683"
+     showgrid="false"
+     inkscape:zoom="0.52832903"
+     inkscape:cx="770.13147"
+     inkscape:cy="896"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7681" />
+  <g
+     id="g8843">
+    <path
+       sodipodi:nodetypes="ccccccccccccccccc"
+       inkscape:connector-curvature="0"
+       id="rect8838"
+       d="m 317.98366,215.33101 179.33899,-15.14208 368.61499,155.20631 253.15666,62.46108 376.186,17.03484 174.1339,114.03877 47.319,225.7116 11.3566,380.91787 -58.6756,303.3148 L 1262.944,1578.1181 733.44444,1549.7267 597.63893,1116.2847 123.02939,1033.0032 115.45835,778.90022 461.83341,680.00354 229.02394,418.3295 Z"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:#dc143c;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="path7679"
+       d="M1073 1664h-177q-163 0-226-141-23-49-23-102v-5q-62-30-98.5-88.5t-36.5-127.5q0-38 5-48h-261q-106 0-181-75t-75-181 75-181 181-75h113l-44-17q-74-28-119.5-93.5t-45.5-145.5q0-106 75-181t181-75q46 0 91 17l628 239h401q106 0 181 75t75 181v668q0 88-54 157.5t-140 90.5l-339 85q-92 23-186 23zm-49-711l-155 71-163 74q-30 14-48 41.5t-18 60.5q0 46 33 79t79 33q26 0 46-10l338-154q-49-10-80.5-50t-31.5-90v-55zm320 311q0-46-33-79t-79-33q-26 0-46 10l-290 132q-28 13-37 17t-30.5 17-29.5 23.5-16 29-8 40.5q0 50 31.5 82t81.5 32q20 0 38-9l352-160q30-14 48-41.5t18-60.5zm-232-752l-650-248q-24-8-46-8-53 0-90.5 37.5t-37.5 90.5q0 40 22.5 73t59.5 47l526 200v64h-640q-53 0-90.5 37.5t-37.5 90.5 37.5 90.5 90.5 37.5h535l233-106v-198q0-63 46-106l111-102h-69zm-39 1024q82 0 155-19l339-85q43-11 70-45.5t27-78.5v-668q0-53-37.5-90.5t-90.5-37.5h-308l-136 126q-36 33-36 82v296q0 46 33 77t79 31 79-35 33-81v-208h32v208q0 70-57 114 52 8 86.5 48.5t34.5 93.5q0 42-23 78t-61 53l-310 141h91z" />
+  </g>
+</svg>
