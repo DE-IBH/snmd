@@ -1,0 +1,37 @@
+.snmd-fill-base3 {
+    fill: var(--S_base3);
+}
+
+.snmd-fill-base2 {
+    fill: var(--S_base2);
+
+}
+
+.snmd-fill-emphasized,
+.snmd-fill-base1 {
+    fill: var(--S_base1);
+}
+
+.snmd-fill-body,
+.snmd-fill-base0 {
+    fill: var(--S_base0);
+}
+
+.snmd-fill-comment,
+.snmd-fill-base00 {
+    fill: var(--S_base00);
+}
+
+.snmd-fill-base01 {
+    fill: var(--S_base01);
+}
+
+.snmd-fill-background-hl,
+.snmd-fill-base02 {
+    fill: var(--S_base02);
+}
+
+.snmd-fill-background,
+.snmd-fill-base03 {
+    fill: var(--S_base03);
+}
