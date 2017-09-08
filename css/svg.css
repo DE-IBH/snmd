@@ -17,11 +17,11 @@
     fill: var(--S_base0);
 }
 
-.snmd-fill-comment,
 .snmd-fill-base00 {
     fill: var(--S_base00);
 }
 
+.snmd-fill-comment,
 .snmd-fill-base01 {
     fill: var(--S_base01);
 }
@@ -56,11 +56,11 @@
     stroke: var(--S_base0);
 }
 
-.snmd-stroke-comment,
 .snmd-stroke-base00 {
     stroke: var(--S_base00);
 }
 
+.snmd-stroke-comment,
 .snmd-stroke-base01 {
     stroke: var(--S_base01);
 }
