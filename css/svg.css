@@ -35,3 +35,42 @@
 .snmd-fill-base03 {
     fill: var(--S_base03);
 }
+
+
+.snmd-stroke-base3 {
+    stroke: var(--S_base3);
+}
+
+.snmd-stroke-base2 {
+    stroke: var(--S_base2);
+
+}
+
+.snmd-stroke-emphasized,
+.snmd-stroke-base1 {
+    stroke: var(--S_base1);
+}
+
+.snmd-stroke-body,
+.snmd-stroke-base0 {
+    stroke: var(--S_base0);
+}
+
+.snmd-stroke-comment,
+.snmd-stroke-base00 {
+    stroke: var(--S_base00);
+}
+
+.snmd-stroke-base01 {
+    stroke: var(--S_base01);
+}
+
+.snmd-stroke-background-hl,
+.snmd-stroke-base02 {
+    stroke: var(--S_base02);
+}
+
+.snmd-stroke-background,
+.snmd-stroke-base03 {
+    stroke: var(--S_base03);
+}
