@@ -36,15 +36,6 @@
     fill: var(--S_base03);
 }
 
-.snmd-fill-base3 {
-    fill: var(--S_base3);
-}
-
-.snmd-fill-base2 {
-    fill: var(--S_base2);
-
-}
-
 [class^="snmd-fill-"],
 [class*=" snmd-fill-"] {
     transition: fill 5s;
@@ -93,6 +84,7 @@
 [class*=" snmd-stroke-"] {
     transition: stroke 5s;
 }
+
 
 [class^="snmd-fill-"][class*=" snmd-stroke-"],
 [class*=" snmd-fill-"][class^="snmd-stroke-"],
