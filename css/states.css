@@ -1,0 +1,9 @@
+:root {
+    --SNMD_undefined:   MediumOrchid;
+    --SNMD_ok:          LimeGreen;
+    --SNMD_warning:     Gold;
+    --SNMD_critical:    Crimson;
+    --SNMD_unknown:     Orange;
+}
+
+/* 14dc3c */
