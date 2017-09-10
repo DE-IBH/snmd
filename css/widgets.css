@@ -35,7 +35,7 @@
 .snmd-bcl-Chart {
     stroke: var(--SNMD_undefined);
     stroke-width: 2.5;
-    fill: white;
+    fill: #eee8d5;
     animation: snmp-kf-stroke 6s steps(1) infinite;
 }
 .snmd-bcl-Chart.snmd-scl-0 {

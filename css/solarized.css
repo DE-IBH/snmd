@@ -15,7 +15,6 @@
     --S_cyan:           #2aa198;
     --S_green:          #859900;
 
-
     /* Dark */
     --S_base03:         #002b36;
     --S_base02:         #073642;
@@ -25,6 +24,22 @@
     --S_base1:          #93a1a1;
     --S_base2:          #eee8d5;
     --S_base3:          #fdf6e3;
+
+    /* SNMD Colors */
+    --SNMD_yellow:      #c4961a;
+    --SNMD_orange:      #fd753e;
+    --SNMD_red:         #ff6254;
+    --SNMD_magenta:     #ff64aa;
+    --SNMD_violet:      #9395ec;
+    --SNMD_blue:        #4ca3ec;
+    --SNMD_cyan:        #3baea4;
+    --SNMD_green:       #93a71a;
+    --SNMD_green2:      #38b429;
+    --SNMD_undefined:   #8aa1a9;
+    --SNMD_ok:          #00b717;
+    --SNMD_warning:     #bb9b00;
+    --SNMD_critical:    #ff5866;
+    --SNMD_unknown:     #df8a00;
 }
 
 .solarized-light {

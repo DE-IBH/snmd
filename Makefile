@@ -7,7 +7,6 @@ DISTS:= \
 CSS:= \
 	css/solarized.css \
 	css/svg.css \
-	css/states.css \
 	css/core.css \
 	css/widgets.css
 
