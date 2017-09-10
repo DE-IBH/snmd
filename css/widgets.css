@@ -56,8 +56,8 @@
 
 
 .snmd-bcl-Gauge-BG {
-    stroke: #202020;
-    stroke-width: 4;
+    stroke: var(--S_base02);
+    stroke-width: 9;
     stroke-linecap: round;
     fill: none;
 }
