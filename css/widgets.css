@@ -57,7 +57,7 @@
 
 .snmd-bcl-Gauge-BG {
     stroke: var(--S_base02);
-    stroke-width: 6;
+    stroke-width: 2;
     stroke-linecap: round;
     fill: none;
 }
@@ -65,8 +65,10 @@
     stroke: var(--SNMD_undefined);
     stroke-width: 4;
     stroke-linecap: round;
+    stroke-dasharray: 0 100%;
     fill: none;
     animation: snmp-kf-opacity 6s steps(1) infinite;
+    transition: stroke-dasharray 4s ease;
 }
 .snmd-bcl-Gauge.snmd-scl-0 {
     stroke: var(--SNMD_ok);
