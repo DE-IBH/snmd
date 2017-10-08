@@ -1,0 +1,93 @@
+.snmd-fill-base3 {
+    fill: var(--S_base3);
+}
+
+.snmd-fill-base2 {
+    fill: var(--S_base2);
+
+}
+
+.snmd-fill-emphasized,
+.snmd-fill-base1 {
+    fill: var(--S_base1);
+}
+
+.snmd-fill-body,
+.snmd-fill-base0 {
+    fill: var(--S_base0);
+}
+
+.snmd-fill-base00 {
+    fill: var(--S_base00);
+}
+
+.snmd-fill-comment,
+.snmd-fill-base01 {
+    fill: var(--S_base01);
+}
+
+.snmd-fill-background-hl,
+.snmd-fill-base02 {
+    fill: var(--S_base02);
+}
+
+.snmd-fill-background,
+.snmd-fill-base03 {
+    fill: var(--S_base03);
+}
+
+[class^="snmd-fill-"],
+[class*=" snmd-fill-"] {
+    transition: fill 5s;
+}
+
+
+.snmd-stroke-base3 {
+    stroke: var(--S_base3);
+}
+
+.snmd-stroke-base2 {
+    stroke: var(--S_base2);
+
+}
+
+.snmd-stroke-emphasized,
+.snmd-stroke-base1 {
+    stroke: var(--S_base1);
+}
+
+.snmd-stroke-body,
+.snmd-stroke-base0 {
+    stroke: var(--S_base0);
+}
+
+.snmd-stroke-base00 {
+    stroke: var(--S_base00);
+}
+
+.snmd-stroke-comment,
+.snmd-stroke-base01 {
+    stroke: var(--S_base01);
+}
+
+.snmd-stroke-background-hl,
+.snmd-stroke-base02 {
+    stroke: var(--S_base02);
+}
+
+.snmd-stroke-background,
+.snmd-stroke-base03 {
+    stroke: var(--S_base03);
+}
+
+[class^="snmd-stroke-"],
+[class*=" snmd-stroke-"] {
+    transition: stroke 5s;
+}
+
+
+[class^="snmd-fill-"][class*=" snmd-stroke-"],
+[class*=" snmd-fill-"][class^="snmd-stroke-"],
+[class*=" snmd-fill-"][class*=" snmd-stroke-"] {
+    transition: fill 5s, stroke 5s;
+}

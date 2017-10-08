@@ -33,76 +33,78 @@
 }
 
 .snmd-bcl-Chart {
-    stroke: grey;
+    stroke: var(--SNMD_undefined);
     stroke-width: 2.5;
-    fill: white;
+    fill: #eee8d5;
     animation: snmp-kf-stroke 6s steps(1) infinite;
 }
 .snmd-bcl-Chart.snmd-scl-0 {
-    stroke: LimeGreen;
+    stroke: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-Chart.snmd-scl-1 {
-    stroke: Gold;
+    stroke: var(--SNMD_warning);
     animation: snmp-kf-stroke 4s steps(1) infinite;
 }
 .snmd-bcl-Chart.snmd-scl-2 {
-    stroke: Crimson;
+    stroke: var(--SNMD_critical);
     animation: snmp-kf-stroke 2s steps(1) infinite;
 }
 .snmd-bcl-Chart.snmd-scl-3 {
-    stroke: Orange;
+    stroke: var(--SNMD_unknown);
 }
 
 
 .snmd-bcl-Gauge-BG {
-    stroke: #202020;
-    stroke-width: 4;
+    stroke: var(--S_base02);
+    stroke-width: 2;
     stroke-linecap: round;
     fill: none;
 }
 .snmd-bcl-Gauge {
-    stroke: Grey;
-    stroke-width: 8;
+    stroke: var(--SNMD_undefined);
+    stroke-width: 4;
     stroke-linecap: round;
+    stroke-dasharray: 0 100%;
     fill: none;
     animation: snmp-kf-opacity 6s steps(1) infinite;
+    transition: stroke-dasharray 4s ease;
 }
 .snmd-bcl-Gauge.snmd-scl-0 {
-    stroke: LimeGreen;
+    stroke: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-Gauge.snmd-scl-1 {
-    stroke: Gold;
+    stroke: var(--SNMD_warning);
     animation: snmp-kf-opacity 4s steps(1) infinite;
 }
 .snmd-bcl-Gauge.snmd-scl-2 {
-    stroke: Crimson;
+    stroke: var(--SNMD_critical);
     animation: snmp-kf-opacity 2s steps(1) infinite;
 }
 .snmd-bcl-Gauge.snmd-scl-3 {
-    stroke: Orange;
+    stroke: var(--SNMD_unknown);
 }
 
 
 .snmd-bcl-Text {
-    fill: Grey;
+    fill: var(--SNMD_undefined);
     animation: snmp-kf-opacity 6s steps(1) infinite;
 }
 .snmd-bcl-Text.snmd-scl-0 {
-    fill: LimeGreen;
+    fill: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-Text.snmd-scl-1 {
-    fill: Gold;
+    fill: var(--SNMD_warning);
     animation: snmp-kf-opacity 4s steps(1) infinite;
 }
 .snmd-bcl-Text.snmd-scl-2 {
-    fill: Crimson;
+    fill: var(--SNMD_critical);
     animation: snmp-kf-opacity 2s steps(1) infinite;
 }
 .snmd-bcl-Text.snmd-scl-3 {
-    fill: Orange;
+    fill: var(--SNMD_unknown);
 }
 
 
@@ -126,66 +128,66 @@
 
 
 .snmd-bcl-opacity-stroke {
-    stroke: Grey;
+    stroke: var(--SNMD_undefined);
     animation: snmp-kf-opacity 6s steps(1) infinite;
 }
 .snmd-bcl-opacity-stroke.snmd-scl-0 {
-    stroke: LimeGreen;
+    stroke: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-opacity-stroke.snmd-scl-1 {
-    stroke: Gold;
+    stroke: var(--SNMD_warning);
     animation: snmp-kf-opacity 4s steps(1) infinite;
 }
 .snmd-bcl-opacity-stroke.snmd-scl-2 {
-    stroke: Crimson;
+    stroke: var(--SNMD_critical);
     animation: snmp-kf-opacity 2s steps(1) infinite;
 }
 .snmd-bcl-opacity-stroke.snmd-scl-3 {
-    stroke: Orange;
+    stroke: var(--SNMD_unknown);
 }
 
 
 .snmd-bcl-opacity-fill {
-    fill: Grey;
+    fill: var(--SNMD_undefined);
     animation: snmp-kf-opacity 6s steps(1) infinite;
 }
 .snmd-bcl-opacity-fill.snmd-scl-0 {
-    fill: LimeGreen;
+    fill: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-opacity-fill.snmd-scl-1 {
-    fill: Gold;
+    fill: var(--SNMD_warning);
     animation: snmp-kf-opacity 4s steps(1) infinite;
 }
 .snmd-bcl-opacity-fill.snmd-scl-2 {
-    fill: Crimson;
+    fill: var(--SNMD_critical);
     animation: snmp-kf-opacity 2s steps(1) infinite;
 }
 .snmd-bcl-opacity-fill.snmd-scl-3 {
-    fill: Orange;
+    fill: var(--SNMD_unknown);
 }
 
 
 .snmd-bcl-StrokeWidth {
-    stroke: Grey;
+    stroke: var(--SNMD_undefined);
     fill: none;
     animation: snmp-kf-opacity 6s steps(1) infinite;
 }
 .snmd-bcl-StrokeWidth.snmd-scl-0 {
-    stroke: LimeGreen;
+    stroke: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-StrokeWidth.snmd-scl-1 {
-    stroke: Gold;
+    stroke: var(--SNMD_warning);
     animation: snmp-kf-opacity 4s steps(1) infinite;
 }
 .snmd-bcl-StrokeWidth.snmd-scl-2 {
-    stroke: Crimson;
+    stroke: var(--SNMD_critical);
     animation: snmp-kf-opacity 2s steps(1) infinite;
 }
 .snmd-bcl-StrokeWidth.snmd-scl-3 {
-    stroke: Orange;
+    stroke: var(--SNMD_unknown);
 }
 
 
@@ -199,25 +201,25 @@ radialGradient.snmd-bcl-RadialGradient > stop {
 }
 
 .snmd-bcl-RadialGradient {
-    stroke: grey;
+    stroke: var(--SNMD_undefined);
     stroke-width: 2.5;
     fill: white;
     animation: snmp-kf-stroke 6s steps(1) infinite;
 }
 .snmd-bcl-RadialGradient.snmd-scl-0 {
-    stroke: LimeGreen;
+    stroke: var(--SNMD_ok);
     animation: none;
 }
 .snmd-bcl-RadialGradient.snmd-scl-1 {
-    stroke: Gold;
+    stroke: var(--SNMD_warning);
     animation: snmp-kf-stroke 4s steps(1) infinite;
 }
 .snmd-bcl-RadialGradient.snmd-scl-2 {
-    stroke: Crimson;
+    stroke: var(--SNMD_critical);
     animation: snmp-kf-stroke 2s steps(1) infinite;
 }
 .snmd-bcl-RadialGradient.snmd-scl-3 {
-    stroke: Orange;
+    stroke: var(--SNMD_unknown);
 }
 
 
@@ -228,7 +230,7 @@ radialGradient.snmd-bcl-RadialGradient > stop {
 
 
 .svgview {
-    box-shadow: inset 0px 0px 12px 1px Grey;
+    box-shadow: inset 0px 0px 12px 1px var(--SNMD_undefined);
     animation: snmp-kf-box-shadow 6s steps(1) infinite;
 }
 .svgview.snmd-scl-0 {
@@ -236,57 +238,57 @@ radialGradient.snmd-bcl-RadialGradient > stop {
     animation: none;
 }
 .svgview.snmd-scl-1 {
-    box-shadow: inset 0px 0px 12px 1px Gold;
+    box-shadow: inset 0px 0px 12px 1px var(--SNMD_warning);
     animation: snmp-kf-box-shadow 4s steps(1) infinite;
 }
 .svgview.snmd-scl-2 {
-    box-shadow: inset 0px 0px 12px 1px Crimson;
+    box-shadow: inset 0px 0px 12px 1px var(--SNMD_critical);
     animation: snmp-kf-box-shadow 2s steps(1) infinite;
 }
 .svgview.snmd-scl-3 {
-    box-shadow: inset 0px 0px 12px 1px Orange;
+    box-shadow: inset 0px 0px 12px 1px var(--SNMD_unknown);
 }
 
 
 
 #snmd-nav.snmd-scl-1 {
-    background-color: Gold;
+    background-color: var(--SNMD_warning);
     animation: snmp-kf-snmd-nav-bgcol 4s steps(1) infinite;
 }
 #snmd-nav.snmd-scl-2 {
-    background-color: Crimson;
+    background-color: var(--SNMD_critical);
     animation: snmp-kf-snmd-nav-bgcol 2s steps(1) infinite;
 }
 
 
 a.snmd-nav-switch.snmd-scl-0 {
-    color: LimeGreen;
+    color: var(--SNMD_ok);
 }
 a.snmd-nav-switch.snmd-scl-1 {
-    color: Gold;
+    color: var(--SNMD_warning);
     animation: snmp-kf-snmd-nav-switch 4s steps(1) infinite;
 }
 a.snmd-nav-switch.snmd-scl-2 {
-    color: Crimson;
+    color: var(--SNMD_critical);
     animation: snmp-kf-snmd-nav-switch 2s steps(1) infinite;
 }
 a.snmd-nav-switch.snmd-scl-3 {
-    color: orange;
+    color: var(--SNMD_unknown);
 }
 
 
 /* set background-color property depending on current state */
 .snmd-bcl-bgcolor.snmd-scl-0 {
-    background-color: LimeGreen;
+    background-color: var(--SNMD_ok);
 }
 .snmd-bcl-bgcolor.snmd-scl-1 {
-    background-color: Gold;
+    background-color: var(--SNMD_warning);
 }
 .snmd-bcl-bgcolor.snmd-scl-2 {
-    background-color: Crimson;
+    background-color: var(--SNMD_critical);
 }
 .snmd-bcl-bgcolor.snmd-scl-3 {
-    background-color: Orange;
+    background-color: var(--SNMD_unknown);
 }
 
 
