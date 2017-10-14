@@ -224,7 +224,7 @@ radialGradient.snmd-bcl-RadialGradient > stop {
 
 
 .snmd-bcl-Transform {
-    transform-origin: center;
+    transform-origin: center center;
     transition: transform 4s ease;
 }
 
