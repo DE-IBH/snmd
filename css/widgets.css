@@ -310,3 +310,24 @@ a.snmd-nav-switch.snmd-scl-3 {
 .snmd-qt-nocls {
     background-color: LightGrey;
 }
+
+
+/* suppress animation for synchronization */
+.snmd-stop-ani .snmd-scl-0,
+.snmd-stop-ani .snmd-scl-1,
+.snmd-stop-ani .snmd-scl-2,
+.snmd-stop-ani .snmd-scl-3,
+.snmd-stop-ani .svgview.snmd-scl-0,
+.snmd-stop-ani .svgview.snmd-scl-1,
+.snmd-stop-ani .svgview.snmd-scl-2,
+.snmd-stop-ani .svgview.snmd-scl-3,
+.snmd-stop-ani #snmd-nav.snmd-scl-0,
+.snmd-stop-ani #snmd-nav.snmd-scl-1,
+.snmd-stop-ani #snmd-nav.snmd-scl-2,
+.snmd-stop-ani .snmd-stop-ani #snmd-nav.snmd-scl-3,
+.snmd-stop-ani a.snmd-nav-switch.snmd-scl-0,
+.snmd-stop-ani a.snmd-nav-switch.snmd-scl-1,
+.snmd-stop-ani a.snmd-nav-switch.snmd-scl-2,
+.snmd-stop-ani a.snmd-nav-switch.snmd-scl-3 {
+    animation: none !important;
+}
